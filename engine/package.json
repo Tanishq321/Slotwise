@@ -1,0 +1,16 @@
+{
+  "name": "@samay/engine",
+  "version": "0.1.0",
+  "description": "Timetable scheduling engine: constraint-based construction + simulated annealing",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./data/build-problem.js": "./data/build-problem.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "bench": "node bench/benchmark.js"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,40 @@
+# Render Blueprint: Dashboard → New → Blueprint → pick this repo.
+# Creates the web service (API + React app on one URL) and a free Redis-compatible
+# Key Value instance. You paste in two connection strings: Neon (Postgres) and
+# MongoDB Atlas. See the README's "Deploy for free" section.
+services:
+  - type: keyvalue
+    name: samay-redis
+    plan: free
+    maxmemoryPolicy: noeviction # the job queue must never have keys evicted
+    ipAllowList: [] # only reachable from your Render services
+
+  - type: web
+    name: samay
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build -w client
+    startCommand: npm start -w server
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: NODE_ENV
+        value: production
+      - key: REDIS_URL
+        fromService:
+          type: keyvalue
+          name: samay-redis
+          property: connectionString
+      - key: DATABASE_URL
+        sync: false # paste your Neon connection string
+      - key: MONGO_URL
+        sync: false # paste your Atlas connection string (ending in /samay)
+      - key: JWT_SECRET
+        generateValue: true
+      - key: GROQ_API_KEY
+        sync: false # optional
+      - key: RUN_WORKER_IN_API
+        value: 'true'
+      - key: GENERATION_TIME_LIMIT_SEC
+        value: '15'

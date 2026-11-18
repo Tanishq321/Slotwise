@@ -1,0 +1,24 @@
+{
+  "name": "samay",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Samay — AI-assisted, clash-free timetable generator aligned with NEP 2020",
+  "workspaces": [
+    "engine",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "test": "npm run test -w engine && npm run test -w server",
+    "dev:server": "npm run dev -w server",
+    "dev:worker": "npm run worker -w server",
+    "dev:client": "npm run dev -w client",
+    "bench": "npm run bench -w engine",
+    "lint": "npm run lint -w server",
+    "seed": "npm run seed -w server",
+    "build": "npm run build -w client"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

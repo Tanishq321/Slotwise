@@ -1,0 +1,42 @@
+@import 'tailwindcss';
+@import '@fontsource/atkinson-hyperlegible/400.css';
+@import '@fontsource/atkinson-hyperlegible/700.css';
+@import '@fontsource/bricolage-grotesque/500.css';
+@import '@fontsource/bricolage-grotesque/700.css';
+
+/* Design tokens. Ink indigo for structure, marigold for "what you're touching",
+   vermilion only ever means a clash. */
+@theme {
+  --font-sans: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  --font-display: 'Bricolage Grotesque', 'Atkinson Hyperlegible', sans-serif;
+  --color-ink: #24306b;
+  --color-ink-soft: #4a5488;
+  --color-paper: #f6f7f9;
+  --color-sheet: #ffffff;
+  --color-line: #d9dde6;
+  --color-muted: #6b7189;
+  --color-marigold: #e59a00;
+  --color-marigold-soft: #fff1d1;
+  --color-clash: #c62e3a;
+  --color-clash-soft: #fbe3e5;
+  --color-ok: #2f7d5b;
+  --color-ok-soft: #e1f2ea;
+}
+
+html { background: var(--color-paper); color: var(--color-ink); }
+body { font-family: var(--font-sans); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; line-height: 1.15; }
+:focus-visible { outline: 3px solid var(--color-marigold); outline-offset: 2px; border-radius: 4px; }
+
+/* Cells a dragged class would clash in. */
+.hatch-clash { background-image: repeating-linear-gradient(135deg, var(--color-clash-soft) 0 6px, #f6c9cd 6px 12px); }
+.hatch-break { background-image: repeating-linear-gradient(135deg, transparent 0 7px, #e8ebf1 7px 9px); }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+@media print {
+  .no-print { display: none !important; }
+  body, html { background: white; }
+  .print-full { margin: 0 !important; padding: 0 !important; max-width: none !important; }
+  @page { size: A4 landscape; margin: 10mm; }
+}

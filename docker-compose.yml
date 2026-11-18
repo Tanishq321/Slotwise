@@ -1,0 +1,52 @@
+# Everything on one machine:  docker compose up --build
+# Then load the demo data:     docker compose exec api npm run seed
+# Open http://localhost:8080
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment: { POSTGRES_USER: samay, POSTGRES_PASSWORD: samay, POSTGRES_DB: samay }
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck: { test: ['CMD-SHELL', 'pg_isready -U samay'], interval: 5s, retries: 10 }
+
+  mongo:
+    image: mongo:8
+    volumes: [mongodata:/data/db]
+    healthcheck: { test: ['CMD', 'mongosh', '--quiet', '--eval', 'db.runCommand({ ping: 1 })'], interval: 5s, retries: 10 }
+
+  redis:
+    image: redis:7-alpine
+    healthcheck: { test: ['CMD', 'redis-cli', 'ping'], interval: 5s, retries: 10 }
+
+  api:
+    build: { context: ., dockerfile: server/Dockerfile }
+    environment: &env
+      NODE_ENV: production
+      DATABASE_URL: postgres://samay:samay@postgres:5432/samay
+      MONGO_URL: mongodb://mongo:27017/samay
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: ${JWT_SECRET:-change-this-to-a-long-random-string-before-deploying}
+      CORS_ORIGIN: http://localhost:8080
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      # A separate worker container runs generation jobs, so the API stays responsive.
+      RUN_WORKER_IN_API: 'false'
+    depends_on:
+      postgres: { condition: service_healthy }
+      mongo: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    ports: ['4000:4000']
+
+  worker:
+    build: { context: ., dockerfile: server/Dockerfile }
+    command: ['node', 'src/worker.js']
+    environment: *env
+    depends_on: [api]
+    deploy: { replicas: 1 }
+
+  web:
+    build: { context: ., dockerfile: client/Dockerfile }
+    depends_on: [api]
+    ports: ['8080:80']
+
+volumes:
+  pgdata:
+  mongodata:

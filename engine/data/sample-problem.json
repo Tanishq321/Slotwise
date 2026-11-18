@@ -1,0 +1,1228 @@
+{
+  "config": {
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+    ],
+    "periodsPerDay": 8,
+    "breaks": [
+      4
+    ],
+    "labDuration": 2,
+    "periodTimes": [
+      {
+        "start": "09:00",
+        "end": "09:50"
+      },
+      {
+        "start": "09:50",
+        "end": "10:40"
+      },
+      {
+        "start": "10:50",
+        "end": "11:40"
+      },
+      {
+        "start": "11:40",
+        "end": "12:30"
+      },
+      {
+        "start": "12:30",
+        "end": "13:20",
+        "label": "Lunch"
+      },
+      {
+        "start": "13:20",
+        "end": "14:10"
+      },
+      {
+        "start": "14:10",
+        "end": "15:00"
+      },
+      {
+        "start": "15:00",
+        "end": "15:50"
+      }
+    ]
+  },
+  "rooms": [
+    {
+      "id": "lab-1",
+      "name": "Computer Lab 1",
+      "type": "lab",
+      "capacity": 70
+    },
+    {
+      "id": "lab-2",
+      "name": "Computer Lab 2",
+      "type": "lab",
+      "capacity": 70
+    },
+    {
+      "id": "lab-3",
+      "name": "Computer Lab 3",
+      "type": "lab",
+      "capacity": 70
+    },
+    {
+      "id": "lab-4",
+      "name": "Computer Lab 4",
+      "type": "lab",
+      "capacity": 70
+    },
+    {
+      "id": "lab-5",
+      "name": "Computer Lab 5",
+      "type": "lab",
+      "capacity": 70
+    },
+    {
+      "id": "lr-1",
+      "name": "Room 101",
+      "type": "lecture",
+      "capacity": 72
+    },
+    {
+      "id": "lr-2",
+      "name": "Room 102",
+      "type": "lecture",
+      "capacity": 72
+    },
+    {
+      "id": "lr-3",
+      "name": "Room 103",
+      "type": "lecture",
+      "capacity": 72
+    },
+    {
+      "id": "lr-4",
+      "name": "Room 104",
+      "type": "lecture",
+      "capacity": 72
+    },
+    {
+      "id": "lr-5",
+      "name": "Room 105",
+      "type": "lecture",
+      "capacity": 130
+    }
+  ],
+  "faculty": [
+    {
+      "id": "fac-001",
+      "name": "Dr. Anjali Sharma",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [
+        {
+          "day": 2,
+          "period": 5
+        },
+        {
+          "day": 2,
+          "period": 6
+        },
+        {
+          "day": 2,
+          "period": 7
+        }
+      ],
+      "avoid": [],
+      "canTeach": [
+        "bee2",
+        "bee2-lab"
+      ]
+    },
+    {
+      "id": "fac-002",
+      "name": "Dr. Rohit Malhotra",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "bee2",
+        "bee2-lab"
+      ]
+    },
+    {
+      "id": "fac-003",
+      "name": "Dr. Neha Sethi",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "bee2",
+        "bee2-lab"
+      ]
+    },
+    {
+      "id": "fac-004",
+      "name": "Dr. Vikram Dhillon",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "bee2",
+        "bee2-lab"
+      ]
+    },
+    {
+      "id": "fac-005",
+      "name": "Dr. Priya Kaur",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "aiml",
+        "aiml-lab"
+      ]
+    },
+    {
+      "id": "fac-006",
+      "name": "Dr. Arjun Kapoor",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [
+        {
+          "day": 0,
+          "period": 0
+        },
+        {
+          "day": 1,
+          "period": 0
+        },
+        {
+          "day": 2,
+          "period": 0
+        },
+        {
+          "day": 3,
+          "period": 0
+        },
+        {
+          "day": 4,
+          "period": 0
+        }
+      ],
+      "canTeach": [
+        "aiml",
+        "aiml-lab"
+      ]
+    },
+    {
+      "id": "fac-007",
+      "name": "Dr. Kavita Grover",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "aiml",
+        "aiml-lab"
+      ]
+    },
+    {
+      "id": "fac-008",
+      "name": "Dr. Sandeep Singh",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "aiml",
+        "aiml-lab"
+      ]
+    },
+    {
+      "id": "fac-009",
+      "name": "Dr. Meera Arora",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "aiml",
+        "aiml-lab"
+      ]
+    },
+    {
+      "id": "fac-010",
+      "name": "Dr. Rahul Saini",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [
+        {
+          "day": 0,
+          "period": 0
+        },
+        {
+          "day": 0,
+          "period": 1
+        },
+        {
+          "day": 0,
+          "period": 2
+        },
+        {
+          "day": 0,
+          "period": 3
+        }
+      ],
+      "avoid": [],
+      "canTeach": [
+        "aiml",
+        "aiml-lab"
+      ]
+    },
+    {
+      "id": "fac-011",
+      "name": "Dr. Pooja Gupta",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "ps",
+        "ps-lab"
+      ]
+    },
+    {
+      "id": "fac-012",
+      "name": "Dr. Amit Chawla",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "ps",
+        "ps-lab"
+      ]
+    },
+    {
+      "id": "fac-013",
+      "name": "Dr. Shalini Joshi",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "cn",
+        "cn-lab"
+      ]
+    },
+    {
+      "id": "fac-014",
+      "name": "Dr. Karan Verma",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "cn",
+        "cn-lab"
+      ]
+    },
+    {
+      "id": "fac-015",
+      "name": "Dr. Divya Bansal",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "cn",
+        "cn-lab"
+      ]
+    },
+    {
+      "id": "fac-016",
+      "name": "Dr. Manish Bhatia",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "cn",
+        "cn-lab"
+      ]
+    },
+    {
+      "id": "fac-017",
+      "name": "Dr. Ritu Sharma",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "cn",
+        "cn-lab"
+      ]
+    },
+    {
+      "id": "fac-018",
+      "name": "Dr. Gaurav Malhotra",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "cn",
+        "cn-lab"
+      ]
+    },
+    {
+      "id": "fac-019",
+      "name": "Dr. Swati Sethi",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "toc",
+        "toc-lab"
+      ]
+    },
+    {
+      "id": "fac-020",
+      "name": "Dr. Harpreet Dhillon",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "toc",
+        "toc-lab"
+      ]
+    },
+    {
+      "id": "fac-021",
+      "name": "Dr. Nisha Kaur",
+      "maxPerDay": 4,
+      "maxPerWeek": 18,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "pc",
+        "pc-lab"
+      ]
+    },
+    {
+      "id": "fac-022",
+      "name": "Dr. Deepak Kapoor",
+      "maxPerDay": 4,
+      "maxPerWeek": 12,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "oe-ent"
+      ]
+    },
+    {
+      "id": "fac-023",
+      "name": "Dr. Simran Grover",
+      "maxPerDay": 4,
+      "maxPerWeek": 12,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "oe-psy"
+      ]
+    },
+    {
+      "id": "fac-024",
+      "name": "Dr. Ajay Singh",
+      "maxPerDay": 4,
+      "maxPerWeek": 12,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "oe-dm"
+      ]
+    },
+    {
+      "id": "fac-025",
+      "name": "Dr. Anjali Kapoor",
+      "maxPerDay": 4,
+      "maxPerWeek": 12,
+      "unavailable": [],
+      "avoid": [],
+      "canTeach": [
+        "oe-pho"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec-a",
+      "name": "CSE 5-A",
+      "size": 60,
+      "unavailable": [
+        {
+          "day": 2,
+          "period": 7
+        }
+      ]
+    },
+    {
+      "id": "sec-b",
+      "name": "CSE 5-B",
+      "size": 60,
+      "unavailable": [
+        {
+          "day": 2,
+          "period": 7
+        }
+      ]
+    },
+    {
+      "id": "sec-c",
+      "name": "CSE 5-C",
+      "size": 60,
+      "unavailable": [
+        {
+          "day": 2,
+          "period": 7
+        }
+      ]
+    },
+    {
+      "id": "sec-d",
+      "name": "CSE 5-D",
+      "size": 60,
+      "unavailable": [
+        {
+          "day": 2,
+          "period": 7
+        }
+      ]
+    },
+    {
+      "id": "sec-e",
+      "name": "CSE 5-E",
+      "size": 60,
+      "unavailable": [
+        {
+          "day": 2,
+          "period": 7
+        }
+      ]
+    },
+    {
+      "id": "sec-f",
+      "name": "CSE 5-F",
+      "size": 60,
+      "unavailable": [
+        {
+          "day": 2,
+          "period": 7
+        }
+      ]
+    },
+    {
+      "id": "sec-g",
+      "name": "CSE 5-G",
+      "size": 60,
+      "unavailable": [
+        {
+          "day": 2,
+          "period": 7
+        }
+      ]
+    },
+    {
+      "id": "sec-h",
+      "name": "CSE 5-H",
+      "size": 60,
+      "unavailable": [
+        {
+          "day": 2,
+          "period": 7
+        }
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "id": "bee2-lab",
+      "code": "24CS0305",
+      "name": "Back End Engineering-II",
+      "type": "lab",
+      "sessionsPerWeek": 4
+    },
+    {
+      "id": "aiml",
+      "code": "24CS0301",
+      "name": "Artificial Intelligence & ML",
+      "type": "lecture",
+      "sessionsPerWeek": 3
+    },
+    {
+      "id": "aiml-lab",
+      "code": "24CS0301L",
+      "name": "AI & ML Lab",
+      "type": "lab",
+      "sessionsPerWeek": 1
+    },
+    {
+      "id": "ps",
+      "code": "24MA0302",
+      "name": "Probability & Statistics",
+      "type": "lecture",
+      "sessionsPerWeek": 3
+    },
+    {
+      "id": "cn",
+      "code": "24CS0303",
+      "name": "Computer Networks",
+      "type": "lecture",
+      "sessionsPerWeek": 3
+    },
+    {
+      "id": "cn-lab",
+      "code": "24CS0303L",
+      "name": "Computer Networks Lab",
+      "type": "lab",
+      "sessionsPerWeek": 1
+    },
+    {
+      "id": "toc",
+      "code": "24CS0304",
+      "name": "Theory of Computation",
+      "type": "lecture",
+      "sessionsPerWeek": 3
+    },
+    {
+      "id": "pc",
+      "code": "24HS0306",
+      "name": "Professional Communication",
+      "type": "lecture",
+      "sessionsPerWeek": 2
+    },
+    {
+      "id": "oe-ent",
+      "code": "24OE0101",
+      "name": "Entrepreneurship",
+      "type": "lecture",
+      "sessionsPerWeek": 2
+    },
+    {
+      "id": "oe-psy",
+      "code": "24OE0102",
+      "name": "Introduction to Psychology",
+      "type": "lecture",
+      "sessionsPerWeek": 2
+    },
+    {
+      "id": "oe-dm",
+      "code": "24OE0103",
+      "name": "Digital Marketing",
+      "type": "lecture",
+      "sessionsPerWeek": 2
+    },
+    {
+      "id": "oe-pho",
+      "code": "24OE0104",
+      "name": "Photography & Visual Storytelling",
+      "type": "lecture",
+      "sessionsPerWeek": 2
+    }
+  ],
+  "offerings": [
+    {
+      "id": "off-bee2-lab-a",
+      "courseId": "bee2-lab",
+      "facultyId": "fac-001",
+      "sectionIds": [
+        "sec-a"
+      ]
+    },
+    {
+      "id": "off-bee2-lab-b",
+      "courseId": "bee2-lab",
+      "facultyId": "fac-001",
+      "sectionIds": [
+        "sec-b"
+      ]
+    },
+    {
+      "id": "off-bee2-lab-c",
+      "courseId": "bee2-lab",
+      "facultyId": "fac-002",
+      "sectionIds": [
+        "sec-c"
+      ]
+    },
+    {
+      "id": "off-bee2-lab-d",
+      "courseId": "bee2-lab",
+      "facultyId": "fac-002",
+      "sectionIds": [
+        "sec-d"
+      ]
+    },
+    {
+      "id": "off-bee2-lab-e",
+      "courseId": "bee2-lab",
+      "facultyId": "fac-003",
+      "sectionIds": [
+        "sec-e"
+      ]
+    },
+    {
+      "id": "off-bee2-lab-f",
+      "courseId": "bee2-lab",
+      "facultyId": "fac-003",
+      "sectionIds": [
+        "sec-f"
+      ]
+    },
+    {
+      "id": "off-bee2-lab-g",
+      "courseId": "bee2-lab",
+      "facultyId": "fac-004",
+      "sectionIds": [
+        "sec-g"
+      ]
+    },
+    {
+      "id": "off-bee2-lab-h",
+      "courseId": "bee2-lab",
+      "facultyId": "fac-004",
+      "sectionIds": [
+        "sec-h"
+      ]
+    },
+    {
+      "id": "off-aiml-a",
+      "courseId": "aiml",
+      "facultyId": "fac-005",
+      "sectionIds": [
+        "sec-a"
+      ]
+    },
+    {
+      "id": "off-aiml-b",
+      "courseId": "aiml",
+      "facultyId": "fac-005",
+      "sectionIds": [
+        "sec-b"
+      ]
+    },
+    {
+      "id": "off-aiml-c",
+      "courseId": "aiml",
+      "facultyId": "fac-005",
+      "sectionIds": [
+        "sec-c"
+      ]
+    },
+    {
+      "id": "off-aiml-d",
+      "courseId": "aiml",
+      "facultyId": "fac-006",
+      "sectionIds": [
+        "sec-d"
+      ]
+    },
+    {
+      "id": "off-aiml-e",
+      "courseId": "aiml",
+      "facultyId": "fac-006",
+      "sectionIds": [
+        "sec-e"
+      ]
+    },
+    {
+      "id": "off-aiml-f",
+      "courseId": "aiml",
+      "facultyId": "fac-006",
+      "sectionIds": [
+        "sec-f"
+      ]
+    },
+    {
+      "id": "off-aiml-g",
+      "courseId": "aiml",
+      "facultyId": "fac-007",
+      "sectionIds": [
+        "sec-g"
+      ]
+    },
+    {
+      "id": "off-aiml-h",
+      "courseId": "aiml",
+      "facultyId": "fac-007",
+      "sectionIds": [
+        "sec-h"
+      ]
+    },
+    {
+      "id": "off-aiml-lab-a",
+      "courseId": "aiml-lab",
+      "facultyId": "fac-008",
+      "sectionIds": [
+        "sec-a"
+      ]
+    },
+    {
+      "id": "off-aiml-lab-b",
+      "courseId": "aiml-lab",
+      "facultyId": "fac-008",
+      "sectionIds": [
+        "sec-b"
+      ]
+    },
+    {
+      "id": "off-aiml-lab-c",
+      "courseId": "aiml-lab",
+      "facultyId": "fac-008",
+      "sectionIds": [
+        "sec-c"
+      ]
+    },
+    {
+      "id": "off-aiml-lab-d",
+      "courseId": "aiml-lab",
+      "facultyId": "fac-009",
+      "sectionIds": [
+        "sec-d"
+      ]
+    },
+    {
+      "id": "off-aiml-lab-e",
+      "courseId": "aiml-lab",
+      "facultyId": "fac-009",
+      "sectionIds": [
+        "sec-e"
+      ]
+    },
+    {
+      "id": "off-aiml-lab-f",
+      "courseId": "aiml-lab",
+      "facultyId": "fac-009",
+      "sectionIds": [
+        "sec-f"
+      ]
+    },
+    {
+      "id": "off-aiml-lab-g",
+      "courseId": "aiml-lab",
+      "facultyId": "fac-010",
+      "sectionIds": [
+        "sec-g"
+      ]
+    },
+    {
+      "id": "off-aiml-lab-h",
+      "courseId": "aiml-lab",
+      "facultyId": "fac-010",
+      "sectionIds": [
+        "sec-h"
+      ]
+    },
+    {
+      "id": "off-ps-a",
+      "courseId": "ps",
+      "facultyId": "fac-011",
+      "sectionIds": [
+        "sec-a"
+      ]
+    },
+    {
+      "id": "off-ps-b",
+      "courseId": "ps",
+      "facultyId": "fac-011",
+      "sectionIds": [
+        "sec-b"
+      ]
+    },
+    {
+      "id": "off-ps-c",
+      "courseId": "ps",
+      "facultyId": "fac-011",
+      "sectionIds": [
+        "sec-c"
+      ]
+    },
+    {
+      "id": "off-ps-d",
+      "courseId": "ps",
+      "facultyId": "fac-011",
+      "sectionIds": [
+        "sec-d"
+      ]
+    },
+    {
+      "id": "off-ps-e",
+      "courseId": "ps",
+      "facultyId": "fac-012",
+      "sectionIds": [
+        "sec-e"
+      ]
+    },
+    {
+      "id": "off-ps-f",
+      "courseId": "ps",
+      "facultyId": "fac-012",
+      "sectionIds": [
+        "sec-f"
+      ]
+    },
+    {
+      "id": "off-ps-g",
+      "courseId": "ps",
+      "facultyId": "fac-012",
+      "sectionIds": [
+        "sec-g"
+      ]
+    },
+    {
+      "id": "off-ps-h",
+      "courseId": "ps",
+      "facultyId": "fac-012",
+      "sectionIds": [
+        "sec-h"
+      ]
+    },
+    {
+      "id": "off-cn-a",
+      "courseId": "cn",
+      "facultyId": "fac-013",
+      "sectionIds": [
+        "sec-a"
+      ]
+    },
+    {
+      "id": "off-cn-b",
+      "courseId": "cn",
+      "facultyId": "fac-013",
+      "sectionIds": [
+        "sec-b"
+      ]
+    },
+    {
+      "id": "off-cn-c",
+      "courseId": "cn",
+      "facultyId": "fac-013",
+      "sectionIds": [
+        "sec-c"
+      ]
+    },
+    {
+      "id": "off-cn-d",
+      "courseId": "cn",
+      "facultyId": "fac-014",
+      "sectionIds": [
+        "sec-d"
+      ]
+    },
+    {
+      "id": "off-cn-e",
+      "courseId": "cn",
+      "facultyId": "fac-014",
+      "sectionIds": [
+        "sec-e"
+      ]
+    },
+    {
+      "id": "off-cn-f",
+      "courseId": "cn",
+      "facultyId": "fac-014",
+      "sectionIds": [
+        "sec-f"
+      ]
+    },
+    {
+      "id": "off-cn-g",
+      "courseId": "cn",
+      "facultyId": "fac-015",
+      "sectionIds": [
+        "sec-g"
+      ]
+    },
+    {
+      "id": "off-cn-h",
+      "courseId": "cn",
+      "facultyId": "fac-015",
+      "sectionIds": [
+        "sec-h"
+      ]
+    },
+    {
+      "id": "off-cn-lab-a",
+      "courseId": "cn-lab",
+      "facultyId": "fac-016",
+      "sectionIds": [
+        "sec-a"
+      ]
+    },
+    {
+      "id": "off-cn-lab-b",
+      "courseId": "cn-lab",
+      "facultyId": "fac-016",
+      "sectionIds": [
+        "sec-b"
+      ]
+    },
+    {
+      "id": "off-cn-lab-c",
+      "courseId": "cn-lab",
+      "facultyId": "fac-016",
+      "sectionIds": [
+        "sec-c"
+      ]
+    },
+    {
+      "id": "off-cn-lab-d",
+      "courseId": "cn-lab",
+      "facultyId": "fac-017",
+      "sectionIds": [
+        "sec-d"
+      ]
+    },
+    {
+      "id": "off-cn-lab-e",
+      "courseId": "cn-lab",
+      "facultyId": "fac-017",
+      "sectionIds": [
+        "sec-e"
+      ]
+    },
+    {
+      "id": "off-cn-lab-f",
+      "courseId": "cn-lab",
+      "facultyId": "fac-017",
+      "sectionIds": [
+        "sec-f"
+      ]
+    },
+    {
+      "id": "off-cn-lab-g",
+      "courseId": "cn-lab",
+      "facultyId": "fac-018",
+      "sectionIds": [
+        "sec-g"
+      ]
+    },
+    {
+      "id": "off-cn-lab-h",
+      "courseId": "cn-lab",
+      "facultyId": "fac-018",
+      "sectionIds": [
+        "sec-h"
+      ]
+    },
+    {
+      "id": "off-toc-a",
+      "courseId": "toc",
+      "facultyId": "fac-019",
+      "sectionIds": [
+        "sec-a"
+      ]
+    },
+    {
+      "id": "off-toc-b",
+      "courseId": "toc",
+      "facultyId": "fac-019",
+      "sectionIds": [
+        "sec-b"
+      ]
+    },
+    {
+      "id": "off-toc-c",
+      "courseId": "toc",
+      "facultyId": "fac-019",
+      "sectionIds": [
+        "sec-c"
+      ]
+    },
+    {
+      "id": "off-toc-d",
+      "courseId": "toc",
+      "facultyId": "fac-019",
+      "sectionIds": [
+        "sec-d"
+      ]
+    },
+    {
+      "id": "off-toc-e",
+      "courseId": "toc",
+      "facultyId": "fac-020",
+      "sectionIds": [
+        "sec-e"
+      ]
+    },
+    {
+      "id": "off-toc-f",
+      "courseId": "toc",
+      "facultyId": "fac-020",
+      "sectionIds": [
+        "sec-f"
+      ]
+    },
+    {
+      "id": "off-toc-g",
+      "courseId": "toc",
+      "facultyId": "fac-020",
+      "sectionIds": [
+        "sec-g"
+      ]
+    },
+    {
+      "id": "off-toc-h",
+      "courseId": "toc",
+      "facultyId": "fac-020",
+      "sectionIds": [
+        "sec-h"
+      ]
+    },
+    {
+      "id": "off-pc-a",
+      "courseId": "pc",
+      "facultyId": "fac-021",
+      "sectionIds": [
+        "sec-a"
+      ]
+    },
+    {
+      "id": "off-pc-b",
+      "courseId": "pc",
+      "facultyId": "fac-021",
+      "sectionIds": [
+        "sec-b"
+      ]
+    },
+    {
+      "id": "off-pc-c",
+      "courseId": "pc",
+      "facultyId": "fac-021",
+      "sectionIds": [
+        "sec-c"
+      ]
+    },
+    {
+      "id": "off-pc-d",
+      "courseId": "pc",
+      "facultyId": "fac-021",
+      "sectionIds": [
+        "sec-d"
+      ]
+    },
+    {
+      "id": "off-pc-e",
+      "courseId": "pc",
+      "facultyId": "fac-021",
+      "sectionIds": [
+        "sec-e"
+      ]
+    },
+    {
+      "id": "off-pc-f",
+      "courseId": "pc",
+      "facultyId": "fac-021",
+      "sectionIds": [
+        "sec-f"
+      ]
+    },
+    {
+      "id": "off-pc-g",
+      "courseId": "pc",
+      "facultyId": "fac-021",
+      "sectionIds": [
+        "sec-g"
+      ]
+    },
+    {
+      "id": "off-pc-h",
+      "courseId": "pc",
+      "facultyId": "fac-021",
+      "sectionIds": [
+        "sec-h"
+      ]
+    }
+  ],
+  "baskets": [
+    {
+      "id": "oe-basket-1",
+      "name": "Open Elective — Group 1",
+      "sectionIds": [
+        "sec-a",
+        "sec-b",
+        "sec-c",
+        "sec-d"
+      ],
+      "sessionsPerWeek": 2,
+      "options": [
+        {
+          "offeringId": "off-oe-ent-g1",
+          "courseId": "oe-ent",
+          "facultyId": "fac-022",
+          "size": 65
+        },
+        {
+          "offeringId": "off-oe-psy-g1",
+          "courseId": "oe-psy",
+          "facultyId": "fac-023",
+          "size": 65
+        },
+        {
+          "offeringId": "off-oe-dm-g1",
+          "courseId": "oe-dm",
+          "facultyId": "fac-024",
+          "size": 65
+        },
+        {
+          "offeringId": "off-oe-pho-g1",
+          "courseId": "oe-pho",
+          "facultyId": "fac-025",
+          "size": 65
+        }
+      ]
+    },
+    {
+      "id": "oe-basket-2",
+      "name": "Open Elective — Group 2",
+      "sectionIds": [
+        "sec-e",
+        "sec-f",
+        "sec-g",
+        "sec-h"
+      ],
+      "sessionsPerWeek": 2,
+      "options": [
+        {
+          "offeringId": "off-oe-ent-g2",
+          "courseId": "oe-ent",
+          "facultyId": "fac-022",
+          "size": 65
+        },
+        {
+          "offeringId": "off-oe-psy-g2",
+          "courseId": "oe-psy",
+          "facultyId": "fac-023",
+          "size": 65
+        },
+        {
+          "offeringId": "off-oe-dm-g2",
+          "courseId": "oe-dm",
+          "facultyId": "fac-024",
+          "size": 65
+        },
+        {
+          "offeringId": "off-oe-pho-g2",
+          "courseId": "oe-pho",
+          "facultyId": "fac-025",
+          "size": 65
+        }
+      ]
+    }
+  ]
+}
