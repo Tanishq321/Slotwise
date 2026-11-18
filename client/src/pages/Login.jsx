@@ -5,10 +5,10 @@ import { errorMessage } from '../api.js';
 import { Button, Field, Input, Notice } from '../components/ui.jsx';
 
 const DEMO = [
-  ['admin@samay.dev', 'Admin'],
-  ['hod@samay.dev', 'Head of department'],
-  ['faculty@samay.dev', 'Teacher'],
-  ['student@samay.dev', 'Student'],
+  ['admin@slotwise.dev', 'Admin'],
+  ['hod@slotwise.dev', 'Head of department'],
+  ['faculty@slotwise.dev', 'Teacher'],
+  ['student@slotwise.dev', 'Student'],
 ];
 
 export function Login() {
@@ -42,11 +42,11 @@ export function Login() {
       <section className="relative hidden overflow-hidden bg-ink p-12 text-white md:flex md:flex-col">
         <div className="flex items-center gap-2.5">
           <img src="/favicon.svg" alt="" className="h-9 w-9 rounded-md ring-1 ring-white/20" />
-          <span className="font-display text-2xl font-bold">Samay</span>
+          <span className="font-display text-2xl font-bold">Slotwise</span>
         </div>
         <h1 className="mt-auto max-w-md text-5xl font-bold leading-[1.05]">Every class has a room, a teacher and a time. None of them clash.</h1>
         <p className="mt-5 max-w-md text-lg text-white/75">
-          Samay builds the semester timetable from your teachers, rooms and NEP electives in seconds, then lets you fix anything by dragging it.
+          Slotwise builds the semester timetable from your teachers, rooms and NEP electives in seconds, then lets you fix anything by dragging it.
         </p>
         <MiniGrid />
       </section>
@@ -78,10 +78,10 @@ export function Login() {
           </p>
           <div className="mt-8 border-t border-line pt-5">
             <p className="text-sm font-bold">Try the demo</p>
-            <p className="text-sm text-muted">Password for all: Samay@2026</p>
+            <p className="text-sm text-muted">Password for all: Slotwise@2026</p>
             <div className="mt-3 grid grid-cols-2 gap-2">
               {DEMO.map(([email, label]) => (
-                <Button key={email} variant="secondary" onClick={() => (setMode('login'), setForm({ name: '', email, password: 'Samay@2026' }))}>
+                <Button key={email} variant="secondary" onClick={() => (setMode('login'), setForm({ name: '', email, password: 'Slotwise@2026' }))}>
                   {label}
                 </Button>
               ))}

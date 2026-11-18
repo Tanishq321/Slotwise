@@ -1,5 +1,5 @@
 # API + worker image. Build from the repository root:
-#   docker build -f server/Dockerfile -t samay-api .
+#   docker build -f server/Dockerfile -t slotwise-api .
 FROM node:22-alpine AS deps
 WORKDIR /app
 COPY package.json package-lock.json ./

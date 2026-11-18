@@ -1,5 +1,5 @@
 {
-  "name": "@samay/engine",
+  "name": "@slotwise/engine",
   "version": "0.1.0",
   "description": "Timetable scheduling engine: constraint-based construction + simulated annealing",
   "type": "module",

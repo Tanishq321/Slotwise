@@ -8,7 +8,7 @@ import { startWorker, closeQueue } from './services/queue.js';
 
 await connectMongo();
 startWorker({ concurrency: Number(process.env.WORKER_CONCURRENCY || 1) });
-logger.info('Samay worker started');
+logger.info('Slotwise worker started');
 
 const shutdown = async () => {
   await closeQueue().catch(() => {});

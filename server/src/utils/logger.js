@@ -13,7 +13,7 @@ const devFormat = printf(({ level, message, timestamp: ts, ...meta }) => {
 export const logger = winston.createLogger({
   level: env.NODE_ENV === 'test' ? 'warn' : env.LOG_LEVEL,
   format: combine(errors({ stack: true }), timestamp(), env.NODE_ENV === 'production' ? json() : combine(colorize(), devFormat)),
-  defaultMeta: { service: 'samay-api' },
+  defaultMeta: { service: 'slotwise-api' },
   transports: [new winston.transports.Console()],
 });
 

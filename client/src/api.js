@@ -4,7 +4,7 @@ import axios from 'axios';
 const BASE = (import.meta.env.VITE_API_URL || '') + '/api';
 export const api = axios.create({ baseURL: BASE });
 
-const TOKEN_KEY = 'samay.token';
+const TOKEN_KEY = 'slotwise.token';
 export const tokenStore = {
   get: () => localStorage.getItem(TOKEN_KEY),
   set: (t) => (t ? localStorage.setItem(TOKEN_KEY, t) : localStorage.removeItem(TOKEN_KEY)),

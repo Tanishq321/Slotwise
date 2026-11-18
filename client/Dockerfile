@@ -1,5 +1,5 @@
 # Static build served by nginx, which also forwards /api to the API container.
-#   docker build -f client/Dockerfile -t samay-web .
+#   docker build -f client/Dockerfile -t slotwise-web .
 FROM node:22-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json ./

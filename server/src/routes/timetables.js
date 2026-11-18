@@ -2,7 +2,7 @@
 // view, edit by drag-and-drop, compare, publish, analytics, substitutes and .ics export.
 import { Router } from 'express';
 import { z } from 'zod';
-import { validateProblem, checkTimetable, suggestSubstitutes } from '@samay/engine';
+import { validateProblem, checkTimetable, suggestSubstitutes } from '@slotwise/engine';
 import { Timetable } from '../models/Timetable.js';
 import { audit } from '../models/AuditLog.js';
 import { canEdit } from '../middleware/auth.js';

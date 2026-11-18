@@ -10,8 +10,8 @@ const bool = z
 const schema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   PORT: z.coerce.number().default(4000),
-  DATABASE_URL: z.string().default('postgres://samay:samay@localhost:5432/samay'),
-  MONGO_URL: z.string().default('mongodb://localhost:27017/samay'),
+  DATABASE_URL: z.string().default('postgres://slotwise:slotwise@localhost:5432/slotwise'),
+  MONGO_URL: z.string().default('mongodb://localhost:27017/slotwise'),
   REDIS_URL: z.string().default('redis://localhost:6379'),
   JWT_SECRET: z.string().min(16, 'JWT_SECRET must be at least 16 characters').default('dev-only-secret-change-me-please'),
   JWT_EXPIRES_IN: z.string().default('7d'),

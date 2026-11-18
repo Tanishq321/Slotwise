@@ -242,7 +242,7 @@ function Substitutes({ tt }) {
   const idx = useMemo(() => indexProblem(tt.problem), [tt.problem]);
   return (
     <div className="max-w-3xl">
-      <p className="mb-4 text-muted">Pick who is absent and when. Samay lists colleagues who are free at that time and under their daily limit, qualified teachers first.</p>
+      <p className="mb-4 text-muted">Pick who is absent and when. Slotwise lists colleagues who are free at that time and under their daily limit, qualified teachers first.</p>
       <div className="mb-5 grid gap-4 sm:grid-cols-2">
         <Field label="Teacher who is absent">
           <Select value={facultyId} onChange={(e) => setFacultyId(e.target.value)}>

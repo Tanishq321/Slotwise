@@ -3,7 +3,7 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import request from 'supertest';
-import { checkTimetable } from '@samay/engine';
+import { checkTimetable } from '@slotwise/engine';
 import { startTestApp, stopTestApp, sleep } from './helpers.js';
 
 let app;
@@ -99,9 +99,9 @@ test('CSV import is all-or-nothing and reports bad lines', async () => {
 test('demo data passes the pre-flight check', async () => {
   const { seed } = await import('../src/db/seed.js');
   await seed({ reset: true });
-  const login = await request(app).post('/api/auth/login').send({ email: 'admin@samay.dev', password: 'Samay@2026' });
+  const login = await request(app).post('/api/auth/login').send({ email: 'admin@slotwise.dev', password: 'Slotwise@2026' });
   admin = login.body.token;
-  student = (await request(app).post('/api/auth/login').send({ email: 'student@samay.dev', password: 'Samay@2026' })).body.token;
+  student = (await request(app).post('/api/auth/login').send({ email: 'student@slotwise.dev', password: 'Slotwise@2026' })).body.token;
   const pre = await request(app).get('/api/timetables/preflight').set(auth(admin));
   assert.equal(pre.body.ok, true, JSON.stringify(pre.body.errors));
   assert.equal(pre.body.summary.sections, 8);

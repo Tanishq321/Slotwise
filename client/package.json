@@ -1,5 +1,5 @@
 {
-  "name": "@samay/client",
+  "name": "@slotwise/client",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -21,6 +21,6 @@
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-router": "^7.18.5",
-    "@samay/engine": "*"
+    "@slotwise/engine": "*"
   }
 }

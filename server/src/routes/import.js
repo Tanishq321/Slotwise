@@ -129,7 +129,7 @@ const csvCell = (v) => (/[",\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v);
 importRouter.get('/:entity/template', (req, res) => {
   const def = ENTITIES[req.params.entity];
   if (!def) throw badRequest(`Unknown import type. Use one of: ${Object.keys(ENTITIES).join(', ')}`);
-  res.type('text/csv').attachment(`samay-${req.params.entity}-template.csv`);
+  res.type('text/csv').attachment(`slotwise-${req.params.entity}-template.csv`);
   res.send(`${def.columns.join(',')}\n${def.example.map(csvCell).join(',')}\n`);
 });
 

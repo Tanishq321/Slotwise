@@ -3,17 +3,17 @@
 // `npm run seed` keeps existing data; `npm run seed -- --reset` wipes it first.
 import { fileURLToPath } from 'node:url';
 import bcrypt from 'bcryptjs';
-import { buildProblem } from '@samay/engine/data/build-problem.js';
+import { buildProblem } from '@slotwise/engine/data/build-problem.js';
 import { pool, transaction } from './pg.js';
 import { migrate } from './migrate.js';
 import { logger } from '../utils/logger.js';
 
-export const DEMO_PASSWORD = 'Samay@2026';
+export const DEMO_PASSWORD = 'Slotwise@2026';
 export const DEMO_USERS = [
-  { name: 'Admin User', email: 'admin@samay.dev', role: 'admin' },
-  { name: 'Head of Department', email: 'hod@samay.dev', role: 'hod' },
-  { name: 'Dr. Anjali Sharma', email: 'faculty@samay.dev', role: 'faculty', facultyId: 'fac-001' },
-  { name: 'Demo Student', email: 'student@samay.dev', role: 'student', sectionId: 'sec-a' },
+  { name: 'Admin User', email: 'admin@slotwise.dev', role: 'admin' },
+  { name: 'Head of Department', email: 'hod@slotwise.dev', role: 'hod' },
+  { name: 'Dr. Anjali Sharma', email: 'faculty@slotwise.dev', role: 'faculty', facultyId: 'fac-001' },
+  { name: 'Demo Student', email: 'student@slotwise.dev', role: 'student', sectionId: 'sec-a' },
 ];
 
 const ranges = (slots) => {

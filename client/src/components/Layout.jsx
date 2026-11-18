@@ -27,7 +27,7 @@ export function Layout() {
       <aside className="no-print border-b border-line bg-paper md:sticky md:top-0 md:flex md:h-screen md:w-60 md:flex-col md:border-b-0 md:border-r">
         <div className="flex items-center gap-2.5 px-5 py-5">
           <img src="/favicon.svg" alt="" className="h-8 w-8" />
-          <span className="font-display text-2xl font-bold">Samay</span>
+          <span className="font-display text-2xl font-bold">Slotwise</span>
           <button className="ml-auto text-sm text-ink-soft underline md:hidden" onClick={logout}>
             Log out
           </button>

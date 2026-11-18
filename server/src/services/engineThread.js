@@ -2,7 +2,7 @@
 // here keeps the main event loop free, so the API keeps answering requests while a
 // timetable is being generated.
 import { parentPort, workerData } from 'node:worker_threads';
-import { generate } from '@samay/engine';
+import { generate } from '@slotwise/engine';
 
 const { problem, options } = workerData;
 const result = generate(problem, {

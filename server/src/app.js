@@ -31,7 +31,7 @@ export function createApp() {
   // A broad safety net; stricter limits sit on login and the AI endpoint.
   app.use('/api', rateLimit({ windowMs: 60_000, limit: env.NODE_ENV === 'test' ? 10_000 : 300, standardHeaders: 'draft-8', legacyHeaders: false }));
 
-  app.get('/health', (_req, res) => res.json({ ok: true, service: 'samay-api', time: new Date().toISOString() }));
+  app.get('/health', (_req, res) => res.json({ ok: true, service: 'slotwise-api', time: new Date().toISOString() }));
   app.use('/api', apiRouter);
 
   // In production the API also serves the built React app, so the whole project runs

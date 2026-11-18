@@ -6,8 +6,8 @@ const { parseWithRules, findDays, findPeriods } = await import('../src/services/
 const { buildIcs } = await import('../src/services/ics.js');
 const { viaApp } = await import('../src/services/analytics.js');
 const { applyMove, filterEvents } = await import('../src/services/timetableEdit.js');
-const { buildProblem } = await import('@samay/engine/data/build-problem.js');
-const { generate, checkTimetable } = await import('@samay/engine');
+const { buildProblem } = await import('@slotwise/engine/data/build-problem.js');
+const { generate, checkTimetable } = await import('@slotwise/engine');
 
 const ctx = {
   days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],

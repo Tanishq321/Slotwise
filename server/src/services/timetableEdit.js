@@ -1,6 +1,6 @@
 // Manual edits. The move logic itself lives in the engine package (engine/src/move.js)
 // so the browser's drag-and-drop preview and the server use the very same rules.
-import { applyMove as engineMove, scoreTimetable } from '@samay/engine';
+import { applyMove as engineMove, scoreTimetable } from '@slotwise/engine';
 
 /** Returns { events, moved, newClashes, allClashes, score } or null. Saves nothing. */
 export function applyMove(problem, currentEvents, eventId, move) {

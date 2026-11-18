@@ -13,7 +13,7 @@ export const createRedis = (extra = {}) =>
 export const redis = createRedis();
 redis.on('error', (err) => logger.error('Redis error', { err: err.message }));
 
-const CACHE_PREFIX = 'samay:cache:';
+const CACHE_PREFIX = 'slotwise:cache:';
 
 export async function cacheGet(key) {
   try {
@@ -42,7 +42,7 @@ export async function cacheDel(...keys) {
 
 /** Fixed-window rate limit. Returns { allowed, remaining, resetIn }. */
 export async function rateLimit(key, limit, windowSeconds) {
-  const k = `samay:rl:${key}`;
+  const k = `slotwise:rl:${key}`;
   const count = await redis.incr(k);
   if (count === 1) await redis.expire(k, windowSeconds);
   const ttl = await redis.ttl(k);

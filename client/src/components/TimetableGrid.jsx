@@ -2,7 +2,7 @@
 // is fine (marigold), would clash (red hatching), or is impossible (dimmed) — computed in
 // the browser with the same engine code the server uses to check the final move.
 import { useMemo, useState } from 'react';
-import { applyMove, clashBaseline } from '@samay/engine';
+import { applyMove, clashBaseline } from '@slotwise/engine';
 import { courseColor, eventsForView, indexProblem, periodLabel } from '../lib/timetable.js';
 
 export function TimetableGrid({ problem, events, view, editable = false, onMove, onSelect, selectedId, highlight }) {

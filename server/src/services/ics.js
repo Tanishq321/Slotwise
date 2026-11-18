@@ -26,7 +26,7 @@ export function buildIcs({ title, problem, events, termStart, termWeeks = 16, ti
   const monday = termStart ? new Date(`${termStart}T00:00:00Z`) : nextMonday();
   const now = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+Z$/, 'Z');
 
-  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Samay//Timetable//EN', 'CALSCALE:GREGORIAN', `X-WR-CALNAME:${escape(title)}`, `X-WR-TIMEZONE:${timezone}`];
+  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Slotwise//Timetable//EN', 'CALSCALE:GREGORIAN', `X-WR-CALNAME:${escape(title)}`, `X-WR-TIMEZONE:${timezone}`];
   for (const ev of events) {
     if (ev.day == null || !times[ev.start] || !times[ev.start + ev.duration - 1]) continue;
     const date = new Date(monday);
@@ -35,7 +35,7 @@ export function buildIcs({ title, problem, events, termStart, termWeeks = 16, ti
       const course = courses.get(part.courseId);
       lines.push(
         'BEGIN:VEVENT',
-        `UID:${escape(`${ev.id}-${part.offeringId}`)}@samay`,
+        `UID:${escape(`${ev.id}-${part.offeringId}`)}@slotwise`,
         `DTSTAMP:${now}`,
         `DTSTART;TZID=${timezone}:${localStamp(date, times[ev.start].start)}`,
         `DTEND;TZID=${timezone}:${localStamp(date, times[ev.start + ev.duration - 1].end)}`,

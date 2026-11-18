@@ -13,7 +13,7 @@ async function main() {
   await connectMongo();
   if (env.RUN_WORKER_IN_API) startWorker();
 
-  const server = createApp().listen(env.PORT, () => logger.info(`Samay API listening on http://localhost:${env.PORT}`));
+  const server = createApp().listen(env.PORT, () => logger.info(`Slotwise API listening on http://localhost:${env.PORT}`));
 
   const shutdown = async (signal) => {
     logger.info(`${signal} received, shutting down`);
