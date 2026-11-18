@@ -6,6 +6,7 @@ services:
   - type: keyvalue
     name: samay-redis
     plan: free
+    region: ohio # same region as the Neon database
     maxmemoryPolicy: noeviction # the job queue must never have keys evicted
     ipAllowList: [] # only reachable from your Render services
 
@@ -13,6 +14,7 @@ services:
     name: samay
     runtime: node
     plan: free
+    region: ohio
     buildCommand: npm ci && npm run build -w client
     startCommand: npm start -w server
     healthCheckPath: /health
