@@ -23,6 +23,9 @@ const schema = z.object({
   RUN_WORKER_IN_API: bool.default(true),
   GENERATION_TIME_LIMIT_SEC: z.coerce.number().min(2).max(120).default(15),
   LOG_LEVEL: z.string().default('info'),
+  // true = load the demo department and logins at startup if the demo admin is missing.
+  // Handy on hosts without a terminal (e.g. Render's free plan). Remove it afterwards.
+  SEED_DEMO: bool.default(false),
 });
 
 const parsed = schema.safeParse(process.env);
