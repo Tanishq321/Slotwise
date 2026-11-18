@@ -4,9 +4,9 @@
 services:
   postgres:
     image: postgres:16-alpine
-    environment: { POSTGRES_USER: samay, POSTGRES_PASSWORD: samay, POSTGRES_DB: samay }
+    environment: { POSTGRES_USER: slotwise, POSTGRES_PASSWORD: slotwise, POSTGRES_DB: slotwise }
     volumes: [pgdata:/var/lib/postgresql/data]
-    healthcheck: { test: ['CMD-SHELL', 'pg_isready -U samay'], interval: 5s, retries: 10 }
+    healthcheck: { test: ['CMD-SHELL', 'pg_isready -U slotwise'], interval: 5s, retries: 10 }
 
   mongo:
     image: mongo:8
@@ -21,8 +21,8 @@ services:
     build: { context: ., dockerfile: server/Dockerfile }
     environment: &env
       NODE_ENV: production
-      DATABASE_URL: postgres://samay:samay@postgres:5432/samay
-      MONGO_URL: mongodb://mongo:27017/samay
+      DATABASE_URL: postgres://slotwise:slotwise@postgres:5432/slotwise
+      MONGO_URL: mongodb://mongo:27017/slotwise
       REDIS_URL: redis://redis:6379
       JWT_SECRET: ${JWT_SECRET:-change-this-to-a-long-random-string-before-deploying}
       CORS_ORIGIN: http://localhost:8080

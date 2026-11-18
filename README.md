@@ -1,6 +1,6 @@
-# Samay — AI-assisted timetable generator (NEP 2020)
+# Slotwise — AI-assisted timetable generator (NEP 2020)
 
-Samay builds a clash-free weekly timetable for a college department in under a second, improves it for a few more seconds, and then lets the HOD fix anything by dragging it. While you drag a class, every cell in the grid shows whether dropping it there is fine or would clash.
+Slotwise builds a clash-free weekly timetable for a college department in under a second, improves it for a few more seconds, and then lets the HOD fix anything by dragging it. While you drag a class, every cell in the grid shows whether dropping it there is fine or would clash.
 
 Built for **Back End Engineering-II (24CS0305)** as a full-stack MERN project, plus PostgreSQL, Redis, Docker and CI.
 
@@ -43,14 +43,14 @@ npm run dev:client                      # web app on :5173
 
 ### Demo logins
 
-Password for all: `Samay@2026`
+Password for all: `Slotwise@2026`
 
 | Email | Role | What they see |
 |---|---|---|
-| admin@samay.dev | Admin | Everything, including People & roles |
-| hod@samay.dev | Head of department | Data, rules, generation, editing, publishing |
-| faculty@samay.dev | Teacher | Their own published schedule |
-| student@samay.dev | Student | Their section's published timetable |
+| admin@slotwise.dev | Admin | Everything, including People & roles |
+| hod@slotwise.dev | Head of department | Data, rules, generation, editing, publishing |
+| faculty@slotwise.dev | Teacher | Their own published schedule |
+| student@slotwise.dev | Student | Their section's published timetable |
 
 The demo is one 5th-semester CSE department: 8 sections, 25 teachers, 10 rooms, 64 course assignments, 2 open-elective baskets and a few personal rules. All the names are made up.
 
@@ -146,7 +146,7 @@ In production the API also serves the React app, so the whole project is **one R
 Don't use Upstash for Redis here. An idle BullMQ worker keeps polling, which uses up Upstash's free command allowance.
 
 1. **Neon:** create a project, then copy the connection string (`postgresql://…?sslmode=require`).
-2. **Atlas:** create a free cluster and a database user. Under *Network Access* allow `0.0.0.0/0` (Render's free plan has no fixed IP). Copy the `mongodb+srv://…` string and add `/samay` before the `?`, e.g. `…mongodb.net/samay?retryWrites=true&w=majority`.
+2. **Atlas:** create a free cluster and a database user. Under *Network Access* allow `0.0.0.0/0` (Render's free plan has no fixed IP). Copy the `mongodb+srv://…` string and add `/slotwise` before the `?`, e.g. `…mongodb.net/slotwise?retryWrites=true&w=majority`.
 3. **Load the demo data** from your laptop into Neon: put the Neon string in `server/.env` as `DATABASE_URL`, then run `npm run seed -w server -- --reset`. Or skip this: the first account you register becomes the admin.
 4. **Render:** push the repo to GitHub, then go to *New → Blueprint* and pick the repo. Paste `DATABASE_URL` and `MONGO_URL` when asked (`GROQ_API_KEY` is optional). `JWT_SECRET` is generated for you.
 5. Open `https://<your-service>.onrender.com` and log in.

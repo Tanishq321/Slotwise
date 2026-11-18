@@ -1,8 +1,8 @@
 {
-  "name": "samay",
+  "name": "slotwise",
   "private": true,
   "version": "0.1.0",
-  "description": "Samay — AI-assisted, clash-free timetable generator aligned with NEP 2020",
+  "description": "Slotwise — AI-assisted, clash-free timetable generator aligned with NEP 2020",
   "workspaces": [
     "engine",
     "server",
