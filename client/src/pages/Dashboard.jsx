@@ -4,6 +4,9 @@ import { api, errorMessage, readEventStream } from '../api.js';
 import { useFetch } from '../hooks.js';
 import { Button, Empty, Field, Input, Notice, PageHeader, ProgressBar, Select, useToast } from '../components/ui.jsx';
 
+const PAST = { create: 'created', update: 'updated', delete: 'deleted', generate: 'generated', import: 'imported', publish: 'published', rename: 'renamed', move: 'moved' };
+const pastTense = (action) => PAST[action] || action.replace('-', ' ');
+
 const fmtDate = (d) => new Date(d).toLocaleString('en-IN', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
 
 export function Dashboard() {
@@ -139,7 +142,7 @@ export function Dashboard() {
             <ul className="mt-3 space-y-2.5 text-sm">
               {activity.data.items.map((a) => (
                 <li key={a.id}>
-                  <span className="font-bold">{a.actor?.name || 'System'}</span> {a.action.replace('-', ' ')}d {a.entity}
+                  <span className="font-bold">{a.actor?.name || 'System'}</span> {pastTense(a.action)} {a.entity}
                   <span className="block text-xs text-muted">{fmtDate(a.createdAt)}</span>
                 </li>
               ))}

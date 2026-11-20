@@ -66,11 +66,16 @@ export async function buildProblemFromDb() {
       facultyId: o.faculty_id,
       sectionIds: secsByOffering.get(o.id) || [],
       ...(o.size ? { size: o.size } : {}),
+      ...(o.duration ? { duration: o.duration } : {}),
+      ...(o.sessions_per_week ? { sessionsPerWeek: o.sessions_per_week } : {}),
+      ...(o.max_sessions_per_day ? { maxSessionsPerDay: o.max_sessions_per_day } : {}),
     })),
     baskets: baskets.rows.map((b) => ({
       id: b.id,
       name: b.name,
       sessionsPerWeek: b.sessions_per_week,
+      duration: b.duration || 1,
+      ...(b.max_sessions_per_day ? { maxSessionsPerDay: b.max_sessions_per_day } : {}),
       sectionIds: secsByBasket.get(b.id) || [],
       options: options.rows
         .filter((o) => o.basket_id === b.id)

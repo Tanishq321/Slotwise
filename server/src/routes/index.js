@@ -6,6 +6,7 @@ import { facultyRouter, roomsRouter, sectionsRouter, coursesRouter } from './mas
 import { offeringsRouter } from './offerings.js';
 import { basketsRouter } from './baskets.js';
 import { importRouter } from './import.js';
+import { datasetRouter } from './dataset.js';
 import { constraintsRouter } from './constraints.js';
 import { timetablesRouter } from './timetables.js';
 import { adminRouter } from './admin.js';
@@ -23,6 +24,7 @@ apiRouter.use('/sections', sectionsRouter);
 apiRouter.use('/courses', coursesRouter);
 apiRouter.use('/offerings', offeringsRouter);
 apiRouter.use('/baskets', basketsRouter);
+apiRouter.use('/dataset', datasetRouter);
 apiRouter.use('/import', importRouter);
 apiRouter.use('/constraints', constraintsRouter);
 apiRouter.use('/timetables', timetablesRouter);

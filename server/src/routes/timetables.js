@@ -2,7 +2,7 @@
 // view, edit by drag-and-drop, compare, publish, analytics, substitutes and .ics export.
 import { Router } from 'express';
 import { z } from 'zod';
-import { validateProblem, checkTimetable, suggestSubstitutes } from '@slotwise/engine';
+import { validateProblem, checkTimetable, suggestSubstitutes, sessionLength, sessionCount } from '@slotwise/engine';
 import { Timetable } from '../models/Timetable.js';
 import { audit } from '../models/AuditLog.js';
 import { canEdit } from '../middleware/auth.js';
@@ -41,15 +41,18 @@ timetablesRouter.get('/preflight', canEdit, async (_req, res) => {
   const problem = await buildProblemFromDb();
   if (!problem.config) return res.json({ ok: false, errors: [{ code: 'CONFIG', message: 'Set up days and periods in Settings first' }], summary: null });
   const errors = validateProblem(problem);
-  const labDuration = problem.config.labDuration;
-  const classes =
-    problem.offerings.reduce((n, o) => n + (problem.courses.find((c) => c.id === o.courseId)?.sessionsPerWeek || 0), 0) +
-    problem.baskets.reduce((n, b) => n + b.sessionsPerWeek, 0);
-  const periods =
-    problem.offerings.reduce((n, o) => {
-      const c = problem.courses.find((x) => x.id === o.courseId);
-      return n + (c ? c.sessionsPerWeek * (c.type === 'lab' ? labDuration : 1) : 0);
-    }, 0) + problem.baskets.reduce((n, b) => n + b.sessionsPerWeek, 0);
+  const courseOf = new Map(problem.courses.map((c) => [c.id, c]));
+  let classes = 0;
+  let periods = 0;
+  for (const o of problem.offerings) {
+    const c = courseOf.get(o.courseId);
+    classes += sessionCount(o, c);
+    periods += sessionCount(o, c) * sessionLength(o, c, problem.config);
+  }
+  for (const b of problem.baskets) {
+    classes += b.sessionsPerWeek;
+    periods += b.sessionsPerWeek * (b.duration || 1);
+  }
   res.json({
     ok: errors.length === 0,
     errors,

@@ -8,8 +8,10 @@
 //   faculty:  [{ id, name, maxPerDay, maxPerWeek, unavailable: [{day, period}], avoid: [{day, period}], canTeach: [courseId] }],
 //   sections: [{ id, name, size, unavailable?: [{day, period}] }],
 //   courses:  [{ id, code, name, type: 'lecture'|'lab', sessionsPerWeek }],
-//   offerings:[{ id, courseId, facultyId, sectionIds: [..], size? }],          // a course taught to one or more sections
-//   baskets:  [{ id, name, sectionIds, sessionsPerWeek, options: [{ offeringId, courseId, facultyId, size }] }] // NEP electives run in parallel
+//   offerings:[{ id, courseId, facultyId, sectionIds: [..], size?, duration?, sessionsPerWeek?, maxSessionsPerDay? }], // a course taught to one or more sections
+//   baskets:  [{ id, name, sectionIds, sessionsPerWeek, duration?, options: [{ offeringId, courseId, facultyId, size }] }] // NEP electives run in parallel
+// `duration` (periods per class) and `sessionsPerWeek` on an offering override the course defaults,
+// e.g. Java is a 2-period class for one batch and a 3-period class for another.
 // }
 // `day` is a 0-based index into config.days, `period` a 0-based index into the day.
 
@@ -22,6 +24,22 @@ export const DEFAULT_CONFIG = {
 
 const byId = (list = []) => new Map(list.map((x) => [x.id, x]));
 
+/** Periods per class: the offering's own value, else 1 for lectures / labDuration for labs. */
+export const sessionLength = (offering, course, cfg) => offering?.duration || (course?.type === 'lab' ? cfg.labDuration : 1);
+/** Classes per week: the offering's own value, else the course's. */
+export const sessionCount = (offering, course) => offering?.sessionsPerWeek ?? course?.sessionsPerWeek ?? 0;
+
+/** Longest run of consecutive non-break periods in a day. */
+function longestRun(P, breaks) {
+  let best = 0;
+  let run = 0;
+  for (let p = 0; p < P; p++) {
+    run = breaks.has(p) ? 0 : run + 1;
+    best = Math.max(best, run);
+  }
+  return best;
+}
+
 /** Check the problem for mistakes and impossible demands before solving. */
 export function validateProblem(problem) {
   const errors = [];
@@ -31,6 +49,7 @@ export function validateProblem(problem) {
   const P = cfg.periodsPerDay;
   const breaks = new Set(cfg.breaks);
   const teachable = P - breaks.size;
+  const maxRun = longestRun(P, breaks);
 
   if (!D) err('CONFIG', 'At least one teaching day is required');
   if (!P) err('CONFIG', 'periodsPerDay must be at least 1');
@@ -69,8 +88,9 @@ export function validateProblem(problem) {
     for (const s of o.sectionIds || []) if (!sections.has(s)) err('UNKNOWN_SECTION', `Offering ${o.id}: unknown section "${s}"`, o.id);
     const course = checkPart(o.id, o, o.sectionIds || []);
     if (!course) continue;
-    const dur = course.type === 'lab' ? cfg.labDuration : 1;
-    const n = course.sessionsPerWeek || 0;
+    const dur = sessionLength(o, course, cfg);
+    const n = sessionCount(o, course);
+    if (dur > maxRun) err('TOO_LONG', `${o.id}: a ${dur}-period class does not fit between breaks (longest run is ${maxRun})`, o.id);
     addDemand(facDemand, o.facultyId, n * dur);
     for (const s of o.sectionIds || []) addDemand(secDemand, s, n * dur);
   }
@@ -83,9 +103,10 @@ export function validateProblem(problem) {
       checkPart(`${b.id}/${opt.offeringId}`, opt, b.sectionIds || []);
       if (facs.has(opt.facultyId)) err('BASKET_FACULTY', `Basket ${b.id}: one teacher cannot teach two parallel options`, b.id);
       facs.add(opt.facultyId);
-      addDemand(facDemand, opt.facultyId, b.sessionsPerWeek || 0);
+      addDemand(facDemand, opt.facultyId, (b.sessionsPerWeek || 0) * (b.duration || 1));
     }
-    for (const s of b.sectionIds || []) addDemand(secDemand, s, b.sessionsPerWeek || 0);
+    if ((b.duration || 1) > maxRun) err('TOO_LONG', `Basket ${b.name || b.id}: a ${b.duration}-period class does not fit between breaks`, b.id);
+    for (const s of b.sectionIds || []) addDemand(secDemand, s, (b.sessionsPerWeek || 0) * (b.duration || 1));
     // All options run at the same time, so each needs its own room simultaneously.
     for (const type of ['lecture', 'lab']) {
       const opts = (b.options || []).filter((o) => (courses.get(o.courseId)?.type === 'lab' ? 'lab' : 'lecture') === type);
@@ -157,18 +178,20 @@ export function compileProblem(problem) {
 
   const events = [];
   const keys = [];
-  const addKey = (id, total) => {
-    keys.push({ id, total, limit: Math.max(1, Math.ceil(total / D)), events: [] });
+  // By default a subject is spread out (at most ceil(classes / days) per day); an offering
+  // can allow more, e.g. two separate LAC periods on the same day as in many real timetables.
+  const addKey = (id, total, maxSessionsPerDay) => {
+    keys.push({ id, total, limit: Math.max(1, Math.ceil(total / D), maxSessionsPerDay || 0), events: [] });
     return keys.length - 1;
   };
 
   for (const o of problem.offerings || []) {
     const course = courses.get(o.courseId);
     const type = course.type === 'lab' ? 'lab' : 'lecture';
-    const duration = type === 'lab' ? cfg.labDuration : 1;
+    const duration = sessionLength(o, course, cfg);
     const size = o.size ?? o.sectionIds.reduce((s, id) => s + (sections[secIdx.get(id)].size || 0), 0);
-    const n = course.sessionsPerWeek || 0;
-    const k = addKey(o.id, n);
+    const n = sessionCount(o, course);
+    const k = addKey(o.id, n, o.maxSessionsPerDay);
     for (let i = 0; i < n; i++) {
       events.push({
         id: `${o.id}#${i + 1}`,
@@ -183,7 +206,7 @@ export function compileProblem(problem) {
   }
   for (const b of problem.baskets || []) {
     const n = b.sessionsPerWeek || 0;
-    const k = addKey(b.id, n);
+    const k = addKey(b.id, n, b.maxSessionsPerDay);
     for (let i = 0; i < n; i++) {
       events.push({
         id: `${b.id}#${i + 1}`,

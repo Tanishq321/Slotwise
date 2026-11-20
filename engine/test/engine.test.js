@@ -160,3 +160,23 @@ test('one impossible class does not stop the rest from being scheduled', () => {
   assert.deepEqual(r.unplaced.map((u) => u.eventId), ['off-z#1'], 'only the impossible lab is unplaced');
   assert.deepEqual(checkTimetable(p, r.events).filter((c) => c.type !== 'unplaced'), []);
 });
+
+test('an offering can set its own class length and classes per week', () => {
+  const p = buildProblem({ sectionCount: 4 });
+  const o = p.offerings.find((x) => x.courseId === 'cn'); // a 1-period lecture, 3 a week by default
+  o.duration = 3;
+  o.sessionsPerWeek = 2;
+  const r = generate(p, { seed: 9, timeLimitMs: 1500 });
+  const mine = r.events.filter((e) => e.key === o.id);
+  assert.equal(mine.length, 2);
+  assert.ok(mine.every((e) => e.duration === 3 && e.day !== null));
+  assert.deepEqual(checkTimetable(p, r.events), []);
+  // Three periods can never cross the lunch break, so they must sit inside one half-day.
+  assert.ok(mine.every((e) => !(e.start <= 4 && e.start + 3 > 4)));
+});
+
+test('validation rejects a class longer than the day allows between breaks', () => {
+  const p = buildProblem({ sectionCount: 4 });
+  p.offerings[0].duration = 5; // morning and afternoon are only 4 and 3 periods long
+  assert.ok(validateProblem(p).some((e) => e.code === 'TOO_LONG'));
+});

@@ -1,4 +1,4 @@
-import { validateProblem, compileProblem, DEFAULT_CONFIG } from './problem.js';
+import { validateProblem, compileProblem, DEFAULT_CONFIG, sessionLength, sessionCount } from './problem.js';
 import { State } from './state.js';
 import { construct } from './construct.js';
 import { anneal } from './anneal.js';
@@ -8,7 +8,7 @@ import { checkTimetable } from './check.js';
 import { suggestSubstitutes } from './substitutes.js';
 import { applyMove, clashBaseline, findFreeRoom } from './move.js';
 
-export { validateProblem, checkTimetable, suggestSubstitutes, applyMove, clashBaseline, findFreeRoom, WEIGHTS, DEFAULT_CONFIG };
+export { validateProblem, checkTimetable, suggestSubstitutes, applyMove, clashBaseline, findFreeRoom, sessionLength, sessionCount, WEIGHTS, DEFAULT_CONFIG };
 
 /**
  * Generate a timetable.

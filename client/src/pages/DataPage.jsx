@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { NavLink, useParams } from 'react-router';
 import { api, download, errorMessage } from '../api.js';
+import { useAuth } from '../auth.jsx';
 import { useDebounced, useFetch } from '../hooks.js';
 import { Button, Drawer, Empty, Field, Input, inputClass, Notice, PageHeader, Pager, ProgressBar, Select, useToast } from '../components/ui.jsx';
 
@@ -92,7 +93,9 @@ export function DataPage() {
   const { tab } = useParams();
   return (
     <>
-      <PageHeader title="Teachers & courses" description="Everything the timetable is built from. Changes apply to the next version you generate." />
+      <PageHeader title="Teachers & courses" description="Everything the timetable is built from. Changes apply to the next version you generate.">
+        <DatasetFile />
+      </PageHeader>
       <nav className="mb-6 flex flex-wrap gap-1 border-b border-line" aria-label="Data">
         {TABS.map(([k, label]) => (
           <NavLink key={k} to={`/data/${k}`} className={({ isActive }) => `-mb-px border-b-2 px-3 py-2 text-sm font-bold ${isActive ? 'border-marigold text-ink' : 'border-transparent text-ink-soft hover:text-ink'}`}>
@@ -273,6 +276,59 @@ function EntityForm({ entity, def, row, onClose, onSaved }) {
 }
 
 /** Upload a CSV with a progress bar. Bad rows are listed by line number. */
+// One JSON file holding everything on these tabs: settings, rooms, teachers, classes,
+// subjects, who-teaches-what, elective baskets and availability rules.
+function DatasetFile() {
+  const { isAdmin, isEditor } = useAuth();
+  const input = useRef(null);
+  const [state, setState] = useState(null); // { busy } | { errors, message } | { done }
+  const toast = useToast();
+  if (!isEditor) return null;
+
+  async function upload(file) {
+    const ok = window.confirm(
+      `Replace ALL teachers, rooms, classes, subjects and rules with the contents of "${file.name}"?\n\nLogins and saved timetable versions are kept. Download the current data first if you might want it back.`,
+    );
+    input.current.value = '';
+    if (!ok) return;
+    const form = new FormData();
+    form.append('file', file);
+    setState({ busy: true });
+    try {
+      const { data } = await api.post('/dataset', form);
+      const n = data.imported;
+      setState(null);
+      toast(`Imported ${n.sections} classes, ${n.faculty} teachers, ${n.rooms} rooms and ${n.offerings + n.baskets} class assignments`);
+      window.setTimeout(() => window.location.reload(), 900);
+    } catch (err) {
+      setState({ message: errorMessage(err), errors: err.response?.data?.details?.errors || [] });
+    }
+  }
+
+  return (
+    <>
+      <input ref={input} type="file" accept=".json,application/json" className="hidden" onChange={(e) => e.target.files[0] && upload(e.target.files[0])} />
+      <Button variant="secondary" onClick={() => download('/dataset', 'slotwise-dataset.json').catch((err) => toast(errorMessage(err), 'error'))}>
+        Download all data
+      </Button>
+      {isAdmin && (
+        <Button variant="secondary" busy={state?.busy} onClick={() => input.current.click()}>
+          {state?.busy ? 'Importing…' : 'Import full dataset'}
+        </Button>
+      )}
+      <Drawer open={!!state?.message} title="Nothing was imported" onClose={() => setState(null)}>
+        <Notice tone="error">{state?.message}</Notice>
+        <ul className="mt-4 space-y-2 text-sm">
+          {state?.errors?.map((e, i) => (
+            <li key={i}>{e.message}</li>
+          ))}
+        </ul>
+        <p className="mt-4 text-sm text-muted">Your current data has not been touched. Fix the file and import it again.</p>
+      </Drawer>
+    </>
+  );
+}
+
 function CsvImport({ entity, onDone }) {
   const input = useRef(null);
   const [progress, setProgress] = useState(null);
@@ -352,7 +408,15 @@ function Offerings() {
 
   async function save(e) {
     e.preventDefault();
-    const body = { courseId: editing.courseId, facultyId: editing.facultyId, sectionIds: editing.sectionIds, size: num(editing.size) ?? null };
+    const body = {
+      courseId: editing.courseId,
+      facultyId: editing.facultyId,
+      sectionIds: editing.sectionIds,
+      size: num(editing.size) ?? null,
+      duration: num(editing.duration) ?? null,
+      sessionsPerWeek: num(editing.sessionsPerWeek) ?? null,
+      maxSessionsPerDay: num(editing.maxSessionsPerDay) ?? null,
+    };
     try {
       if (editing.id) await api.patch(`/offerings/${editing.id}`, body);
       else await api.post('/offerings', body);
@@ -384,7 +448,7 @@ function Offerings() {
         </Field>
         <div className="flex gap-2">
           <CsvImport entity="offerings" onDone={list.reload} />
-          <Button disabled={!L} onClick={() => setEditing({ courseId: L.courses[0]?.id, facultyId: L.faculty[0]?.id, sectionIds: [], size: '' })}>
+          <Button disabled={!L} onClick={() => setEditing({ courseId: L.courses[0]?.id, facultyId: L.faculty[0]?.id, sectionIds: [], size: '', duration: '', sessionsPerWeek: '', maxSessionsPerDay: '' })}>
             Assign a class
           </Button>
         </div>
@@ -409,10 +473,21 @@ function Offerings() {
                 <td className="px-4 py-2.5">{o.facultyName}</td>
                 <td className="px-4 py-2.5">{o.sections.map((s) => s.name).join(', ')}</td>
                 <td className="px-4 py-2.5">
-                  {o.sessionsPerWeek} {o.courseType === 'lab' ? 'labs' : 'lectures'}
+                  {o.sessionsPerWeek} {o.courseType === 'lab' ? 'lab' : 'lecture'}{o.sessionsPerWeek === 1 ? '' : 's'}
+                  {o.duration > 1 && <span className="text-muted">, {o.duration} periods each</span>}
+                  {o.maxSessionsPerDay > 1 && <span className="block text-xs text-muted">up to {o.maxSessionsPerDay} on one day</span>}
                 </td>
                 <td className="whitespace-nowrap px-4 py-2.5 text-right">
-                  <Button variant="quiet" onClick={() => setEditing({ ...o, sectionIds: o.sections.map((s) => s.id), size: o.size ?? '' })}>
+                  <Button variant="quiet" onClick={() =>
+                      setEditing({
+                        ...o,
+                        sectionIds: o.sections.map((s) => s.id),
+                        size: o.size ?? '',
+                        duration: o.duration ?? '',
+                        sessionsPerWeek: o.customSessionsPerWeek ?? '',
+                        maxSessionsPerDay: o.maxSessionsPerDay ?? '',
+                      })
+                    }>
                     Edit
                   </Button>
                   <Button variant="quiet" onClick={() => remove(o)}>
@@ -450,6 +525,17 @@ function Offerings() {
             <Field label="Students attending" hint="Leave empty to use the sections' total">
               <Input type="number" min={1} value={editing.size} onChange={(e) => setEditing({ ...editing, size: e.target.value })} />
             </Field>
+            <div className="grid grid-cols-3 gap-3">
+              <Field label="Classes a week" hint="Empty: course default">
+                <Input type="number" min={1} max={10} value={editing.sessionsPerWeek} onChange={(e) => setEditing({ ...editing, sessionsPerWeek: e.target.value })} />
+              </Field>
+              <Field label="Periods each" hint="Empty: 1, or lab length">
+                <Input type="number" min={1} max={6} value={editing.duration} onChange={(e) => setEditing({ ...editing, duration: e.target.value })} />
+              </Field>
+              <Field label="Most in a day" hint="Empty: spread out">
+                <Input type="number" min={1} max={6} value={editing.maxSessionsPerDay} onChange={(e) => setEditing({ ...editing, maxSessionsPerDay: e.target.value })} />
+              </Field>
+            </div>
             {editing.error && <Notice tone="error">{editing.error}</Notice>}
             <Button type="submit" className="w-full" disabled={!editing.sectionIds.length}>
               Save
@@ -473,6 +559,8 @@ function Baskets() {
     const body = {
       name: editing.name,
       sessionsPerWeek: Number(editing.sessionsPerWeek),
+      duration: Number(editing.duration || 1),
+      maxSessionsPerDay: num(editing.maxSessionsPerDay) ?? null,
       sectionIds: editing.sectionIds,
       options: editing.options.map((o) => ({ ...(o.offeringId ? { offeringId: o.offeringId } : {}), courseId: o.courseId, facultyId: o.facultyId, size: Number(o.size) })),
     };
@@ -495,7 +583,7 @@ function Baskets() {
         <p className="max-w-2xl text-sm text-muted">
           Under NEP 2020, students from several sections each pick one elective. All options in a basket run at the same time, so whichever one a student picks, it never clashes with their other classes.
         </p>
-        <Button disabled={!L} onClick={() => setEditing({ name: '', sessionsPerWeek: 2, sectionIds: [], options: [blankOption(), blankOption()] })}>
+        <Button disabled={!L} onClick={() => setEditing({ name: '', sessionsPerWeek: 2, duration: 1, maxSessionsPerDay: '', sectionIds: [], options: [blankOption(), blankOption()] })}>
           Add basket
         </Button>
       </div>
@@ -507,11 +595,11 @@ function Baskets() {
               <div>
                 <p className="font-bold">{b.name}</p>
                 <p className="text-sm text-muted">
-                  {b.sessionsPerWeek} sessions a week for {b.sections.map((s) => s.name).join(', ')}
+                  {b.sessionsPerWeek} sessions a week{b.duration > 1 ? `, ${b.duration} periods each,` : ''} for {b.sections.map((s) => s.name).join(', ')}
                 </p>
               </div>
               <div>
-                <Button variant="quiet" onClick={() => setEditing({ ...b, sectionIds: b.sections.map((s) => s.id) })}>
+                <Button variant="quiet" onClick={() => setEditing({ ...b, sectionIds: b.sections.map((s) => s.id), maxSessionsPerDay: b.maxSessionsPerDay ?? '' })}>
                   Edit
                 </Button>
                 <Button variant="quiet" onClick={async () => window.confirm(`Delete ${b.name}?`) && (await api.delete(`/baskets/${b.id}`), list.reload())}>
@@ -535,9 +623,17 @@ function Baskets() {
             <Field label="Name">
               <Input required value={editing.name} onChange={(e) => setEditing({ ...editing, name: e.target.value })} placeholder="Open Elective — Group 1" />
             </Field>
-            <Field label="Sessions a week">
-              <Input type="number" min={1} max={10} value={editing.sessionsPerWeek} onChange={(e) => setEditing({ ...editing, sessionsPerWeek: e.target.value })} />
-            </Field>
+            <div className="grid grid-cols-3 gap-3">
+              <Field label="Sessions a week">
+                <Input type="number" min={1} max={10} value={editing.sessionsPerWeek} onChange={(e) => setEditing({ ...editing, sessionsPerWeek: e.target.value })} />
+              </Field>
+              <Field label="Periods each">
+                <Input type="number" min={1} max={6} value={editing.duration} onChange={(e) => setEditing({ ...editing, duration: e.target.value })} />
+              </Field>
+              <Field label="Most in a day" hint="Empty: spread out">
+                <Input type="number" min={1} max={6} value={editing.maxSessionsPerDay} onChange={(e) => setEditing({ ...editing, maxSessionsPerDay: e.target.value })} />
+              </Field>
+            </div>
             <Checkboxes label="Sections choosing from this basket" items={L.sections} value={editing.sectionIds} onChange={(v) => setEditing({ ...editing, sectionIds: v })} />
             <fieldset className="space-y-3">
               <legend className="text-sm font-bold">Options (each needs its own teacher)</legend>

@@ -88,9 +88,10 @@ export function checkTimetable(problem, events) {
     const f = faculty.get(fid);
     if (f?.maxPerDay && hours > f.maxPerDay) add('facultyDayLimit', `${f.name} teaches ${hours} periods on ${dayName(+d)} (limit ${f.maxPerDay})`, [], +d);
   }
+  const perDayAllowed = new Map([...(problem.offerings || []), ...(problem.baskets || [])].map((o) => [o.id, o.maxSessionsPerDay || 0]));
   for (const [k, ids] of keyDay) {
     const key = k.slice(0, k.lastIndexOf('|'));
-    const limit = Math.max(1, Math.ceil((keyTotal.get(key) || 1) / D));
+    const limit = Math.max(1, Math.ceil((keyTotal.get(key) || 1) / D), perDayAllowed.get(key) || 0);
     if (ids.length > limit) add('sameDay', `${key} meets ${ids.length} times on ${dayName(+k.split('|').pop())}`, ids, +k.split('|').pop());
   }
   return clashes;

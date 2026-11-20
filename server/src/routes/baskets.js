@@ -24,6 +24,8 @@ const schema = z
   .object({
     name: z.string().trim().min(1).max(80),
     sessionsPerWeek: z.number().int().min(1).max(10),
+    duration: z.number().int().min(1).max(6).default(1),
+    maxSessionsPerDay: z.number().int().min(1).max(6).nullable().optional(),
     sectionIds: z.array(z.string().trim().min(1)).min(1).max(40),
     options: z.array(optionSchema).min(2, 'A basket needs at least two options').max(20),
   })
@@ -77,7 +79,9 @@ basketsRouter.post('/', canEdit, validate({ body: schema }), async (req, res) =>
   const b = req.valid.body;
   const id = newId('bkt');
   await transaction(async (client) => {
-    await client.query('INSERT INTO baskets (id, name, sessions_per_week) VALUES ($1, $2, $3)', [id, b.name, b.sessionsPerWeek]);
+    await client.query('INSERT INTO baskets (id, name, sessions_per_week, duration, max_sessions_per_day) VALUES ($1, $2, $3, $4, $5)', [
+      id, b.name, b.sessionsPerWeek, b.duration, b.maxSessionsPerDay ?? null,
+    ]);
     await saveChildren(client, id, b);
   });
   await cacheDel('stats');
@@ -89,7 +93,9 @@ basketsRouter.put('/:id', canEdit, validate({ params: idParam, body: schema }), 
   const { id } = req.valid.params;
   const b = req.valid.body;
   await transaction(async (client) => {
-    const r = await client.query('UPDATE baskets SET name = $2, sessions_per_week = $3 WHERE id = $1', [id, b.name, b.sessionsPerWeek]);
+    const r = await client.query('UPDATE baskets SET name = $2, sessions_per_week = $3, duration = $4, max_sessions_per_day = $5 WHERE id = $1', [
+      id, b.name, b.sessionsPerWeek, b.duration, b.maxSessionsPerDay ?? null,
+    ]);
     if (!r.rowCount) throw notFound('Elective basket');
     await saveChildren(client, id, b);
   });

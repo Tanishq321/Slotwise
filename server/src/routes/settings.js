@@ -11,7 +11,7 @@ import { cacheDel } from '../services/redis.js';
 export const settingsRouter = Router();
 
 const hhmm = z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/, 'Use 24-hour HH:MM');
-const settingsSchema = z
+export const settingsSchema = z
   .object({
     institution: z.string().trim().min(1).max(120),
     days: z.array(z.string().trim().min(1).max(12)).min(1).max(7),

@@ -28,11 +28,41 @@ export function construct(c, state, rng, { maxSteps, onProgress, deadline } = {}
     for (const x of c.events[e].neighbors) if (unplaced.has(x)) domain[x] = countDomain(x);
   };
 
-  // Cheap placement preference: keep section days compact and avoid disliked slots.
+  // Shortest class each section still has to place: a free stretch shorter than this is wasted.
+  const minLeft = new Int16Array(c.S);
+  const refreshMinLeft = () => {
+    minLeft.fill(99);
+    for (const x of unplaced) for (const s of c.events[x].groups) minLeft[s] = Math.min(minLeft[s], c.events[x].duration);
+  };
+  refreshMinLeft();
+  let sinceRefresh = 0;
+
+  // Free stretches in a section's day that become too short to hold any remaining class
+  // if `ev` is placed at (d, t). Tight weeks fail mostly because of these leftover holes.
+  const wastedAfter = (s, d, t, dur) => {
+    const base = (s * c.D + d) * c.P;
+    const need = minLeft[s];
+    if (need <= 1 || need === 99) return 0;
+    let wasted = 0;
+    let run = 0;
+    for (let p = 0; p <= c.P; p++) {
+      const free = p < c.P && !(p >= t && p < t + dur) && state.secOcc[base + p] < 0 && !c.isBreak[p] && !c.secUnavail[base + p];
+      if (free) run++;
+      else {
+        if (run > 0 && run < need) wasted += run;
+        run = 0;
+      }
+    }
+    return wasted;
+  };
+
+  // Cheap placement preference: keep section days compact, avoid leaving unusable holes
+  // and avoid disliked slots.
   const prefer = (e, d, t) => {
     const ev = c.events[e];
     let score = rng.next() * 0.6;
     for (const s of ev.groups) {
+      score += wastedAfter(s, d, t, ev.duration) * 3;
       const base = (s * c.D + d) * c.P;
       let load = 0;
       for (let p = 0; p < c.P; p++) if (state.secOcc[base + p] >= 0) load++;
@@ -52,6 +82,10 @@ export function construct(c, state, rng, { maxSteps, onProgress, deadline } = {}
   while (unplaced.size > 0 && step < steps) {
     if (deadline && step % 64 === 0 && Date.now() > deadline) break;
     step++;
+    if (++sinceRefresh >= 25) {
+      refreshMinLeft();
+      sinceRefresh = 0;
+    }
     // Pick the most constrained unplaced class.
     let e = -1;
     let bestKey = Infinity;

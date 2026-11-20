@@ -18,6 +18,10 @@ const schema = z.object({
   facultyId: z.string().trim().min(1),
   sectionIds: z.array(z.string().trim().min(1)).min(1, 'Pick at least one section').max(20),
   size: z.number().int().min(1).max(2000).nullable().optional(),
+  // Optional overrides; leave empty to use the course's defaults.
+  duration: z.number().int().min(1).max(6).nullable().optional(),
+  sessionsPerWeek: z.number().int().min(1).max(10).nullable().optional(),
+  maxSessionsPerDay: z.number().int().min(1).max(6).nullable().optional(),
 });
 
 const listSchema = z.object({
@@ -30,8 +34,10 @@ const listSchema = z.object({
 });
 
 const SELECT = `
-  SELECT o.id, o.course_id, o.faculty_id, o.size,
-         c.code AS course_code, c.name AS course_name, c.type AS course_type, c.sessions_per_week,
+  SELECT o.id, o.course_id, o.faculty_id, o.size, o.duration, o.max_sessions_per_day,
+         o.sessions_per_week AS custom_sessions_per_week,
+         COALESCE(o.sessions_per_week, c.sessions_per_week) AS sessions_per_week,
+         c.code AS course_code, c.name AS course_name, c.type AS course_type,
          f.name AS faculty_name,
          COALESCE(json_agg(json_build_object('id', s.id, 'name', s.name, 'size', s.size) ORDER BY s.name)
                   FILTER (WHERE s.id IS NOT NULL), '[]') AS sections,
@@ -93,7 +99,10 @@ offeringsRouter.post('/', canEdit, validate({ body: schema }), async (req, res) 
   const b = req.valid.body;
   const id = newId('off');
   await transaction(async (client) => {
-    await client.query('INSERT INTO offerings (id, course_id, faculty_id, size) VALUES ($1, $2, $3, $4)', [id, b.courseId, b.facultyId, b.size ?? null]);
+    await client.query(
+      'INSERT INTO offerings (id, course_id, faculty_id, size, duration, sessions_per_week, max_sessions_per_day) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+      [id, b.courseId, b.facultyId, b.size ?? null, b.duration ?? null, b.sessionsPerWeek ?? null, b.maxSessionsPerDay ?? null],
+    );
     await saveSections(client, id, b.sectionIds);
   });
   await cacheDel('stats');
@@ -107,8 +116,18 @@ offeringsRouter.patch('/:id', canEdit, validate({ params: idParam, body: schema.
   await transaction(async (client) => {
     const r = await client.query(
       `UPDATE offerings SET course_id = COALESCE($2, course_id), faculty_id = COALESCE($3, faculty_id),
-         size = CASE WHEN $5 THEN $4 ELSE size END WHERE id = $1`,
-      [id, b.courseId ?? null, b.facultyId ?? null, b.size ?? null, 'size' in b],
+         size = CASE WHEN $5 THEN $4 ELSE size END,
+         duration = CASE WHEN $7 THEN $6 ELSE duration END,
+         sessions_per_week = CASE WHEN $9 THEN $8 ELSE sessions_per_week END,
+         max_sessions_per_day = CASE WHEN $11 THEN $10 ELSE max_sessions_per_day END
+       WHERE id = $1`,
+      [
+        id, b.courseId ?? null, b.facultyId ?? null,
+        b.size ?? null, 'size' in b,
+        b.duration ?? null, 'duration' in b,
+        b.sessionsPerWeek ?? null, 'sessionsPerWeek' in b,
+        b.maxSessionsPerDay ?? null, 'maxSessionsPerDay' in b,
+      ],
     );
     if (!r.rowCount) throw notFound('Offering');
     if (b.sectionIds) await saveSections(client, id, b.sectionIds);

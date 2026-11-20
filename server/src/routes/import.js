@@ -106,9 +106,17 @@ const ENTITIES = {
     },
   },
   offerings: {
-    columns: ['course_code', 'faculty', 'sections', 'size'],
-    example: ['24CS0305', 'anjali.sharma@example.edu', 'CSE 5-A;CSE 5-B', ''],
-    schema: z.object({ course_code: str(30), faculty: str(), sections: list.pipe(z.array(z.string()).min(1, 'list at least one section')), size: optInt(1, 2000) }),
+    columns: ['course_code', 'faculty', 'sections', 'size', 'class_length', 'sessions_per_week', 'max_per_day'],
+    example: ['24CS0305', 'anjali.sharma@example.edu', 'CSE 5-A;CSE 5-B', '', '', '', ''],
+    schema: z.object({
+      course_code: str(30),
+      faculty: str(),
+      sections: list.pipe(z.array(z.string()).min(1, 'list at least one section')),
+      size: optInt(1, 2000),
+      class_length: optInt(1, 6),
+      sessions_per_week: optInt(1, 10),
+      max_per_day: optInt(1, 6),
+    }),
     async save(c, r) {
       const course = (await c.query('SELECT id FROM courses WHERE lower(code) = lower($1)', [r.course_code])).rows[0];
       if (!course) throw new Error(`unknown course code "${r.course_code}"`);
@@ -117,7 +125,10 @@ const ENTITIES = {
       const secs = await c.query('SELECT id, name FROM sections WHERE lower(name) = ANY($1)', [r.sections.map((s) => s.toLowerCase())]);
       if (secs.rowCount !== r.sections.length) throw new Error('one of the sections does not exist');
       const id = newId('off');
-      await c.query('INSERT INTO offerings (id, course_id, faculty_id, size) VALUES ($1,$2,$3,$4)', [id, course.id, fac[0].id, r.size ?? null]);
+      await c.query(
+        'INSERT INTO offerings (id, course_id, faculty_id, size, duration, sessions_per_week, max_sessions_per_day) VALUES ($1,$2,$3,$4,$5,$6,$7)',
+        [id, course.id, fac[0].id, r.size ?? null, r.class_length ?? null, r.sessions_per_week ?? null, r.max_per_day ?? null],
+      );
       for (const s of secs.rows) await c.query('INSERT INTO offering_sections (offering_id, section_id) VALUES ($1,$2)', [id, s.id]);
     },
   },

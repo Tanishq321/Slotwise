@@ -54,6 +54,17 @@ Password for all: `Slotwise@2026`
 
 The demo is one 5th-semester CSE department: 8 sections, 25 teachers, 10 rooms, 64 course assignments, 2 open-elective baskets and a few personal rules. All the names are made up.
 
+## Real data: Chitkara CSE-AI
+
+`server/data/chitkara-cse-ai.json` holds the real CSE-AI department data (32 classes,
+60 teachers, 35 rooms, 399 classes a week), taken from the college's class-wise
+timetable PDF with the scripts in `tools/asc-pdf-import/`. To load it, log in as an
+admin, open **Teachers & courses** and click **Import full dataset**. Slotwise then
+generates a complete, clash-free timetable for all 32 classes in under a second.
+
+The same screen has **Download all data**, which saves everything as one file in the
+same format (handy as a backup before you import).
+
 ## How the engine works
 
 `engine/` is a dependency-free JavaScript package. It runs in two phases.
@@ -112,7 +123,7 @@ flowchart LR
 | Express: routing, params, middleware, error handling | `server/src/routes/*`, `middleware/error.js` |
 | Validation & sanitisation | zod schemas in every route, `middleware/validate.js` |
 | JWT auth, bcrypt, protected routes, role-based access | `routes/auth.js`, `middleware/auth.js` |
-| File upload (Multer) | `routes/import.js` (CSV import, all-or-nothing) |
+| File upload (Multer) | `routes/import.js` (CSV import, all-or-nothing), `routes/dataset.js` (whole-dataset JSON) |
 | REST design, status codes | 201/202/204/400/401/403/404/409/422/429 used deliberately |
 | MongoDB/Mongoose: schemas, virtuals, statics, indexes, TTL, aggregation, embedding | `models/Timetable.js`, `models/AuditLog.js`, `services/analytics.js` |
 | SQL: schema, foreign keys, transactions, window functions, JSON aggregation | `db/migrations/001_init.sql`, `routes/crud.js`, `routes/offerings.js` |
@@ -165,6 +176,7 @@ All routes are under `/api` and need `Authorization: Bearer <token>`, except `/a
 | `GET/POST/PATCH/DELETE /faculty`, `/rooms`, `/sections`, `/courses` | read: all, write: admin/HOD | Master data with `?q=&page=&limit=&sort=&order=` |
 | `/offerings`, `/baskets` | same | Who teaches what; NEP elective baskets |
 | `GET /import/:entity/template`, `POST /import/:entity` | admin/HOD | CSV templates and bulk import |
+| `POST /dataset`, `GET /dataset` | admin / admin+HOD | Replace all master data from one JSON file; download it |
 | `GET /constraints`, `POST /constraints/parse`, `POST /constraints`, `DELETE /constraints/:id` | admin/HOD | Availability rules (preview, then save) |
 | `GET /timetables/preflight` | admin/HOD | Checks input data before generating |
 | `POST /timetables` → 202 | admin/HOD | Queue a generation job |
@@ -183,7 +195,7 @@ npm run lint
 npm run bench
 ```
 
-The API tests run against real PostgreSQL, MongoDB and Redis using separate test databases. They cover auth, roles, CRUD and pagination, all-or-nothing CSV import, generation through the queue, the progress stream, clash-refusing moves, publishing, analytics, substitutes, comparison, calendar export and the audit log.
+The API tests run against real PostgreSQL, MongoDB and Redis using separate test databases. They cover auth, roles, CRUD and pagination, all-or-nothing CSV import, generation through the queue, the progress stream, clash-refusing moves, publishing, analytics, substitutes, comparison, calendar export and the audit log. `dataset.test.js` imports the real Chitkara data and checks that all 32 classes get a clash-free timetable.
 
 ## Project structure
 

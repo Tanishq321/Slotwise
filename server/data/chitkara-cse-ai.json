@@ -1,0 +1,4776 @@
+{
+ "format": "slotwise-dataset/1",
+ "name": "Chitkara University - CSE-AI department (odd semester 2026)",
+ "source": "Class-wise timetable PDF generated 14-11-2026 (32 classes)",
+ "settings": {
+  "institution": "Chitkara University - CSE-AI",
+  "days": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri"
+  ],
+  "periodsPerDay": 7,
+  "breaks": [],
+  "labDuration": 2,
+  "periodTimes": [
+   {
+    "start": "09:00",
+    "end": "10:00"
+   },
+   {
+    "start": "10:00",
+    "end": "11:00"
+   },
+   {
+    "start": "11:00",
+    "end": "12:00"
+   },
+   {
+    "start": "12:00",
+    "end": "13:00"
+   },
+   {
+    "start": "13:00",
+    "end": "14:00"
+   },
+   {
+    "start": "14:00",
+    "end": "15:00"
+   },
+   {
+    "start": "15:00",
+    "end": "16:00"
+   }
+  ],
+  "termWeeks": 16
+ },
+ "rooms": [
+  {
+   "id": "room-bloom-block-lh-1",
+   "name": "Bloom Block LH-1",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Bloom Block"
+  },
+  {
+   "id": "room-bloom-block-lh-2",
+   "name": "Bloom Block LH-2",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Bloom Block"
+  },
+  {
+   "id": "room-bloom-block-lh-3",
+   "name": "Bloom Block LH-3",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Bloom Block"
+  },
+  {
+   "id": "room-bloom-block-lh-4",
+   "name": "Bloom Block LH-4",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Bloom Block"
+  },
+  {
+   "id": "room-bloom-block-lh-5",
+   "name": "Bloom Block LH-5",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Bloom Block"
+  },
+  {
+   "id": "room-bloom-block-lh-6",
+   "name": "Bloom Block LH-6",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Bloom Block"
+  },
+  {
+   "id": "room-bloom-block-lh-7",
+   "name": "Bloom Block LH-7",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Bloom Block"
+  },
+  {
+   "id": "room-bloom-block-lh-8",
+   "name": "Bloom Block LH-8",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Bloom Block"
+  },
+  {
+   "id": "room-exploretorium",
+   "name": "Exploretorium",
+   "type": "lecture",
+   "capacity": 400,
+   "building": null
+  },
+  {
+   "id": "room-mb-lh-101",
+   "name": "MB LH-101",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-104",
+   "name": "MB LH-104",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-105",
+   "name": "MB LH-105",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-301",
+   "name": "MB LH-301",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-302",
+   "name": "MB LH-302",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-303",
+   "name": "MB LH-303",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-304",
+   "name": "MB LH-304",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-305",
+   "name": "MB LH-305",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-306",
+   "name": "MB LH-306",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-401",
+   "name": "MB LH-401",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-402",
+   "name": "MB LH-402",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-403",
+   "name": "MB LH-403",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-404",
+   "name": "MB LH-404",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-405",
+   "name": "MB LH-405",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-501",
+   "name": "MB LH-501",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-502",
+   "name": "MB LH-502",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-503",
+   "name": "MB LH-503",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-504",
+   "name": "MB LH-504",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-505",
+   "name": "MB LH-505",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-mb-lh-506",
+   "name": "MB LH-506",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Martin Luther Block"
+  },
+  {
+   "id": "room-nb-106a",
+   "name": "NB 106A",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Newton Block"
+  },
+  {
+   "id": "room-nb-106b",
+   "name": "NB 106B",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Newton Block"
+  },
+  {
+   "id": "room-tg-302",
+   "name": "TG-302",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Turing Block"
+  },
+  {
+   "id": "room-tg-318",
+   "name": "TG-318",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Turing Block"
+  },
+  {
+   "id": "room-tg-323",
+   "name": "TG-323",
+   "type": "lecture",
+   "capacity": 70,
+   "building": "Turing Block"
+  },
+  {
+   "id": "room-ios-lab",
+   "name": "iOS Lab",
+   "type": "lab",
+   "capacity": 70,
+   "building": null
+  }
+ ],
+ "faculty": [
+  {
+   "id": "fac-dr-aarchit-joshi",
+   "name": "Dr. Aarchit Joshi",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-iwt",
+    "crs-mentoring"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-amandeep",
+   "name": "Dr. Amandeep",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-intro-to-ai"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-harjeet-singh",
+   "name": "Dr. Harjeet Singh",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-sde-lab"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-harshvardhan",
+   "name": "Dr. Harshvardhan",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-intro-to-ai"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-meena-rani",
+   "name": "Dr. Meena Rani",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-intro-to-ai"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-monika-sethi",
+   "name": "Dr. Monika Sethi",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-iwt"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-nikita-as",
+   "name": "Dr. Nikita (AS)",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-lac"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-palak-goyal",
+   "name": "Dr. Palak Goyal",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-spc"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-pummy-dhiman",
+   "name": "Dr. Pummy Dhiman",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-spc"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-pummy-dhiman-trainer-2",
+   "name": "Dr. Pummy Dhiman / Trainer 2",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-nalr"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-rajan-kumar",
+   "name": "Dr. Rajan Kumar",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-mentoring",
+    "crs-spc"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-reetu-malhotra-as",
+   "name": "Dr. Reetu Malhotra (AS)",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-lac"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-savita-wadhwan",
+   "name": "Dr. Savita Wadhwan",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-intro-to-ai",
+    "crs-mentoring"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-shalli-rani-curin",
+   "name": "Dr. Shalli Rani (CURIN)",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-intro-to-ai"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-shilpi-singhal",
+   "name": "Dr. Shilpi Singhal",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-spc"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-shruti-arora",
+   "name": "Dr. Shruti Arora",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-iwt"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-swati-malik",
+   "name": "Dr. Swati Malik",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-iwt"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-taniya",
+   "name": "Dr. Taniya",
+   "maxPerDay": 4,
+   "maxPerWeek": 20,
+   "canTeach": [
+    "crs-spc"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-deepak",
+   "name": "Dr.Deepak",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-iwt"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-deepak-alahwat-ios-t1",
+   "name": "Dr.Deepak Alahwat / iOS-T1",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-ios-app-development-swift-i"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-karan-bajaj",
+   "name": "Dr.Karan Bajaj",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-dnn",
+    "crs-intro-to-ai"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-niharika",
+   "name": "Dr.Niharika",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-dbms-lab"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-ram",
+   "name": "Dr.Ram",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-java-lab"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-suhasini",
+   "name": "Dr.Suhasini",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-sd"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-suhasini-t-anuj",
+   "name": "Dr.Suhasini / T-Anuj",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-nalr"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-dr-vandana-saini",
+   "name": "Dr.Vandana Saini",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-pa-using-ai"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-hc",
+   "name": "HC",
+   "maxPerDay": 6,
+   "maxPerWeek": 23,
+   "canTeach": [
+    "crs-rudiments-of-ai"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-mr-pronoy-ranjan",
+   "name": "Mr. Pronoy Ranjan",
+   "maxPerDay": 6,
+   "maxPerWeek": 20,
+   "canTeach": [
+    "crs-sd"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-ms-meenu-bala",
+   "name": "Ms. Meenu Bala",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-spc"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-ms-neelam-kumari-ios-t1",
+   "name": "Ms. Neelam Kumari / iOS-T1",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-design-thinking-with-ios"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-ms-priyanka-as",
+   "name": "Ms. Priyanka(AS)",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-lac"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-ashish",
+   "name": "T- Ashish",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-aoc"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-ayush",
+   "name": "T- Ayush",
+   "maxPerDay": 4,
+   "maxPerWeek": 20,
+   "canTeach": [
+    "crs-java"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-chandrapal",
+   "name": "T- Chandrapal",
+   "maxPerDay": 6,
+   "maxPerWeek": 24,
+   "canTeach": [
+    "crs-fee"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-charanjit",
+   "name": "T- Charanjit",
+   "maxPerDay": 6,
+   "maxPerWeek": 24,
+   "canTeach": [
+    "crs-dbms"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-deepika",
+   "name": "T- Deepika",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-bee-eval",
+    "crs-pa"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-dhanajay",
+   "name": "T- Dhanajay",
+   "maxPerDay": 6,
+   "maxPerWeek": 24,
+   "canTeach": [
+    "crs-java"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-gaurav",
+   "name": "T- Gaurav",
+   "maxPerDay": 6,
+   "maxPerWeek": 24,
+   "canTeach": [
+    "crs-java"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-girish",
+   "name": "T- Girish",
+   "maxPerDay": 4,
+   "maxPerWeek": 20,
+   "canTeach": [
+    "crs-java"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-himanshu",
+   "name": "T- Himanshu",
+   "maxPerDay": 6,
+   "maxPerWeek": 26,
+   "canTeach": [
+    "crs-java",
+    "crs-pa"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-ms-ritika-chaudhary",
+   "name": "T- Ms.Ritika Chaudhary",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-bpc"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-mudrik",
+   "name": "T- Mudrik",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-dnn"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-neeraj",
+   "name": "T- Neeraj",
+   "maxPerDay": 6,
+   "maxPerWeek": 24,
+   "canTeach": [
+    "crs-sde"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-nithin-goyal",
+   "name": "T- Nithin Goyal",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-dbms"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-payal",
+   "name": "T- Payal",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-pa"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-rahul",
+   "name": "T- Rahul",
+   "maxPerDay": 6,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-sd"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-ravinder",
+   "name": "T- Ravinder",
+   "maxPerDay": 6,
+   "maxPerWeek": 24,
+   "canTeach": [
+    "crs-bee"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-ridum",
+   "name": "T- Ridum",
+   "maxPerDay": 6,
+   "maxPerWeek": 24,
+   "canTeach": [
+    "crs-pa"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-rohit-sharma",
+   "name": "T- Rohit Sharma",
+   "maxPerDay": 6,
+   "maxPerWeek": 30,
+   "canTeach": [
+    "crs-java"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-saqlain",
+   "name": "T- Saqlain",
+   "maxPerDay": 6,
+   "maxPerWeek": 20,
+   "canTeach": [
+    "crs-bee"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-sarthak-pathak",
+   "name": "T- Sarthak Pathak",
+   "maxPerDay": 6,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-sde"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-surender",
+   "name": "T- Surender",
+   "maxPerDay": 6,
+   "maxPerWeek": 20,
+   "canTeach": [
+    "crs-dnn"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-abid-ahmad",
+   "name": "T-Abid Ahmad",
+   "maxPerDay": 6,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-fee"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-amitabh-shrivastva",
+   "name": "T-Amitabh Shrivastva",
+   "maxPerDay": 6,
+   "maxPerWeek": 24,
+   "canTeach": [
+    "crs-fee"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-anuj",
+   "name": "T-Anuj",
+   "maxPerDay": 6,
+   "maxPerWeek": 21,
+   "canTeach": [
+    "crs-nalr"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-mahendra-nath",
+   "name": "T-Mahendra Nath",
+   "maxPerDay": 6,
+   "maxPerWeek": 30,
+   "canTeach": [
+    "crs-java"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-neel",
+   "name": "T-Neel",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-bpc"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-pankaj-kumar",
+   "name": "T-Pankaj Kumar",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-dbms"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-rajnish-sinha",
+   "name": "T-Rajnish Sinha",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-aoc",
+    "crs-aoc-ii"
+   ],
+   "department": "CSE-AI"
+  },
+  {
+   "id": "fac-t-venkata-pramod",
+   "name": "T-Venkata Pramod",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
+    "crs-sde"
+   ],
+   "department": "CSE-AI"
+  }
+ ],
+ "sections": [
+  {
+   "id": "cse-aiml-g1",
+   "name": "CSE-AIML G1",
+   "program": "CSE-AIML",
+   "semester": 1,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-g2",
+   "name": "CSE-AIML G2",
+   "program": "CSE-AIML",
+   "semester": 1,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-g3",
+   "name": "CSE-AIML G3",
+   "program": "CSE-AIML",
+   "semester": 1,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-g4",
+   "name": "CSE-AIML G4",
+   "program": "CSE-AIML",
+   "semester": 1,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-g5",
+   "name": "CSE-AIML G5",
+   "program": "CSE-AIML",
+   "semester": 1,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-g6",
+   "name": "CSE-AIML G6",
+   "program": "CSE-AIML",
+   "semester": 1,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-g7",
+   "name": "CSE-AIML G7",
+   "program": "CSE-AIML",
+   "semester": 1,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-g8",
+   "name": "CSE-AIML G8",
+   "program": "CSE-AIML",
+   "semester": 1,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-3g1",
+   "name": "CSE-AIML 3G1",
+   "program": "CSE-AIML",
+   "semester": 3,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-3g2",
+   "name": "CSE-AIML 3G2",
+   "program": "CSE-AIML",
+   "semester": 3,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-3g3",
+   "name": "CSE-AIML 3G3",
+   "program": "CSE-AIML",
+   "semester": 3,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-3g4",
+   "name": "CSE-AIML 3G4",
+   "program": "CSE-AIML",
+   "semester": 3,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-3g5",
+   "name": "CSE-AIML 3G5",
+   "program": "CSE-AIML",
+   "semester": 3,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-3g6",
+   "name": "CSE-AIML 3G6",
+   "program": "CSE-AIML",
+   "semester": 3,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-3g7",
+   "name": "CSE-AIML 3G7",
+   "program": "CSE-AIML",
+   "semester": 3,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-5-uca",
+   "name": "CSE-AIML 5-UCA",
+   "program": "CSE-AIML",
+   "semester": 5,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-5-ios",
+   "name": "CSE-AIML 5-iOS",
+   "program": "CSE-AIML",
+   "semester": 5,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-5g1",
+   "name": "CSE-AIML 5G1",
+   "program": "CSE-AIML",
+   "semester": 5,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-5g2",
+   "name": "CSE-AIML 5G2",
+   "program": "CSE-AIML",
+   "semester": 5,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-5g3",
+   "name": "CSE-AIML 5G3",
+   "program": "CSE-AIML",
+   "semester": 5,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-5g4",
+   "name": "CSE-AIML 5G4",
+   "program": "CSE-AIML",
+   "semester": 5,
+   "size": 60
+  },
+  {
+   "id": "cse-aiml-5g5",
+   "name": "CSE-AIML 5G5",
+   "program": "CSE-AIML",
+   "semester": 5,
+   "size": 60
+  },
+  {
+   "id": "cse-aift-1a",
+   "name": "CSE-AIFT 1A",
+   "program": "CSE-AIFT",
+   "semester": 1,
+   "size": 60
+  },
+  {
+   "id": "cse-aift-1b",
+   "name": "CSE-AIFT 1B",
+   "program": "CSE-AIFT",
+   "semester": 1,
+   "size": 60
+  },
+  {
+   "id": "cse-aift-3a",
+   "name": "CSE-AIFT 3A",
+   "program": "CSE-AIFT",
+   "semester": 3,
+   "size": 60
+  },
+  {
+   "id": "cse-aift-3b",
+   "name": "CSE-AIFT 3B",
+   "program": "CSE-AIFT",
+   "semester": 3,
+   "size": 60
+  },
+  {
+   "id": "cse-aift-3c",
+   "name": "CSE-AIFT 3C",
+   "program": "CSE-AIFT",
+   "semester": 3,
+   "size": 60
+  },
+  {
+   "id": "cse-aift-3d",
+   "name": "CSE-AIFT 3D",
+   "program": "CSE-AIFT",
+   "semester": 3,
+   "size": 60
+  },
+  {
+   "id": "cse-aift-5a",
+   "name": "CSE-AIFT 5A",
+   "program": "CSE-AIFT",
+   "semester": 5,
+   "size": 60
+  },
+  {
+   "id": "cse-aift-5b",
+   "name": "CSE-AIFT 5B",
+   "program": "CSE-AIFT",
+   "semester": 5,
+   "size": 60
+  },
+  {
+   "id": "cse-aift-5c",
+   "name": "CSE-AIFT 5C",
+   "program": "CSE-AIFT",
+   "semester": 5,
+   "size": 60
+  },
+  {
+   "id": "cse-aift-5d",
+   "name": "CSE-AIFT 5D",
+   "program": "CSE-AIFT",
+   "semester": 5,
+   "size": 60
+  }
+ ],
+ "courses": [
+  {
+   "id": "crs-aoc",
+   "code": "AOC",
+   "name": "AOC",
+   "type": "lecture",
+   "sessionsPerWeek": 1,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-aoc-ii",
+   "code": "AOC-II",
+   "name": "AOC-II",
+   "type": "lecture",
+   "sessionsPerWeek": 1,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-bee",
+   "code": "BEE",
+   "name": "BEE",
+   "type": "lecture",
+   "sessionsPerWeek": 2,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-bee-eval",
+   "code": "BEE EVAL",
+   "name": "BEE EVAL",
+   "type": "lecture",
+   "sessionsPerWeek": 1,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-bpc",
+   "code": "BPC",
+   "name": "BPC",
+   "type": "lecture",
+   "sessionsPerWeek": 1,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-dbms",
+   "code": "DBMS",
+   "name": "DBMS",
+   "type": "lecture",
+   "sessionsPerWeek": 2,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-dbms-lab",
+   "code": "DBMS Lab",
+   "name": "DBMS Lab",
+   "type": "lecture",
+   "sessionsPerWeek": 1,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-design-thinking-with-ios",
+   "code": "Design Thinking with iOS",
+   "name": "Design Thinking with iOS",
+   "type": "lab",
+   "sessionsPerWeek": 2,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-dnn",
+   "code": "DNN",
+   "name": "DNN",
+   "type": "lecture",
+   "sessionsPerWeek": 2,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-fee",
+   "code": "FEE",
+   "name": "FEE",
+   "type": "lecture",
+   "sessionsPerWeek": 3,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-intro-to-ai",
+   "code": "Intro to AI",
+   "name": "Intro to AI",
+   "type": "lecture",
+   "sessionsPerWeek": 1,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-ios-app-development-swift-i",
+   "code": "iOS App Development Swift-I",
+   "name": "iOS App Development Swift-I",
+   "type": "lab",
+   "sessionsPerWeek": 1,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-iwt",
+   "code": "IWT",
+   "name": "IWT",
+   "type": "lecture",
+   "sessionsPerWeek": 1,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-java",
+   "code": "Java",
+   "name": "Java",
+   "type": "lecture",
+   "sessionsPerWeek": 5,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-java-lab",
+   "code": "Java Lab",
+   "name": "Java Lab",
+   "type": "lecture",
+   "sessionsPerWeek": 1,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-lac",
+   "code": "LAC",
+   "name": "LAC",
+   "type": "lecture",
+   "sessionsPerWeek": 4,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-mentoring",
+   "code": "Mentoring",
+   "name": "Mentoring",
+   "type": "lecture",
+   "sessionsPerWeek": 1,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-nalr",
+   "code": "NALR",
+   "name": "NALR",
+   "type": "lecture",
+   "sessionsPerWeek": 1,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-pa",
+   "code": "PA",
+   "name": "PA",
+   "type": "lecture",
+   "sessionsPerWeek": 4,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-pa-using-ai",
+   "code": "PA using AI",
+   "name": "PA using AI",
+   "type": "lab",
+   "sessionsPerWeek": 4,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-rudiments-of-ai",
+   "code": "Rudiments of AI",
+   "name": "Rudiments of AI",
+   "type": "lecture",
+   "sessionsPerWeek": 4,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-sd",
+   "code": "SD",
+   "name": "SD",
+   "type": "lecture",
+   "sessionsPerWeek": 2,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-sde",
+   "code": "SDE",
+   "name": "SDE",
+   "type": "lecture",
+   "sessionsPerWeek": 2,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-sde-lab",
+   "code": "SDE Lab",
+   "name": "SDE Lab",
+   "type": "lecture",
+   "sessionsPerWeek": 1,
+   "department": "CSE-AI"
+  },
+  {
+   "id": "crs-spc",
+   "code": "SPC",
+   "name": "SPC",
+   "type": "lecture",
+   "sessionsPerWeek": 1,
+   "department": "CSE-AI"
+  }
+ ],
+ "offerings": [
+  {
+   "id": "off-001",
+   "courseId": "crs-aoc",
+   "facultyId": "fac-t-rajnish-sinha",
+   "sectionIds": [
+    "cse-aift-5a"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-002",
+   "courseId": "crs-aoc-ii",
+   "facultyId": "fac-t-rajnish-sinha",
+   "sectionIds": [
+    "cse-aiml-5g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-003",
+   "courseId": "crs-bee",
+   "facultyId": "fac-t-ravinder",
+   "sectionIds": [
+    "cse-aift-5a"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-004",
+   "courseId": "crs-bee",
+   "facultyId": "fac-t-ravinder",
+   "sectionIds": [
+    "cse-aift-5b"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-005",
+   "courseId": "crs-bee",
+   "facultyId": "fac-t-ravinder",
+   "sectionIds": [
+    "cse-aift-5c"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-006",
+   "courseId": "crs-bee",
+   "facultyId": "fac-t-ravinder",
+   "sectionIds": [
+    "cse-aift-5d"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-007",
+   "courseId": "crs-bee",
+   "facultyId": "fac-t-saqlain",
+   "sectionIds": [
+    "cse-aiml-5g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-008",
+   "courseId": "crs-bee",
+   "facultyId": "fac-t-saqlain",
+   "sectionIds": [
+    "cse-aiml-5g2"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-009",
+   "courseId": "crs-bee",
+   "facultyId": "fac-t-saqlain",
+   "sectionIds": [
+    "cse-aiml-5g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-010",
+   "courseId": "crs-bee",
+   "facultyId": "fac-t-saqlain",
+   "sectionIds": [
+    "cse-aiml-5g4"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-011",
+   "courseId": "crs-bee",
+   "facultyId": "fac-t-saqlain",
+   "sectionIds": [
+    "cse-aiml-5g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-012",
+   "courseId": "crs-bee-eval",
+   "facultyId": "fac-t-deepika",
+   "sectionIds": [
+    "cse-aiml-5g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-013",
+   "courseId": "crs-bee-eval",
+   "facultyId": "fac-t-deepika",
+   "sectionIds": [
+    "cse-aiml-5g2"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-014",
+   "courseId": "crs-bee-eval",
+   "facultyId": "fac-t-deepika",
+   "sectionIds": [
+    "cse-aiml-5g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-015",
+   "courseId": "crs-bee-eval",
+   "facultyId": "fac-t-deepika",
+   "sectionIds": [
+    "cse-aiml-5g4"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-016",
+   "courseId": "crs-bee-eval",
+   "facultyId": "fac-t-deepika",
+   "sectionIds": [
+    "cse-aiml-5g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-017",
+   "courseId": "crs-bpc",
+   "facultyId": "fac-t-ms-ritika-chaudhary",
+   "sectionIds": [
+    "cse-aift-5c"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-018",
+   "courseId": "crs-dbms",
+   "facultyId": "fac-t-charanjit",
+   "sectionIds": [
+    "cse-aift-3a"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-019",
+   "courseId": "crs-dbms",
+   "facultyId": "fac-t-charanjit",
+   "sectionIds": [
+    "cse-aift-3b"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-020",
+   "courseId": "crs-dbms",
+   "facultyId": "fac-t-charanjit",
+   "sectionIds": [
+    "cse-aift-3c"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-021",
+   "courseId": "crs-dbms",
+   "facultyId": "fac-t-charanjit",
+   "sectionIds": [
+    "cse-aift-3d"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-022",
+   "courseId": "crs-dbms",
+   "facultyId": "fac-t-pankaj-kumar",
+   "sectionIds": [
+    "cse-aiml-3g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-023",
+   "courseId": "crs-dbms",
+   "facultyId": "fac-t-pankaj-kumar",
+   "sectionIds": [
+    "cse-aiml-3g2"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-024",
+   "courseId": "crs-dbms",
+   "facultyId": "fac-t-pankaj-kumar",
+   "sectionIds": [
+    "cse-aiml-3g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-025",
+   "courseId": "crs-dbms",
+   "facultyId": "fac-t-pankaj-kumar",
+   "sectionIds": [
+    "cse-aiml-3g4"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-026",
+   "courseId": "crs-dbms",
+   "facultyId": "fac-t-nithin-goyal",
+   "sectionIds": [
+    "cse-aiml-3g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-027",
+   "courseId": "crs-dbms",
+   "facultyId": "fac-t-nithin-goyal",
+   "sectionIds": [
+    "cse-aiml-3g6"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-028",
+   "courseId": "crs-dbms",
+   "facultyId": "fac-t-nithin-goyal",
+   "sectionIds": [
+    "cse-aiml-3g7"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-029",
+   "courseId": "crs-dbms-lab",
+   "facultyId": "fac-dr-niharika",
+   "sectionIds": [
+    "cse-aiml-3g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-030",
+   "courseId": "crs-dbms-lab",
+   "facultyId": "fac-dr-niharika",
+   "sectionIds": [
+    "cse-aiml-3g2"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-031",
+   "courseId": "crs-dbms-lab",
+   "facultyId": "fac-dr-niharika",
+   "sectionIds": [
+    "cse-aiml-3g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-032",
+   "courseId": "crs-dbms-lab",
+   "facultyId": "fac-dr-niharika",
+   "sectionIds": [
+    "cse-aiml-3g4"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-033",
+   "courseId": "crs-dbms-lab",
+   "facultyId": "fac-dr-niharika",
+   "sectionIds": [
+    "cse-aiml-3g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-034",
+   "courseId": "crs-dbms-lab",
+   "facultyId": "fac-dr-niharika",
+   "sectionIds": [
+    "cse-aiml-3g6"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-035",
+   "courseId": "crs-dbms-lab",
+   "facultyId": "fac-dr-niharika",
+   "sectionIds": [
+    "cse-aiml-3g7"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-036",
+   "courseId": "crs-dnn",
+   "facultyId": "fac-t-mudrik",
+   "sectionIds": [
+    "cse-aift-5a"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-037",
+   "courseId": "crs-dnn",
+   "facultyId": "fac-t-mudrik",
+   "sectionIds": [
+    "cse-aift-5b"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-038",
+   "courseId": "crs-dnn",
+   "facultyId": "fac-t-mudrik",
+   "sectionIds": [
+    "cse-aift-5c"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-039",
+   "courseId": "crs-dnn",
+   "facultyId": "fac-t-mudrik",
+   "sectionIds": [
+    "cse-aift-5d"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-040",
+   "courseId": "crs-dnn",
+   "facultyId": "fac-dr-karan-bajaj",
+   "sectionIds": [
+    "cse-aiml-5-ios"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-041",
+   "courseId": "crs-dnn",
+   "facultyId": "fac-dr-karan-bajaj",
+   "sectionIds": [
+    "cse-aiml-5-uca"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-042",
+   "courseId": "crs-dnn",
+   "facultyId": "fac-t-surender",
+   "sectionIds": [
+    "cse-aiml-5g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-043",
+   "courseId": "crs-dnn",
+   "facultyId": "fac-t-surender",
+   "sectionIds": [
+    "cse-aiml-5g2"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-044",
+   "courseId": "crs-dnn",
+   "facultyId": "fac-t-surender",
+   "sectionIds": [
+    "cse-aiml-5g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-045",
+   "courseId": "crs-dnn",
+   "facultyId": "fac-t-surender",
+   "sectionIds": [
+    "cse-aiml-5g4"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-046",
+   "courseId": "crs-dnn",
+   "facultyId": "fac-t-surender",
+   "sectionIds": [
+    "cse-aiml-5g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-047",
+   "courseId": "crs-design-thinking-with-ios",
+   "facultyId": "fac-ms-neelam-kumari-ios-t1",
+   "sectionIds": [
+    "cse-aiml-5-ios"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-048",
+   "courseId": "crs-fee",
+   "facultyId": "fac-t-chandrapal",
+   "sectionIds": [
+    "cse-aift-3a"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-049",
+   "courseId": "crs-fee",
+   "facultyId": "fac-t-chandrapal",
+   "sectionIds": [
+    "cse-aift-3b"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-050",
+   "courseId": "crs-fee",
+   "facultyId": "fac-t-chandrapal",
+   "sectionIds": [
+    "cse-aift-3c"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-051",
+   "courseId": "crs-fee",
+   "facultyId": "fac-t-chandrapal",
+   "sectionIds": [
+    "cse-aift-3d"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-052",
+   "courseId": "crs-fee",
+   "facultyId": "fac-t-amitabh-shrivastva",
+   "sectionIds": [
+    "cse-aiml-3g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-053",
+   "courseId": "crs-fee",
+   "facultyId": "fac-t-amitabh-shrivastva",
+   "sectionIds": [
+    "cse-aiml-3g2"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-054",
+   "courseId": "crs-fee",
+   "facultyId": "fac-t-amitabh-shrivastva",
+   "sectionIds": [
+    "cse-aiml-3g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-055",
+   "courseId": "crs-fee",
+   "facultyId": "fac-t-amitabh-shrivastva",
+   "sectionIds": [
+    "cse-aiml-3g4"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-056",
+   "courseId": "crs-fee",
+   "facultyId": "fac-t-abid-ahmad",
+   "sectionIds": [
+    "cse-aiml-3g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-057",
+   "courseId": "crs-fee",
+   "facultyId": "fac-t-abid-ahmad",
+   "sectionIds": [
+    "cse-aiml-3g6"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-058",
+   "courseId": "crs-fee",
+   "facultyId": "fac-t-abid-ahmad",
+   "sectionIds": [
+    "cse-aiml-3g7"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-059",
+   "courseId": "crs-iwt",
+   "facultyId": "fac-dr-monika-sethi",
+   "sectionIds": [
+    "cse-aift-1a"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 4
+  },
+  {
+   "id": "off-060",
+   "courseId": "crs-iwt",
+   "facultyId": "fac-dr-monika-sethi",
+   "sectionIds": [
+    "cse-aift-1b"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 4
+  },
+  {
+   "id": "off-061",
+   "courseId": "crs-iwt",
+   "facultyId": "fac-dr-deepak",
+   "sectionIds": [
+    "cse-aiml-g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-062",
+   "courseId": "crs-iwt",
+   "facultyId": "fac-dr-swati-malik",
+   "sectionIds": [
+    "cse-aiml-g2"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-063",
+   "courseId": "crs-iwt",
+   "facultyId": "fac-dr-shruti-arora",
+   "sectionIds": [
+    "cse-aiml-g3"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-064",
+   "courseId": "crs-iwt",
+   "facultyId": "fac-dr-shruti-arora",
+   "sectionIds": [
+    "cse-aiml-g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-065",
+   "courseId": "crs-iwt",
+   "facultyId": "fac-dr-swati-malik",
+   "sectionIds": [
+    "cse-aiml-g5"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-066",
+   "courseId": "crs-iwt",
+   "facultyId": "fac-dr-swati-malik",
+   "sectionIds": [
+    "cse-aiml-g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-067",
+   "courseId": "crs-iwt",
+   "facultyId": "fac-dr-shruti-arora",
+   "sectionIds": [
+    "cse-aiml-g6"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-068",
+   "courseId": "crs-iwt",
+   "facultyId": "fac-dr-aarchit-joshi",
+   "sectionIds": [
+    "cse-aiml-g7"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 4
+  },
+  {
+   "id": "off-069",
+   "courseId": "crs-iwt",
+   "facultyId": "fac-dr-aarchit-joshi",
+   "sectionIds": [
+    "cse-aiml-g8"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-070",
+   "courseId": "crs-iwt",
+   "facultyId": "fac-dr-deepak",
+   "sectionIds": [
+    "cse-aiml-g8"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-071",
+   "courseId": "crs-intro-to-ai",
+   "facultyId": "fac-dr-savita-wadhwan",
+   "sectionIds": [
+    "cse-aift-1a"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-072",
+   "courseId": "crs-intro-to-ai",
+   "facultyId": "fac-dr-savita-wadhwan",
+   "sectionIds": [
+    "cse-aift-1b"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-073",
+   "courseId": "crs-intro-to-ai",
+   "facultyId": "fac-dr-harshvardhan",
+   "sectionIds": [
+    "cse-aiml-g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-074",
+   "courseId": "crs-intro-to-ai",
+   "facultyId": "fac-dr-amandeep",
+   "sectionIds": [
+    "cse-aiml-g2"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-075",
+   "courseId": "crs-intro-to-ai",
+   "facultyId": "fac-dr-meena-rani",
+   "sectionIds": [
+    "cse-aiml-g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-076",
+   "courseId": "crs-intro-to-ai",
+   "facultyId": "fac-dr-shalli-rani-curin",
+   "sectionIds": [
+    "cse-aiml-g4"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-077",
+   "courseId": "crs-intro-to-ai",
+   "facultyId": "fac-dr-karan-bajaj",
+   "sectionIds": [
+    "cse-aiml-g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-078",
+   "courseId": "crs-intro-to-ai",
+   "facultyId": "fac-dr-harshvardhan",
+   "sectionIds": [
+    "cse-aiml-g6"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-079",
+   "courseId": "crs-intro-to-ai",
+   "facultyId": "fac-dr-harshvardhan",
+   "sectionIds": [
+    "cse-aiml-g6"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-080",
+   "courseId": "crs-intro-to-ai",
+   "facultyId": "fac-dr-amandeep",
+   "sectionIds": [
+    "cse-aiml-g7"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-081",
+   "courseId": "crs-intro-to-ai",
+   "facultyId": "fac-dr-meena-rani",
+   "sectionIds": [
+    "cse-aiml-g7"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-082",
+   "courseId": "crs-intro-to-ai",
+   "facultyId": "fac-dr-meena-rani",
+   "sectionIds": [
+    "cse-aiml-g8"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 4
+  },
+  {
+   "id": "off-083",
+   "courseId": "crs-java",
+   "facultyId": "fac-t-gaurav",
+   "sectionIds": [
+    "cse-aift-3a"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 4
+  },
+  {
+   "id": "off-084",
+   "courseId": "crs-java",
+   "facultyId": "fac-t-gaurav",
+   "sectionIds": [
+    "cse-aift-3b"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 4
+  },
+  {
+   "id": "off-085",
+   "courseId": "crs-java",
+   "facultyId": "fac-t-dhanajay",
+   "sectionIds": [
+    "cse-aift-3c"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 4
+  },
+  {
+   "id": "off-086",
+   "courseId": "crs-java",
+   "facultyId": "fac-t-dhanajay",
+   "sectionIds": [
+    "cse-aift-3d"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 4
+  },
+  {
+   "id": "off-087",
+   "courseId": "crs-java",
+   "facultyId": "fac-t-ayush",
+   "sectionIds": [
+    "cse-aift-5a"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 5
+  },
+  {
+   "id": "off-088",
+   "courseId": "crs-java",
+   "facultyId": "fac-t-ayush",
+   "sectionIds": [
+    "cse-aift-5b"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 5
+  },
+  {
+   "id": "off-089",
+   "courseId": "crs-java",
+   "facultyId": "fac-t-girish",
+   "sectionIds": [
+    "cse-aift-5c"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 5
+  },
+  {
+   "id": "off-090",
+   "courseId": "crs-java",
+   "facultyId": "fac-t-girish",
+   "sectionIds": [
+    "cse-aift-5d"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 5
+  },
+  {
+   "id": "off-091",
+   "courseId": "crs-java",
+   "facultyId": "fac-t-rohit-sharma",
+   "sectionIds": [
+    "cse-aiml-3g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 5
+  },
+  {
+   "id": "off-092",
+   "courseId": "crs-java",
+   "facultyId": "fac-t-rohit-sharma",
+   "sectionIds": [
+    "cse-aiml-3g2"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 5
+  },
+  {
+   "id": "off-093",
+   "courseId": "crs-java",
+   "facultyId": "fac-t-rohit-sharma",
+   "sectionIds": [
+    "cse-aiml-3g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 5
+  },
+  {
+   "id": "off-094",
+   "courseId": "crs-java",
+   "facultyId": "fac-t-himanshu",
+   "sectionIds": [
+    "cse-aiml-3g4"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 5
+  },
+  {
+   "id": "off-095",
+   "courseId": "crs-java",
+   "facultyId": "fac-t-mahendra-nath",
+   "sectionIds": [
+    "cse-aiml-3g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 5
+  },
+  {
+   "id": "off-096",
+   "courseId": "crs-java",
+   "facultyId": "fac-t-mahendra-nath",
+   "sectionIds": [
+    "cse-aiml-3g6"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 5
+  },
+  {
+   "id": "off-097",
+   "courseId": "crs-java",
+   "facultyId": "fac-t-mahendra-nath",
+   "sectionIds": [
+    "cse-aiml-3g7"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 5
+  },
+  {
+   "id": "off-098",
+   "courseId": "crs-java-lab",
+   "facultyId": "fac-dr-ram",
+   "sectionIds": [
+    "cse-aiml-3g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-099",
+   "courseId": "crs-java-lab",
+   "facultyId": "fac-dr-ram",
+   "sectionIds": [
+    "cse-aiml-3g2"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-100",
+   "courseId": "crs-java-lab",
+   "facultyId": "fac-dr-ram",
+   "sectionIds": [
+    "cse-aiml-3g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-101",
+   "courseId": "crs-java-lab",
+   "facultyId": "fac-dr-ram",
+   "sectionIds": [
+    "cse-aiml-3g4"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-102",
+   "courseId": "crs-java-lab",
+   "facultyId": "fac-dr-ram",
+   "sectionIds": [
+    "cse-aiml-3g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-103",
+   "courseId": "crs-java-lab",
+   "facultyId": "fac-dr-ram",
+   "sectionIds": [
+    "cse-aiml-3g6"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-104",
+   "courseId": "crs-java-lab",
+   "facultyId": "fac-dr-ram",
+   "sectionIds": [
+    "cse-aiml-3g7"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-105",
+   "courseId": "crs-lac",
+   "facultyId": "fac-dr-reetu-malhotra-as",
+   "sectionIds": [
+    "cse-aift-1a"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 4,
+   "maxSessionsPerDay": 2
+  },
+  {
+   "id": "off-106",
+   "courseId": "crs-lac",
+   "facultyId": "fac-dr-reetu-malhotra-as",
+   "sectionIds": [
+    "cse-aift-1b"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 4,
+   "maxSessionsPerDay": 2
+  },
+  {
+   "id": "off-107",
+   "courseId": "crs-lac",
+   "facultyId": "fac-dr-nikita-as",
+   "sectionIds": [
+    "cse-aiml-g2"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 2,
+   "maxSessionsPerDay": 2
+  },
+  {
+   "id": "off-108",
+   "courseId": "crs-lac",
+   "facultyId": "fac-dr-reetu-malhotra-as",
+   "sectionIds": [
+    "cse-aiml-g4"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-109",
+   "courseId": "crs-lac",
+   "facultyId": "fac-dr-nikita-as",
+   "sectionIds": [
+    "cse-aiml-g7"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 4,
+   "maxSessionsPerDay": 2
+  },
+  {
+   "id": "off-110",
+   "courseId": "crs-lac",
+   "facultyId": "fac-ms-priyanka-as",
+   "sectionIds": [
+    "cse-aiml-g8"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 4,
+   "maxSessionsPerDay": 2
+  },
+  {
+   "id": "off-111",
+   "courseId": "crs-mentoring",
+   "facultyId": "fac-dr-savita-wadhwan",
+   "sectionIds": [
+    "cse-aift-1a"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-112",
+   "courseId": "crs-mentoring",
+   "facultyId": "fac-dr-savita-wadhwan",
+   "sectionIds": [
+    "cse-aift-1b"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-113",
+   "courseId": "crs-mentoring",
+   "facultyId": "fac-dr-rajan-kumar",
+   "sectionIds": [
+    "cse-aiml-g4"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-114",
+   "courseId": "crs-mentoring",
+   "facultyId": "fac-dr-aarchit-joshi",
+   "sectionIds": [
+    "cse-aiml-g7"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-115",
+   "courseId": "crs-mentoring",
+   "facultyId": "fac-dr-aarchit-joshi",
+   "sectionIds": [
+    "cse-aiml-g8"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-116",
+   "courseId": "crs-nalr",
+   "facultyId": "fac-t-anuj",
+   "sectionIds": [
+    "cse-aift-5a",
+    "cse-aiml-5g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-117",
+   "courseId": "crs-nalr",
+   "facultyId": "fac-t-anuj",
+   "sectionIds": [
+    "cse-aift-5b"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-118",
+   "courseId": "crs-nalr",
+   "facultyId": "fac-t-anuj",
+   "sectionIds": [
+    "cse-aift-5c"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-119",
+   "courseId": "crs-nalr",
+   "facultyId": "fac-t-anuj",
+   "sectionIds": [
+    "cse-aift-5d"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-120",
+   "courseId": "crs-nalr",
+   "facultyId": "fac-dr-pummy-dhiman-trainer-2",
+   "sectionIds": [
+    "cse-aiml-5-ios"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-121",
+   "courseId": "crs-nalr",
+   "facultyId": "fac-dr-suhasini-t-anuj",
+   "sectionIds": [
+    "cse-aiml-5-uca"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-122",
+   "courseId": "crs-nalr",
+   "facultyId": "fac-t-anuj",
+   "sectionIds": [
+    "cse-aiml-5g1"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-123",
+   "courseId": "crs-nalr",
+   "facultyId": "fac-t-anuj",
+   "sectionIds": [
+    "cse-aiml-5g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-124",
+   "courseId": "crs-nalr",
+   "facultyId": "fac-t-anuj",
+   "sectionIds": [
+    "cse-aiml-5g2"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-125",
+   "courseId": "crs-nalr",
+   "facultyId": "fac-t-anuj",
+   "sectionIds": [
+    "cse-aiml-5g2"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-126",
+   "courseId": "crs-nalr",
+   "facultyId": "fac-t-anuj",
+   "sectionIds": [
+    "cse-aiml-5g3"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-127",
+   "courseId": "crs-nalr",
+   "facultyId": "fac-t-anuj",
+   "sectionIds": [
+    "cse-aiml-5g4"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-128",
+   "courseId": "crs-nalr",
+   "facultyId": "fac-t-anuj",
+   "sectionIds": [
+    "cse-aiml-5g4"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-129",
+   "courseId": "crs-nalr",
+   "facultyId": "fac-t-anuj",
+   "sectionIds": [
+    "cse-aiml-5g5"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-130",
+   "courseId": "crs-nalr",
+   "facultyId": "fac-t-anuj",
+   "sectionIds": [
+    "cse-aiml-5g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-131",
+   "courseId": "crs-pa",
+   "facultyId": "fac-t-himanshu",
+   "sectionIds": [
+    "cse-aiml-5g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 4
+  },
+  {
+   "id": "off-132",
+   "courseId": "crs-pa",
+   "facultyId": "fac-t-payal",
+   "sectionIds": [
+    "cse-aiml-5g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-133",
+   "courseId": "crs-pa",
+   "facultyId": "fac-t-deepika",
+   "sectionIds": [
+    "cse-aiml-5g2"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-134",
+   "courseId": "crs-pa",
+   "facultyId": "fac-t-himanshu",
+   "sectionIds": [
+    "cse-aiml-5g2"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 4
+  },
+  {
+   "id": "off-135",
+   "courseId": "crs-pa",
+   "facultyId": "fac-t-payal",
+   "sectionIds": [
+    "cse-aiml-5g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-136",
+   "courseId": "crs-pa",
+   "facultyId": "fac-t-ridum",
+   "sectionIds": [
+    "cse-aiml-5g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 4
+  },
+  {
+   "id": "off-137",
+   "courseId": "crs-pa",
+   "facultyId": "fac-t-deepika",
+   "sectionIds": [
+    "cse-aiml-5g4"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-138",
+   "courseId": "crs-pa",
+   "facultyId": "fac-t-ridum",
+   "sectionIds": [
+    "cse-aiml-5g4"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 4
+  },
+  {
+   "id": "off-139",
+   "courseId": "crs-pa",
+   "facultyId": "fac-t-payal",
+   "sectionIds": [
+    "cse-aiml-5g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-140",
+   "courseId": "crs-pa",
+   "facultyId": "fac-t-ridum",
+   "sectionIds": [
+    "cse-aiml-5g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 4
+  },
+  {
+   "id": "off-141",
+   "courseId": "crs-pa-using-ai",
+   "facultyId": "fac-dr-vandana-saini",
+   "sectionIds": [
+    "cse-aiml-5-ios"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 4
+  },
+  {
+   "id": "off-142",
+   "courseId": "crs-rudiments-of-ai",
+   "facultyId": "fac-hc",
+   "sectionIds": [
+    "cse-aiml-g1",
+    "cse-aiml-g2",
+    "cse-aiml-g3",
+    "cse-aiml-g4",
+    "cse-aiml-g5",
+    "cse-aiml-g6"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 4
+  },
+  {
+   "id": "off-143",
+   "courseId": "crs-rudiments-of-ai",
+   "facultyId": "fac-hc",
+   "sectionIds": [
+    "cse-aiml-g1",
+    "cse-aiml-g2",
+    "cse-aiml-g3",
+    "cse-aiml-g4",
+    "cse-aiml-g5",
+    "cse-aiml-g6"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-144",
+   "courseId": "crs-rudiments-of-ai",
+   "facultyId": "fac-hc",
+   "sectionIds": [
+    "cse-aiml-g1",
+    "cse-aiml-g2",
+    "cse-aiml-g3",
+    "cse-aiml-g4",
+    "cse-aiml-g5",
+    "cse-aiml-g6"
+   ],
+   "duration": 4,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-145",
+   "courseId": "crs-sd",
+   "facultyId": "fac-t-rahul",
+   "sectionIds": [
+    "cse-aift-5a"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-146",
+   "courseId": "crs-sd",
+   "facultyId": "fac-t-rahul",
+   "sectionIds": [
+    "cse-aift-5b"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-147",
+   "courseId": "crs-sd",
+   "facultyId": "fac-t-rahul",
+   "sectionIds": [
+    "cse-aift-5c"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-148",
+   "courseId": "crs-sd",
+   "facultyId": "fac-t-rahul",
+   "sectionIds": [
+    "cse-aift-5d"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-149",
+   "courseId": "crs-sd",
+   "facultyId": "fac-dr-suhasini",
+   "sectionIds": [
+    "cse-aiml-5-uca"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-150",
+   "courseId": "crs-sd",
+   "facultyId": "fac-mr-pronoy-ranjan",
+   "sectionIds": [
+    "cse-aiml-5g1"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-151",
+   "courseId": "crs-sd",
+   "facultyId": "fac-mr-pronoy-ranjan",
+   "sectionIds": [
+    "cse-aiml-5g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-152",
+   "courseId": "crs-sd",
+   "facultyId": "fac-mr-pronoy-ranjan",
+   "sectionIds": [
+    "cse-aiml-5g2"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-153",
+   "courseId": "crs-sd",
+   "facultyId": "fac-mr-pronoy-ranjan",
+   "sectionIds": [
+    "cse-aiml-5g3"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 2,
+   "maxSessionsPerDay": 2
+  },
+  {
+   "id": "off-154",
+   "courseId": "crs-sd",
+   "facultyId": "fac-mr-pronoy-ranjan",
+   "sectionIds": [
+    "cse-aiml-5g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-155",
+   "courseId": "crs-sd",
+   "facultyId": "fac-mr-pronoy-ranjan",
+   "sectionIds": [
+    "cse-aiml-5g4"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-156",
+   "courseId": "crs-sd",
+   "facultyId": "fac-mr-pronoy-ranjan",
+   "sectionIds": [
+    "cse-aiml-5g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-157",
+   "courseId": "crs-sde",
+   "facultyId": "fac-t-neeraj",
+   "sectionIds": [
+    "cse-aift-3a"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-158",
+   "courseId": "crs-sde",
+   "facultyId": "fac-t-neeraj",
+   "sectionIds": [
+    "cse-aift-3b"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-159",
+   "courseId": "crs-sde",
+   "facultyId": "fac-t-neeraj",
+   "sectionIds": [
+    "cse-aift-3c"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-160",
+   "courseId": "crs-sde",
+   "facultyId": "fac-t-neeraj",
+   "sectionIds": [
+    "cse-aift-3d"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-161",
+   "courseId": "crs-sde",
+   "facultyId": "fac-t-venkata-pramod",
+   "sectionIds": [
+    "cse-aiml-3g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-162",
+   "courseId": "crs-sde",
+   "facultyId": "fac-t-venkata-pramod",
+   "sectionIds": [
+    "cse-aiml-3g2"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-163",
+   "courseId": "crs-sde",
+   "facultyId": "fac-t-venkata-pramod",
+   "sectionIds": [
+    "cse-aiml-3g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-164",
+   "courseId": "crs-sde",
+   "facultyId": "fac-t-venkata-pramod",
+   "sectionIds": [
+    "cse-aiml-3g4"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-165",
+   "courseId": "crs-sde",
+   "facultyId": "fac-t-sarthak-pathak",
+   "sectionIds": [
+    "cse-aiml-3g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-166",
+   "courseId": "crs-sde",
+   "facultyId": "fac-t-sarthak-pathak",
+   "sectionIds": [
+    "cse-aiml-3g6"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-167",
+   "courseId": "crs-sde",
+   "facultyId": "fac-t-sarthak-pathak",
+   "sectionIds": [
+    "cse-aiml-3g7"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 2
+  },
+  {
+   "id": "off-168",
+   "courseId": "crs-sde-lab",
+   "facultyId": "fac-dr-harjeet-singh",
+   "sectionIds": [
+    "cse-aiml-3g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-169",
+   "courseId": "crs-sde-lab",
+   "facultyId": "fac-dr-harjeet-singh",
+   "sectionIds": [
+    "cse-aiml-3g2"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-170",
+   "courseId": "crs-sde-lab",
+   "facultyId": "fac-dr-harjeet-singh",
+   "sectionIds": [
+    "cse-aiml-3g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-171",
+   "courseId": "crs-sde-lab",
+   "facultyId": "fac-dr-harjeet-singh",
+   "sectionIds": [
+    "cse-aiml-3g4"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-172",
+   "courseId": "crs-sde-lab",
+   "facultyId": "fac-dr-harjeet-singh",
+   "sectionIds": [
+    "cse-aiml-3g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-173",
+   "courseId": "crs-sde-lab",
+   "facultyId": "fac-dr-harjeet-singh",
+   "sectionIds": [
+    "cse-aiml-3g6"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-174",
+   "courseId": "crs-sde-lab",
+   "facultyId": "fac-dr-harjeet-singh",
+   "sectionIds": [
+    "cse-aiml-3g7"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-175",
+   "courseId": "crs-spc",
+   "facultyId": "fac-dr-taniya",
+   "sectionIds": [
+    "cse-aift-1a"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 5
+  },
+  {
+   "id": "off-176",
+   "courseId": "crs-spc",
+   "facultyId": "fac-dr-taniya",
+   "sectionIds": [
+    "cse-aift-1b"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 5
+  },
+  {
+   "id": "off-177",
+   "courseId": "crs-spc",
+   "facultyId": "fac-dr-palak-goyal",
+   "sectionIds": [
+    "cse-aiml-g1"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-178",
+   "courseId": "crs-spc",
+   "facultyId": "fac-dr-palak-goyal",
+   "sectionIds": [
+    "cse-aiml-g1"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-179",
+   "courseId": "crs-spc",
+   "facultyId": "fac-dr-shilpi-singhal",
+   "sectionIds": [
+    "cse-aiml-g2"
+   ],
+   "duration": 1,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-180",
+   "courseId": "crs-spc",
+   "facultyId": "fac-ms-meenu-bala",
+   "sectionIds": [
+    "cse-aiml-g3"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-181",
+   "courseId": "crs-spc",
+   "facultyId": "fac-dr-rajan-kumar",
+   "sectionIds": [
+    "cse-aiml-g4"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-182",
+   "courseId": "crs-spc",
+   "facultyId": "fac-dr-palak-goyal",
+   "sectionIds": [
+    "cse-aiml-g5"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-183",
+   "courseId": "crs-spc",
+   "facultyId": "fac-dr-shilpi-singhal",
+   "sectionIds": [
+    "cse-aiml-g6"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-184",
+   "courseId": "crs-spc",
+   "facultyId": "fac-dr-pummy-dhiman",
+   "sectionIds": [
+    "cse-aiml-g7"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 4
+  },
+  {
+   "id": "off-185",
+   "courseId": "crs-spc",
+   "facultyId": "fac-dr-rajan-kumar",
+   "sectionIds": [
+    "cse-aiml-g8"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 3
+  },
+  {
+   "id": "off-186",
+   "courseId": "crs-spc",
+   "facultyId": "fac-ms-meenu-bala",
+   "sectionIds": [
+    "cse-aiml-g8"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-187",
+   "courseId": "crs-ios-app-development-swift-i",
+   "facultyId": "fac-dr-deepak-alahwat-ios-t1",
+   "sectionIds": [
+    "cse-aiml-5-ios"
+   ],
+   "duration": 2,
+   "sessionsPerWeek": 1
+  },
+  {
+   "id": "off-188",
+   "courseId": "crs-ios-app-development-swift-i",
+   "facultyId": "fac-dr-deepak-alahwat-ios-t1",
+   "sectionIds": [
+    "cse-aiml-5-ios"
+   ],
+   "duration": 3,
+   "sessionsPerWeek": 2
+  }
+ ],
+ "baskets": [
+  {
+   "id": "bkt-01",
+   "name": "AOC / BPC (CSE-AIFT 5B, CSE-AIFT 5D)",
+   "sectionIds": [
+    "cse-aift-5b",
+    "cse-aift-5d"
+   ],
+   "sessionsPerWeek": 3,
+   "duration": 2,
+   "options": [
+    {
+     "offeringId": "opt-01-1",
+     "courseId": "crs-aoc",
+     "facultyId": "fac-t-rajnish-sinha",
+     "size": 60
+    },
+    {
+     "offeringId": "opt-01-2",
+     "courseId": "crs-bpc",
+     "facultyId": "fac-t-ms-ritika-chaudhary",
+     "size": 60
+    }
+   ]
+  },
+  {
+   "id": "bkt-02",
+   "name": "AOC / BPC (CSE-AIML 5-iOS)",
+   "sectionIds": [
+    "cse-aiml-5-ios"
+   ],
+   "sessionsPerWeek": 3,
+   "duration": 2,
+   "options": [
+    {
+     "offeringId": "opt-02-1",
+     "courseId": "crs-aoc",
+     "facultyId": "fac-t-ashish",
+     "size": 30
+    },
+    {
+     "offeringId": "opt-02-2",
+     "courseId": "crs-bpc",
+     "facultyId": "fac-t-neel",
+     "size": 30
+    }
+   ]
+  },
+  {
+   "id": "bkt-03",
+   "name": "AOC / BPC (CSE-AIML 5G2, CSE-AIML 5G4)",
+   "sectionIds": [
+    "cse-aiml-5g2",
+    "cse-aiml-5g4"
+   ],
+   "sessionsPerWeek": 1,
+   "duration": 2,
+   "options": [
+    {
+     "offeringId": "opt-03-1",
+     "courseId": "crs-aoc",
+     "facultyId": "fac-t-rajnish-sinha",
+     "size": 60
+    },
+    {
+     "offeringId": "opt-03-2",
+     "courseId": "crs-bpc",
+     "facultyId": "fac-t-ms-ritika-chaudhary",
+     "size": 60
+    }
+   ]
+  },
+  {
+   "id": "bkt-04",
+   "name": "AOC / BPC (CSE-AIML 5G3, CSE-AIML 5G5)",
+   "sectionIds": [
+    "cse-aiml-5g3",
+    "cse-aiml-5g5"
+   ],
+   "sessionsPerWeek": 1,
+   "duration": 2,
+   "options": [
+    {
+     "offeringId": "opt-04-1",
+     "courseId": "crs-aoc",
+     "facultyId": "fac-t-rajnish-sinha",
+     "size": 60
+    },
+    {
+     "offeringId": "opt-04-2",
+     "courseId": "crs-bpc",
+     "facultyId": "fac-t-ms-ritika-chaudhary",
+     "size": 60
+    }
+   ]
+  }
+ ],
+ "constraints": [
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g1",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g1",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g1",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g1",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g1",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g2",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g2",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g2",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g2",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g2",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g3",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g3",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g3",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g3",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g3",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g4",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g4",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g4",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g4",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g4",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g5",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g5",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g5",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g5",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g5",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g6",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g6",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g6",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g6",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g6",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g7",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g7",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g7",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g7",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g7",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g8",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g8",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g8",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g8",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-g8",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g1",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g1",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g1",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g1",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g1",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g2",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g2",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g2",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g2",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g2",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g3",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g3",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g3",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g3",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g3",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g4",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g4",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g4",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g4",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g4",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g5",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g5",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g5",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g5",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g5",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g6",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g6",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g6",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g6",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g6",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g7",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g7",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g7",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g7",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-3g7",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5-uca",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5-uca",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5-uca",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5-uca",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5-uca",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5-ios",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5-ios",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5-ios",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5-ios",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5-ios",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g1",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g1",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g1",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g1",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g1",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g2",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g2",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g2",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g2",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g2",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g3",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g3",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g3",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g3",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g3",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g4",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g4",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g4",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g4",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g4",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g5",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g5",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g5",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g5",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aiml-5g5",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-1a",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-1a",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-1a",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-1a",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-1a",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-1b",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-1b",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-1b",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-1b",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-1b",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3a",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3a",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3a",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3a",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3a",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3b",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3b",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3b",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3b",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3b",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3c",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3c",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3c",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3c",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3c",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3d",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3d",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3d",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3d",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-3d",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 3,
+   "periodTo": 3,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5a",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5a",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5a",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5a",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5a",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5b",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5b",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5b",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5b",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5b",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5c",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5c",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5c",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5c",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5c",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5d",
+   "kind": "unavailable",
+   "day": 0,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5d",
+   "kind": "unavailable",
+   "day": 1,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5d",
+   "kind": "unavailable",
+   "day": 2,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5d",
+   "kind": "unavailable",
+   "day": 3,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  },
+  {
+   "subjectType": "section",
+   "subjectId": "cse-aift-5d",
+   "kind": "unavailable",
+   "day": 4,
+   "periodFrom": 4,
+   "periodTo": 4,
+   "note": "Lunch"
+  }
+ ]
+}
