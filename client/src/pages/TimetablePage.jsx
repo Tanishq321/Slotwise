@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useReducer, useState } from 'react';
 import { Link, useParams } from 'react-router';
 import { api, download, errorMessage } from '../api.js';
-import { useFetch } from '../hooks.js';
+import { useFetch, useMediaQuery } from '../hooks.js';
 import { TimetableGrid } from '../components/TimetableGrid.jsx';
 import { ViewPicker } from '../components/ViewPicker.jsx';
-import { Button, ConfirmDrawer, Field, Notice, PageHeader, Select, useToast } from '../components/ui.jsx';
-import { indexProblem, periodLabel, softLabels } from '../lib/timetable.js';
+import { Button, ConfirmDrawer, Drawer, Field, Notice, PageHeader, Select, useToast } from '../components/ui.jsx';
+import { indexProblem, periodLabel, softLabels, spanLabel } from '../lib/timetable.js';
 
 // Local copy of the timetable, updated after each successful move.
 function reducer(state, action) {
@@ -29,6 +29,7 @@ export function TimetablePage() {
   const [tab, setTab] = useState('grid');
   const [selected, setSelected] = useState(null);
   const [confirmPublish, setConfirmPublish] = useState(false);
+  const wide = useMediaQuery('(min-width: 1280px)'); // the details panel sits beside the grid only on wide screens
   const toast = useToast();
 
   useEffect(() => {
@@ -121,9 +122,15 @@ export function TimetablePage() {
             <TimetableGrid problem={tt.problem} events={tt.events} view={view} editable onMove={move} onSelect={setSelected} selectedId={selected?.id} />
             <p className="no-print mt-3 text-sm text-muted">Drag a class to move it, or select it to move it with the keyboard.</p>
           </div>
-          <aside className="no-print">
-            <EventPanel tt={tt} event={selected} onMove={move} />
-          </aside>
+          {wide ? (
+            <aside className="no-print">
+              <EventPanel tt={tt} event={selected} onMove={move} />
+            </aside>
+          ) : (
+            <Drawer open={!!selected} title="Class details" onClose={() => setSelected(null)}>
+              <EventPanel tt={tt} event={selected} onMove={move} />
+            </Drawer>
+          )}
         </div>
       )}
       {tab === 'substitutes' && <Substitutes tt={tt} />}
@@ -189,7 +196,7 @@ function EventPanel({ tt, event, onMove }) {
     <div className="rounded-lg border border-line bg-sheet p-5">
       <h3 className="text-lg font-bold">{event.basketName || idx.courses.get(event.parts[0].courseId)?.name}</h3>
       <p className="text-sm text-muted">
-        {event.day != null ? `${cfg.days[event.day]}, ${periodLabel(cfg, event.start)}` : 'Not placed'}, {event.duration} period(s)
+        {event.day != null ? `${cfg.days[event.day]}, ${spanLabel(cfg, event.start, event.duration)}` : 'Not placed'}, {event.duration} {event.duration === 1 ? 'period' : 'periods'}
       </p>
       <ul className="mt-3 space-y-2 text-sm">
         {event.parts.map((p) => (
@@ -272,7 +279,7 @@ function Substitutes({ tt }) {
         {result.data?.items?.map((c) => (
           <li key={c.eventId} className="rounded-lg border border-line bg-sheet p-4">
             <p className="font-bold">
-              {periodLabel(cfg, c.start)} — {c.courseName}
+              {spanLabel(cfg, c.start, c.duration)} — {c.courseName}
             </p>
             <p className="text-sm text-muted">
               {c.sectionIds.map((s) => idx.sections.get(s)?.name).join(', ')} in {idx.rooms.get(c.roomId)?.name}

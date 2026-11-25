@@ -2,6 +2,19 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { api, errorMessage } from './api.js';
 
 /** GET a URL and keep { data, error, loading } in sync. `reload()` fetches again. */
+/** True while the CSS media query matches, e.g. useMediaQuery('(min-width: 1280px)'). */
+export function useMediaQuery(query) {
+  const [matches, setMatches] = useState(() => typeof window !== 'undefined' && window.matchMedia(query).matches);
+  useEffect(() => {
+    const m = window.matchMedia(query);
+    const on = () => setMatches(m.matches);
+    on();
+    m.addEventListener('change', on);
+    return () => m.removeEventListener('change', on);
+  }, [query]);
+  return matches;
+}
+
 export function useFetch(url, { skip = false } = {}) {
   const [state, setState] = useState({ data: null, error: null, loading: !skip });
   const [tick, setTick] = useState(0);

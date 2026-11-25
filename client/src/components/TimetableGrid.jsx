@@ -3,7 +3,7 @@
 // the browser with the same engine code the server uses to check the final move.
 import { useMemo, useState } from 'react';
 import { applyMove, clashBaseline } from '@slotwise/engine';
-import { courseColor, eventsForView, indexProblem, periodLabel } from '../lib/timetable.js';
+import { courseColor, eventsForView, indexProblem, periodLabel, spanLabel } from '../lib/timetable.js';
 
 export function TimetableGrid({ problem, events, view, editable = false, onMove, onSelect, selectedId, highlight }) {
   const cfg = problem.config;
@@ -147,10 +147,14 @@ export function TimetableGrid({ problem, events, view, editable = false, onMove,
                   pointerEvents: drag && !isDragged ? 'none' : undefined,
                   zIndex: 1,
                 }}
-                aria-label={`${info.title}, ${problem.config.days[ev.day]} ${periodLabel(cfg, ev.start)}. ${info.sub}. ${info.meta}`}
+                aria-label={`${info.title}, ${problem.config.days[ev.day]} ${spanLabel(cfg, ev.start, ev.duration)}. ${info.sub}. ${info.meta}`}
               >
                 <span className="font-bold text-ink">{info.title}</span>
-                {info.code && <span style={{ color: color.bar }}>{info.code}{ev.duration > 1 ? `, ${ev.duration} periods` : ''}</span>}
+                {(() => {
+                  // Second line: the course code when it differs from the name, and the length of long classes.
+                  const line = [info.code && info.code !== info.title ? info.code : null, ev.duration > 1 ? `${ev.duration} periods` : null].filter(Boolean).join(', ');
+                  return line ? <span style={{ color: color.bar }}>{line}</span> : null;
+                })()}
                 <span className="mt-auto pt-1 text-ink-soft">{info.sub}</span>
                 <span className="text-muted">{info.meta}</span>
               </button>

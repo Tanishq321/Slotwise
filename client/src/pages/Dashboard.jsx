@@ -4,7 +4,7 @@ import { api, errorMessage, readEventStream } from '../api.js';
 import { useFetch } from '../hooks.js';
 import { Button, Empty, Field, Input, Notice, PageHeader, ProgressBar, Select, useToast } from '../components/ui.jsx';
 
-const PAST = { create: 'created', update: 'updated', delete: 'deleted', generate: 'generated', import: 'imported', publish: 'published', rename: 'renamed', move: 'moved' };
+const PAST = { create: 'created', update: 'updated', delete: 'deleted', generate: 'generated', import: 'imported', publish: 'published', rename: 'renamed', move: 'moved', choose: 'chose', register: 'signed up as a' };
 const pastTense = (action) => PAST[action] || action.replace('-', ' ');
 
 const fmtDate = (d) => new Date(d).toLocaleString('en-IN', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });

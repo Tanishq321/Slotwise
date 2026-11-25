@@ -65,12 +65,14 @@ const ENTITIES = {
       ['program', 'Stream'],
       ['semester', 'Semester'],
       ['size', 'Students'],
+      ['homeRoomName', 'Home room'],
     ],
     fields: [
       { key: 'name', label: 'Name', required: true, hint: 'For example CSE 5-A' },
       { key: 'program', label: 'Stream', hint: 'For example CSE-AIML or CSE-AIFT' },
       { key: 'semester', label: 'Semester', type: 'number', min: 1, max: 12 },
       { key: 'size', label: 'Number of students', type: 'number', min: 1, required: true },
+      { key: 'homeRoomId', label: 'Home room', type: 'room', hint: 'Tried first for this class, so students stay in one room' },
     ],
   },
   rooms: {
@@ -199,7 +201,7 @@ function EntityForm({ entity, def, row, onClose, onSaved }) {
   const [values, setValues] = useState({});
   const [error, setError] = useState(null);
   const [busy, setBusy] = useState(false);
-  const courses = useFetch('/lookups', { skip: entity !== 'faculty' || !row });
+  const courses = useFetch('/lookups', { skip: !['faculty', 'sections'].includes(entity) || !row });
   const toast = useToast();
   // Reset the form whenever a different row is opened (React's "adjust state on prop change" pattern).
   const [lastRow, setLastRow] = useState(null);
@@ -247,6 +249,15 @@ function EntityForm({ entity, def, row, onClose, onSaved }) {
                 {f.options.map(([v, l]) => (
                   <option key={v} value={v}>
                     {l}
+                  </option>
+                ))}
+              </Select>
+            ) : f.type === 'room' ? (
+              <Select value={values[f.key] ?? ''} onChange={(e) => setValues({ ...values, [f.key]: e.target.value })}>
+                <option value="">No home room</option>
+                {courses.data?.rooms?.map((r) => (
+                  <option key={r.id} value={r.id}>
+                    {r.name} ({r.capacity} seats)
                   </option>
                 ))}
               </Select>
@@ -625,7 +636,7 @@ function Baskets() {
               <div>
                 <p className="font-bold">{b.name}</p>
                 <p className="text-sm text-muted">
-                  {b.sessionsPerWeek} sessions a week{b.duration > 1 ? `, ${b.duration} periods each,` : ''} for {b.sections.map((s) => s.name).join(', ')}
+                  {b.sessionsPerWeek} {b.sessionsPerWeek === 1 ? 'session' : 'sessions'} a week{b.duration > 1 ? `, ${b.duration} periods each,` : ''} for {b.sections.map((s) => s.name).join(', ')}
                 </p>
               </div>
               <div>

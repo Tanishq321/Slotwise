@@ -37,6 +37,14 @@ export function periodLabel(cfg, p) {
   return t ? `${t.start}–${t.end}` : `Period ${p + 1}`;
 }
 
+/** Time span of a class that starts at period `p` and lasts `duration` periods, e.g. "09:00–11:00". */
+export function spanLabel(cfg, p, duration = 1) {
+  const a = cfg.periodTimes?.[p];
+  const b = cfg.periodTimes?.[p + duration - 1];
+  if (a && b) return `${a.start}–${b.end}`;
+  return duration > 1 ? `Periods ${p + 1}–${p + duration}` : `Period ${p + 1}`;
+}
+
 export const softLabels = {
   studentGaps: 'Free periods between classes',
   singleClassDays: 'Days with a single class',

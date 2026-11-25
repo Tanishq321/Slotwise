@@ -4,11 +4,32 @@ import { useFetch } from '../hooks.js';
 import { Button, Empty, Field, Input, inputClass, Notice, PageHeader, Select, useToast } from '../components/ui.jsx';
 import { periodLabel } from '../lib/timetable.js';
 
-const EXAMPLES = [
-  "Dr. Anjali Sharma can't teach before 10 on Mondays",
-  'Dr. Rohit Malhotra prefers not to teach the first period',
-  'CSE 5-B is unavailable on Friday afternoon',
-];
+// Example sentences use real names from the current data, so they work when clicked.
+const examples = (L) => {
+  const [a, b] = [L?.faculty?.[0]?.name || 'Dr. Sharma', L?.faculty?.[1]?.name || 'Dr. Malhotra'];
+  const sec = L?.sections?.[0]?.name || 'CSE 5-B';
+  return [`${a} can't teach before 10 on Mondays`, `${b} prefers not to teach the first period`, `${sec} is unavailable on Friday afternoon`];
+};
+
+// The same rule on several days (e.g. lunch every day) is shown as one row.
+function groupRules(items = []) {
+  const groups = new Map();
+  for (const r of items) {
+    const k = [r.subjectType, r.subjectId, r.kind, r.periodFrom, r.periodTo, r.sourceText || r.note || ''].join('|');
+    const g = groups.get(k) || { ...r, ids: [], days: [] };
+    g.ids.push(r.id);
+    g.days.push(r.day);
+    groups.set(k, g);
+  }
+  return [...groups.values()];
+}
+
+function dayList(days, names) {
+  const d = [...new Set(days)].sort((a, b) => a - b);
+  const run = d.every((x, i) => i === 0 || x === d[i - 1] + 1);
+  if (d.length > 2 && run) return `${names[d[0]]}–${names[d[d.length - 1]]}`;
+  return d.map((x) => names[x]).join(', ');
+}
 
 export function Rules() {
   const settings = useFetch('/settings');
@@ -20,6 +41,7 @@ export function Rules() {
   const [error, setError] = useState(null);
   const toast = useToast();
   const cfg = settings.data?.settings;
+  const EXAMPLES = examples(lookups.data);
 
   async function understand(e) {
     e.preventDefault();
@@ -48,13 +70,18 @@ export function Rules() {
     }
   }
 
-  async function remove(r) {
-    await api.delete(`/constraints/${r.id}`).catch((e) => toast(errorMessage(e), 'error'));
+  async function remove(g) {
+    try {
+      for (const id of g.ids) await api.delete(`/constraints/${id}`);
+      toast(g.ids.length > 1 ? `Deleted the rule for ${g.ids.length} days` : 'Rule deleted');
+    } catch (e) {
+      toast(errorMessage(e), 'error');
+    }
     rules.reload();
   }
 
   const describe = (r) =>
-    `${cfg?.days[r.day]}, ${cfg ? periodLabel(cfg, r.periodFrom).split('–')[0] : r.periodFrom}–${cfg ? periodLabel(cfg, r.periodTo).split('–')[1] || '' : r.periodTo}`;
+    `${cfg ? dayList(r.days, cfg.days) : r.days.join(', ')}, ${cfg ? periodLabel(cfg, r.periodFrom).split('–')[0] : r.periodFrom}–${cfg ? periodLabel(cfg, r.periodTo).split('–')[1] || '' : r.periodTo}`;
 
   return (
     <>
@@ -109,7 +136,7 @@ export function Rules() {
         )}
       </section>
 
-      {cfg && lookups.data && <ManualRule cfg={cfg} lookups={lookups.data} onSave={(c) => save([c])} />}
+      {cfg && lookups.data && <ManualRule cfg={cfg} lookups={lookups.data} onSave={(list) => save(list)} />}
 
       <h2 className="mb-3 mt-8 text-xl font-bold">Saved rules</h2>
       {rules.data?.items?.length ? (
@@ -125,8 +152,8 @@ export function Rules() {
               </tr>
             </thead>
             <tbody>
-              {rules.data.items.map((r) => (
-                <tr key={r.id} className="border-b border-line last:border-0">
+              {groupRules(rules.data.items).map((r) => (
+                <tr key={r.ids.join('-')} className="border-b border-line last:border-0">
                   <td className="px-4 py-2.5 font-bold">{r.subjectName}</td>
                   <td className="px-4 py-2.5">{describe(r)}</td>
                   <td className="px-4 py-2.5">{r.kind === 'avoid' ? 'Preference' : 'Never'}</td>
@@ -159,11 +186,14 @@ function ManualRule({ cfg, lookups, onSave }) {
         className="mt-4 grid gap-4 sm:grid-cols-2"
         onSubmit={(e) => {
           e.preventDefault();
-          onSave({ subjectType, subjectId, kind: r.kind, day: Number(r.day), periodFrom: Number(r.periodFrom), periodTo: Math.max(Number(r.periodFrom), Number(r.periodTo)) });
+          const days = r.day === 'all' ? cfg.days.map((_, i) => i) : [Number(r.day)];
+          const kind = subjectType === 'section' ? 'unavailable' : r.kind;
+          const periodTo = Math.max(Number(r.periodFrom), Number(r.periodTo));
+          onSave(days.map((day) => ({ subjectType, subjectId, kind, day, periodFrom: Number(r.periodFrom), periodTo })));
         }}
       >
         <Field label="Teacher or section">
-          <Select value={r.who} onChange={(e) => setR({ ...r, who: e.target.value })}>
+          <Select value={r.who} onChange={(e) => setR({ ...r, who: e.target.value, ...(e.target.value.startsWith('section:') ? { kind: 'unavailable' } : {}) })}>
             <optgroup label="Teachers">
               {lookups.faculty.map((f) => (
                 <option key={f.id} value={`faculty:${f.id}`}>
@@ -180,14 +210,15 @@ function ManualRule({ cfg, lookups, onSave }) {
             </optgroup>
           </Select>
         </Field>
-        <Field label="Kind">
-          <Select value={r.kind} onChange={(e) => setR({ ...r, kind: e.target.value })} disabled={subjectType === 'section'}>
+        <Field label="Kind" hint={subjectType === 'section' ? 'A class can only be blocked (for example lunch or sports). "Avoid if possible" is for teachers.' : undefined}>
+          <Select value={subjectType === 'section' ? 'unavailable' : r.kind} onChange={(e) => setR({ ...r, kind: e.target.value })} disabled={subjectType === 'section'}>
             <option value="unavailable">Never schedule then</option>
             <option value="avoid">Avoid if possible</option>
           </Select>
         </Field>
         <Field label="Day">
           <Select value={r.day} onChange={(e) => setR({ ...r, day: e.target.value })}>
+            <option value="all">Every day ({cfg.days[0]}–{cfg.days[cfg.days.length - 1]})</option>
             {cfg.days.map((d, i) => (
               <option key={d} value={i}>
                 {d}
