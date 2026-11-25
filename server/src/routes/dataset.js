@@ -4,6 +4,7 @@
 // Import replaces ALL master data in one transaction. Users and saved timetable
 // versions are kept. Nothing is written unless the file passes the zod schema and the
 // engine's own validateProblem check, so a bad file can never leave half a dataset.
+import { readFile, readdir } from 'node:fs/promises';
 import { Router } from 'express';
 import multer from 'multer';
 import { z } from 'zod';
@@ -149,14 +150,46 @@ async function bulkInsert(client, table, columns, types, rows) {
   await client.query(`INSERT INTO ${table} (${cols}) SELECT ${cols} FROM json_to_recordset($1::json) AS x(${def})`, [JSON.stringify(rows)]);
 }
 
-datasetRouter.post('/', requireRole('admin'), upload.single('file'), async (req, res) => {
-  if (!req.file) throw badRequest('Attach the dataset .json file in the "file" field');
-  let raw;
+const parseJson = (buffer) => {
   try {
-    raw = JSON.parse(req.file.buffer.toString('utf8').replace(/^\uFEFF/, ''));
+    return JSON.parse(buffer.toString('utf8').replace(/^\uFEFF/, ''));
   } catch (err) {
     throw badRequest(`The file is not valid JSON: ${err.message}`);
   }
+};
+
+datasetRouter.post('/', requireRole('admin'), upload.single('file'), async (req, res) => {
+  if (!req.file) throw badRequest('Attach the dataset .json file in the "file" field');
+  res.json(await importDataset(parseJson(req.file.buffer), req.user, req.file.originalname));
+});
+
+// Datasets shipped with the app in server/data/ (e.g. the real Chitkara CSE-AI data),
+// so they can be loaded from the browser without downloading and re-uploading a file.
+const BUNDLED_DIR = new URL('../../data/', import.meta.url);
+const bundledFile = async (id) => {
+  if (!/^[a-z0-9-]+$/.test(id)) return null;
+  const files = await readdir(BUNDLED_DIR).catch(() => []);
+  return files.includes(`${id}.json`) ? new URL(`${id}.json`, BUNDLED_DIR) : null;
+};
+
+datasetRouter.get('/bundled', requireRole('admin', 'hod'), async (_req, res) => {
+  const files = (await readdir(BUNDLED_DIR).catch(() => [])).filter((f) => f.endsWith('.json'));
+  const items = [];
+  for (const f of files) {
+    const d = parseJson(await readFile(new URL(f, BUNDLED_DIR)));
+    if (d.format !== DATASET_FORMAT) continue;
+    items.push({ id: f.replace(/\.json$/, ''), name: d.name || f, sections: d.sections?.length || 0, faculty: d.faculty?.length || 0, rooms: d.rooms?.length || 0 });
+  }
+  res.json({ items });
+});
+
+datasetRouter.post('/bundled/:id', requireRole('admin'), async (req, res) => {
+  const file = await bundledFile(req.params.id);
+  if (!file) throw badRequest('No built-in dataset with that name');
+  res.json(await importDataset(parseJson(await readFile(file)), req.user, `${req.params.id}.json (built-in)`));
+});
+
+async function importDataset(raw, user, label) {
   const parsed = datasetSchema.safeParse(raw);
   if (!parsed.success) {
     const errors = parsed.error.issues.slice(0, 50).map((i) => ({ code: 'SCHEMA', message: `${i.path.join('.') || 'file'}: ${i.message}` }));
@@ -220,9 +253,9 @@ datasetRouter.post('/', requireRole('admin'), upload.single('file'), async (req,
     baskets: d.baskets.length,
     rules: d.constraints.length,
   };
-  audit(req.user, 'import', 'dataset', null, { file: req.file.originalname, name: d.name, ...counts });
-  res.json({ imported: counts, name: d.name || null });
-});
+  audit(user, 'import', 'dataset', null, { file: label, name: d.name, ...counts });
+  return { imported: counts, name: d.name || null };
+}
 
 // Download everything as one dataset file (a backup, or to move data between installs).
 datasetRouter.get('/', requireRole('admin', 'hod'), async (_req, res) => {

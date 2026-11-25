@@ -48,17 +48,18 @@ export async function buildProblemFromDb() {
     config: settings
       ? { days: settings.days, periodsPerDay: settings.periodsPerDay, breaks: settings.breaks, labDuration: settings.labDuration, periodTimes: settings.periodTimes }
       : undefined,
-    rooms: rooms.rows.map((r) => ({ id: r.id, name: r.name, type: r.type, capacity: r.capacity })),
+    rooms: rooms.rows.map((r) => ({ id: r.id, name: r.name, type: r.type, capacity: r.capacity, ...(r.building ? { building: r.building } : {}) })),
     faculty: faculty.rows.map((f) => ({
       id: f.id,
       name: f.name,
+      ...(f.department ? { department: f.department } : {}),
       maxPerDay: f.max_per_day,
       maxPerWeek: f.max_per_week,
       unavailable: rulesFor('faculty', f.id, 'unavailable'),
       avoid: rulesFor('faculty', f.id, 'avoid'),
       canTeach: teachBy.get(f.id) || [],
     })),
-    sections: sections.rows.map((s) => ({ id: s.id, name: s.name, size: s.size, unavailable: rulesFor('section', s.id, 'unavailable') })),
+    sections: sections.rows.map((s) => ({ id: s.id, name: s.name, size: s.size, ...(s.program ? { program: s.program } : {}), ...(s.semester ? { semester: s.semester } : {}), unavailable: rulesFor('section', s.id, 'unavailable') })),
     courses: courses.rows.map((c) => ({ id: c.id, code: c.code, name: c.name, type: c.type, sessionsPerWeek: c.sessions_per_week })),
     offerings: offerings.rows.map((o) => ({
       id: o.id,

@@ -3,7 +3,7 @@ import { NavLink, useParams } from 'react-router';
 import { api, download, errorMessage } from '../api.js';
 import { useAuth } from '../auth.jsx';
 import { useDebounced, useFetch } from '../hooks.js';
-import { Button, Drawer, Empty, Field, Input, inputClass, Notice, PageHeader, Pager, ProgressBar, Select, useToast } from '../components/ui.jsx';
+import { Button, ConfirmDrawer, Drawer, Empty, Field, Input, inputClass, Notice, PageHeader, Pager, ProgressBar, Select, useToast } from '../components/ui.jsx';
 
 const TABS = [
   ['faculty', 'Teachers'],
@@ -14,6 +14,8 @@ const TABS = [
   ['baskets', 'Elective baskets'],
 ];
 
+const TYPE_LABEL = { rooms: { lecture: 'Lecture hall', lab: 'Lab' }, courses: { lecture: 'Lecture', lab: 'Lab' } };
+
 const num = (v) => (v === '' || v == null ? undefined : Number(v));
 
 // Column and form definitions for the four simple tables.
@@ -23,7 +25,7 @@ const ENTITIES = {
     sort: 'name',
     columns: [
       ['name', 'Name'],
-      ['department', 'Department'],
+      ['department', 'Stream'],
       ['maxPerDay', 'Max a day'],
       ['maxPerWeek', 'Max a week'],
       ['offeringCount', 'Classes assigned'],
@@ -31,7 +33,7 @@ const ENTITIES = {
     fields: [
       { key: 'name', label: 'Name', required: true },
       { key: 'email', label: 'Email', type: 'email' },
-      { key: 'department', label: 'Department' },
+      { key: 'department', label: 'Stream / department' },
       { key: 'maxPerDay', label: 'Most periods in a day', type: 'number', min: 1, max: 12, hint: 'Default 4' },
       { key: 'maxPerWeek', label: 'Most periods in a week', type: 'number', min: 1, max: 60, hint: 'Default 18' },
       { key: 'canTeach', label: 'Can also teach', type: 'courses', hint: 'Used to suggest substitutes' },
@@ -45,14 +47,14 @@ const ENTITIES = {
       ['name', 'Name'],
       ['type', 'Type'],
       ['sessionsPerWeek', 'Sessions a week'],
-      ['department', 'Department'],
+      ['department', 'Stream'],
     ],
     fields: [
       { key: 'code', label: 'Course code', required: true },
       { key: 'name', label: 'Name', required: true },
       { key: 'type', label: 'Type', type: 'select', options: [['lecture', 'Lecture'], ['lab', 'Lab (double period)']], required: true },
       { key: 'sessionsPerWeek', label: 'Sessions a week', type: 'number', min: 1, max: 10, required: true },
-      { key: 'department', label: 'Department' },
+      { key: 'department', label: 'Stream', hint: 'For example CSE-AIML' },
     ],
   },
   sections: {
@@ -60,13 +62,13 @@ const ENTITIES = {
     sort: 'name',
     columns: [
       ['name', 'Name'],
-      ['program', 'Programme'],
+      ['program', 'Stream'],
       ['semester', 'Semester'],
       ['size', 'Students'],
     ],
     fields: [
       { key: 'name', label: 'Name', required: true, hint: 'For example CSE 5-A' },
-      { key: 'program', label: 'Programme' },
+      { key: 'program', label: 'Stream', hint: 'For example CSE-AIML or CSE-AIFT' },
       { key: 'semester', label: 'Semester', type: 'number', min: 1, max: 12 },
       { key: 'size', label: 'Number of students', type: 'number', min: 1, required: true },
     ],
@@ -82,7 +84,7 @@ const ENTITIES = {
     ],
     fields: [
       { key: 'name', label: 'Name', required: true },
-      { key: 'type', label: 'Type', type: 'select', options: [['lecture', 'Lecture room'], ['lab', 'Lab']], required: true },
+      { key: 'type', label: 'Type', type: 'select', options: [['lecture', 'Lecture hall'], ['lab', 'Lab']], required: true },
       { key: 'capacity', label: 'Seats', type: 'number', min: 1, required: true },
       { key: 'building', label: 'Building' },
     ],
@@ -169,7 +171,7 @@ function EntityTable({ entity, def }) {
                 <tr key={row.id} className="border-b border-line last:border-0">
                   {def.columns.map(([k]) => (
                     <td key={k} className={`px-4 py-2.5 ${k === 'name' || k === 'code' ? 'font-bold' : ''}`}>
-                      {row[k] ?? '—'}
+                      {k === 'type' ? TYPE_LABEL[entity]?.[row[k]] || row[k] : (row[k] ?? '—')}
                     </td>
                   ))}
                   <td className="whitespace-nowrap px-4 py-2.5 text-right">
@@ -282,8 +284,25 @@ function DatasetFile() {
   const { isAdmin, isEditor } = useAuth();
   const input = useRef(null);
   const [state, setState] = useState(null); // { busy } | { errors, message } | { done }
+  const [builtIn, setBuiltIn] = useState(null); // dataset picked from the built-in list, waiting for confirmation
+  const bundled = useFetch(isAdmin ? '/dataset/bundled' : null);
   const toast = useToast();
   if (!isEditor) return null;
+
+  async function loadBuiltIn() {
+    setState({ busy: true });
+    try {
+      const { data } = await api.post(`/dataset/bundled/${builtIn.id}`);
+      const n = data.imported;
+      setBuiltIn(null);
+      setState(null);
+      toast(`Loaded ${n.sections} classes, ${n.faculty} teachers and ${n.rooms} rooms`);
+      window.setTimeout(() => window.location.reload(), 900);
+    } catch (err) {
+      setBuiltIn(null);
+      setState({ message: errorMessage(err), errors: err.response?.data?.details?.errors || [] });
+    }
+  }
 
   async function upload(file) {
     const ok = window.confirm(
@@ -316,6 +335,17 @@ function DatasetFile() {
           {state?.busy ? 'Importing…' : 'Import full dataset'}
         </Button>
       )}
+      {bundled.data?.items?.map((d) => (
+        <Button key={d.id} variant="secondary" disabled={state?.busy} onClick={() => setBuiltIn(d)}>
+          Load {d.id === 'chitkara-cse-ai' ? 'Chitkara CSE-AI data' : d.name}
+        </Button>
+      ))}
+      <ConfirmDrawer open={!!builtIn} title="Replace all data?" confirmLabel="Replace and load" busy={state?.busy} onConfirm={loadBuiltIn} onClose={() => setBuiltIn(null)}>
+        <p>
+          This loads <span className="font-bold">{builtIn?.name}</span>: {builtIn?.sections} classes, {builtIn?.faculty} teachers and {builtIn?.rooms} rooms.
+        </p>
+        <p>All current teachers, rooms, classes, subjects and rules are replaced. Logins and saved timetable versions are kept.</p>
+      </ConfirmDrawer>
       <Drawer open={!!state?.message} title="Nothing was imported" onClose={() => setState(null)}>
         <Notice tone="error">{state?.message}</Notice>
         <ul className="mt-4 space-y-2 text-sm">

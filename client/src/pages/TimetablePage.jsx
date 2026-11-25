@@ -4,7 +4,7 @@ import { api, download, errorMessage } from '../api.js';
 import { useFetch } from '../hooks.js';
 import { TimetableGrid } from '../components/TimetableGrid.jsx';
 import { ViewPicker } from '../components/ViewPicker.jsx';
-import { Button, Field, Notice, PageHeader, Select, useToast } from '../components/ui.jsx';
+import { Button, ConfirmDrawer, Field, Notice, PageHeader, Select, useToast } from '../components/ui.jsx';
 import { indexProblem, periodLabel, softLabels } from '../lib/timetable.js';
 
 // Local copy of the timetable, updated after each successful move.
@@ -28,6 +28,7 @@ export function TimetablePage() {
   const [view, setView] = useState({ type: 'section', id: null });
   const [tab, setTab] = useState('grid');
   const [selected, setSelected] = useState(null);
+  const [confirmPublish, setConfirmPublish] = useState(false);
   const toast = useToast();
 
   useEffect(() => {
@@ -66,7 +67,7 @@ export function TimetablePage() {
   }
 
   async function publish() {
-    if (!window.confirm(`Publish "${tt.name}"? Students and teachers will see it straight away.`)) return;
+    setConfirmPublish(false);
     try {
       const { data } = await api.post(`/timetables/${tt.id}/publish`);
       dispatch({ type: 'published', at: data.publishedAt });
@@ -90,7 +91,7 @@ export function TimetablePage() {
         <Button variant="secondary" onClick={() => download(`/timetables/${tt.id}/ics?type=${view.type}&id=${view.id}`, `${subjectName}.ics`).catch((e) => toast(errorMessage(e), 'error'))}>
           Download calendar
         </Button>
-        {!tt.published && <Button onClick={publish}>Publish</Button>}
+        {!tt.published && <Button onClick={() => setConfirmPublish(true)}>Publish</Button>}
       </PageHeader>
 
       <div className="no-print mb-5 flex flex-wrap items-end justify-between gap-4">
@@ -127,6 +128,9 @@ export function TimetablePage() {
       )}
       {tab === 'substitutes' && <Substitutes tt={tt} />}
       {tab === 'analytics' && <Analytics id={tt.id} />}
+      <ConfirmDrawer open={confirmPublish} title={`Publish ${tt.name}?`} confirmLabel="Publish" onConfirm={publish} onClose={() => setConfirmPublish(false)}>
+        <p>Students and teachers will see this timetable straight away. Any version published before it goes back to being a draft.</p>
+      </ConfirmDrawer>
     </>
   );
 }

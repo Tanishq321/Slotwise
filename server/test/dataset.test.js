@@ -101,3 +101,16 @@ test('export gives back a file that re-imports to the same data', async () => {
   const again = await upload(admin, out);
   assert.equal(again.status, 200, JSON.stringify(again.body));
 });
+
+test('built-in datasets can be listed and loaded without uploading', async () => {
+  const list = await request(app).get('/api/dataset/bundled').set(auth(hod));
+  assert.equal(list.status, 200);
+  assert.ok(list.body.items.some((x) => x.id === 'chitkara-cse-ai' && x.sections === 32));
+  assert.equal((await request(app).post('/api/dataset/bundled/chitkara-cse-ai').set(auth(hod))).status, 403);
+  assert.equal((await request(app).post('/api/dataset/bundled/..%2Fpackage').set(auth(admin))).status, 400);
+  const res = await request(app).post('/api/dataset/bundled/chitkara-cse-ai').set(auth(admin));
+  assert.equal(res.status, 200, JSON.stringify(res.body));
+  assert.equal(res.body.imported.sections, 32);
+  const courses = (await request(app).get('/api/courses?limit=100').set(auth(admin))).body.items;
+  assert.ok(courses.some((c) => c.department === 'CSE-AIML'), 'subjects are tagged with their stream');
+});

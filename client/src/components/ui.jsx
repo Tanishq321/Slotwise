@@ -152,3 +152,20 @@ export function Pager({ page, pages, onPage }) {
     </div>
   );
 }
+
+/** In-page "are you sure?" panel (used instead of window.confirm, which blocks the whole tab). */
+export function ConfirmDrawer({ open, title, children, confirmLabel, busy, onConfirm, onClose }) {
+  return (
+    <Drawer open={open} title={title} onClose={onClose}>
+      <div className="space-y-3 text-sm">{children}</div>
+      <div className="mt-6 flex gap-2">
+        <Button busy={busy} onClick={onConfirm}>
+          {busy ? 'Working…' : confirmLabel}
+        </Button>
+        <Button variant="secondary" onClick={onClose}>
+          Cancel
+        </Button>
+      </div>
+    </Drawer>
+  );
+}
