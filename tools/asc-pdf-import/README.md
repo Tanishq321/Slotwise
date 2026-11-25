@@ -13,7 +13,10 @@ python parse.py Class_Wise_Time_Table.pdf -o parsed.json --pages 1-22,24-33
 python build_dataset.py parsed.json chitkara-cse-ai.json
 ```
 
-Then in Slotwise: **Teachers & courses → Import full dataset** (admin only) and pick
+Copy the result to `server/data/chitkara-cse-ai.json`. On the next deploy Slotwise clears the
+old timetables, loads the data and publishes the official timetable (see `LOAD_DATASET` below).
+
+Or by hand in Slotwise: **Teachers & courses → Import full dataset** (admin only) and pick
 the `.json` file. Everything on the data tabs is replaced in one step; logins and
 saved timetable versions are kept. Use **Download all data** first if you want a backup.
 
@@ -34,12 +37,26 @@ saved timetable versions are kept. Use **Download all data** first if you want a
 | Pages | 1–22 and 24–33. CSE-AI 7A, Psychology and DEAKIN are left out for now. |
 | Class size | 60 students per section (estimate). |
 | Room size | 70 per room, 400 for the Exploretorium (estimate). |
-| Room type | A room is a lab if its name has "Lab" in it. |
+| Room type | Every room is a lecture hall, including the iOS Lab, because the university also teaches lectures (BPC, DNN) there. |
+| Room size | Never smaller than the biggest class the PDF puts in it (MB LH-304 holds the combined NALR class of 120). |
 | Subjects | The abbreviation from the PDF is used as both code and name (rename them in the app). |
 | Same class twice in a day | Kept as allowed for that class only (e.g. two LAC periods on one day). |
 | Lunch | The free period each class has in the PDF (P5, or P4 for AIFT 3rd sem) becomes an "unavailable" rule. |
 | Co-teaching ("Dr. A / Trainer 2") | Kept as one teaching team. |
-| T- Himanshu | Kept as one person. The PDF double-books him; Slotwise will not. |
+| T- Himanshu | Split into "T- Himanshu (Java)" and "T- Himanshu (PA)": the PDF has a Himanshu in two rooms at the same hour every day, so they are two trainers. |
+| Official timetable | Saved slot by slot in the dataset (`official`). It passes Slotwise's clash checker with zero clashes. |
 | Teacher limits | At least 4 periods a day and 18 a week, raised if the PDF already gives them more. |
 
 Building blocks: MB = Martin Luther Block, TG = Turing, NB = Newton, Bloom Block for AIFT 3rd and 5th sem.
+
+## Loading on deploy (`LOAD_DATASET`)
+
+In production the server starts with `LOAD_DATASET=chitkara-cse-ai` (set in `render.yaml`,
+and the default when `NODE_ENV=production`). On the first start after the file changes it:
+
+1. deletes every timetable version and the audit log from MongoDB,
+2. replaces all teachers, rooms, classes, subjects and rules in PostgreSQL (logins are kept),
+3. saves the official timetable and publishes it, so students see it at once.
+
+The file's hash is stored in the `app_state` table, so later restarts do nothing. Set
+`LOAD_DATASET=none` to turn this off.

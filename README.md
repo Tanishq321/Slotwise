@@ -62,6 +62,12 @@ timetable PDF with the scripts in `tools/asc-pdf-import/`. To load it, log in as
 admin, open **Teachers & courses** and click **Import full dataset**. Slotwise then
 generates a complete, clash-free timetable for all 32 classes in under a second.
 
+When deployed, the server loads this file by itself on the first start after it changes:
+it clears old timetables from MongoDB, loads the data and publishes the university's own
+timetable (see `tools/asc-pdf-import/README.md`). Students only ever see their own class:
+they choose it when they sign up (or the first time they open the app), and the API
+sends them nothing about other classes.
+
 The same screen has **Download all data**, which saves everything as one file in the
 same format (handy as a backup before you import).
 

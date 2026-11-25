@@ -19,7 +19,13 @@ from collections import Counter, defaultdict
 SECTION_SIZE = 60
 ROOM_CAPACITY = 70
 BIG_ROOMS = {'Exploretorium': 400}
-LAB_COURSES = {'Design Thinking with iOS', 'iOS App Development Swift-I', 'PA using AI'}  # only ever in the iOS Lab
+# The university also teaches lectures (BPC, DNN) in the iOS Lab, so it is used as an ordinary
+# room and no subject is forced into a lab.
+LAB_COURSES = set()
+LAB_ROOMS = set()
+# The PDF puts "T- Himanshu" in two rooms at the same hour every day (Java for 3G4 and PA for 5G1),
+# so these are two different trainers with the same name.
+TEACHER_SPLIT = {('t-himanshu', 'Java'): 'T- Himanshu (Java)', ('t-himanshu', 'PA'): 'T- Himanshu (PA)'}
 BUILDINGS = {'MB': 'Martin Luther Block', 'TG': 'Turing Block', 'NB': 'Newton Block', 'Bloom Block': 'Bloom Block'}
 DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
 TIMES = [('09:00', '10:00'), ('10:00', '11:00'), ('11:00', '12:00'), ('12:00', '13:00'), ('13:00', '14:00'), ('14:00', '15:00'), ('15:00', '16:00')]
@@ -47,6 +53,9 @@ def section_info(name):
 
 def main(src='parsed.json', out='chitkara-cse-ai.json'):
     classes = json.load(open(src))
+    for c in classes:
+        for b in c['blocks']:
+            b['teacher'] = TEACHER_SPLIT.get((teacher_key(b['teacher']), clean(b['subject'])), b['teacher'])
     teacher_name = {}
     rooms = {}
     sections = []
@@ -79,6 +88,7 @@ def main(src='parsed.json', out='chitkara-cse-ai.json'):
         off_count[(subj, tk, frozenset(secs), dur)] += 1
         off_days[(subj, tk, frozenset(secs), dur)][day] += 1
     offerings = []
+    off_id = {}
     for i, ((subj, tk, secs, dur), n) in enumerate(sorted(off_count.items(), key=lambda x: (x[0][0], sorted(x[0][2]), x[0][1], x[0][3])), 1):
         o = {'id': f'off-{i:03d}', 'courseId': 'crs-' + slug(subj), 'facultyId': 'fac-' + slug(teacher_name[tk]),
              'sectionIds': sorted(secs), 'duration': dur, 'sessionsPerWeek': n}
@@ -86,6 +96,7 @@ def main(src='parsed.json', out='chitkara-cse-ai.json'):
         if busiest > math.ceil(n / 5):
             o['maxSessionsPerDay'] = busiest  # e.g. two separate LAC periods on one day
         offerings.append(o)
+        off_id[(subj, tk, secs, dur)] = o
 
     # --- 3. Elective baskets (parallel groups) -------------------------------------
     bk_count = Counter()
@@ -93,8 +104,9 @@ def main(src='parsed.json', out='chitkara-cse-ai.json'):
         bk_count[(opts, frozenset(secs), dur)] += 1
     section_name = {s['id']: s['name'] for s in sections}
     baskets = []
-    for i, ((opts, secs, dur), n) in enumerate(sorted(bk_count.items(), key=lambda x: sorted(x[0][1])), 1):
-        opts = sorted(opts)
+    bkt_id = {}
+    for i, ((opts_set, secs, dur), n) in enumerate(sorted(bk_count.items(), key=lambda x: sorted(x[0][1])), 1):
+        opts = sorted(opts_set)
         students = SECTION_SIZE * len(secs)
         names = sorted(section_name[s] for s in secs)
         baskets.append({
@@ -106,6 +118,7 @@ def main(src='parsed.json', out='chitkara-cse-ai.json'):
             'options': [{'offeringId': f'opt-{i:02d}-{j}', 'courseId': 'crs-' + slug(s), 'facultyId': 'fac-' + slug(teacher_name[tk]),
                          'size': math.ceil(students / len(opts))} for j, (s, tk, _room) in enumerate(opts, 1)],
         })
+        bkt_id[(opts_set, secs, dur)] = (baskets[-1], opts)
 
     # --- 4. Courses ------------------------------------------------------------------
     subjects = sorted({o['courseId'] for o in offerings} | {opt['courseId'] for b in baskets for opt in b['options']})
@@ -138,8 +151,14 @@ def main(src='parsed.json', out='chitkara-cse-ai.json'):
             if name.startswith(prefix):
                 return full
         return None
-    room_list = [{'id': 'room-' + slug(r), 'name': r, 'type': 'lab' if 'Lab' in r else 'lecture',
-                  'capacity': BIG_ROOMS.get(r, ROOM_CAPACITY), 'building': building(r)} for r in sorted(rooms)]
+    real_load = Counter()  # most students the real timetable puts in each room at once
+    for (_d, _s, _dur, _subj, _tk, room), secs in plain.items():
+        real_load[room] = max(real_load[room], SECTION_SIZE * len(secs))
+    for (_d, _s, _dur, opts), secs in parallel.items():
+        for (_subj, _tk, room) in opts:
+            real_load[room] = max(real_load[room], math.ceil(SECTION_SIZE * len(secs) / len(opts)))
+    room_list = [{'id': 'room-' + slug(r), 'name': r, 'type': 'lab' if r in LAB_ROOMS else 'lecture',
+                  'capacity': max(BIG_ROOMS.get(r, ROOM_CAPACITY), real_load[r]), 'building': building(r)} for r in sorted(rooms)]
 
     # --- 6. Teacher limits (never below what the real timetable already needs) -------
     week = Counter()
@@ -176,6 +195,24 @@ def main(src='parsed.json', out='chitkara-cse-ai.json'):
                                         'day': d, 'periodFrom': p, 'periodTo': p, 'note': 'Lunch'})
                 break
 
+    # --- 8. The official timetable itself, slot by slot, in Slotwise's event format ------
+    room_id = {r['name']: r['id'] for r in room_list}
+    placed = []
+    for (day, start, dur, subj, tk, room), secs in plain.items():
+        o = off_id[(subj, tk, frozenset(secs), dur)]
+        placed.append((o['id'], day, start, {'kind': 'offering', 'duration': dur, 'sectionIds': sorted(secs),
+                       'parts': [{'offeringId': o['id'], 'courseId': o['courseId'], 'facultyId': o['facultyId'], 'roomId': room_id[room],
+                                  'size': SECTION_SIZE * len(secs)}]}))
+    for (day, start, dur, opts), secs in parallel.items():
+        b, order = bkt_id[(opts, frozenset(secs), dur)]
+        placed.append((b['id'], day, start, {'kind': 'basket', 'basketName': b['name'], 'duration': dur, 'sectionIds': sorted(secs),
+                       'parts': [{'offeringId': opt['offeringId'], 'courseId': opt['courseId'], 'facultyId': opt['facultyId'],
+                                  'roomId': room_id[order[j][2]], 'size': opt['size']} for j, opt in enumerate(b['options'])]}))
+    official_events, n = [], Counter()
+    for key, day, start, ev in sorted(placed, key=lambda x: (x[0], x[1], x[2])):
+        n[key] += 1
+        official_events.append({'id': f'{key}#{n[key]}', 'key': key, **ev, 'day': day, 'start': start})
+
     dataset = {
         'format': 'slotwise-dataset/1',
         'name': 'Chitkara University - CSE-AI department (odd semester 2026)',
@@ -184,6 +221,7 @@ def main(src='parsed.json', out='chitkara-cse-ai.json'):
                      'periodTimes': [{'start': a, 'end': b} for a, b in TIMES], 'termWeeks': 16},
         'rooms': room_list, 'faculty': faculty, 'sections': sections, 'courses': courses,
         'offerings': offerings, 'baskets': baskets, 'constraints': constraints,
+        'official': {'name': 'Official timetable (university PDF, 14-11-2026)', 'events': official_events},
     }
     json.dump(dataset, open(out, 'w'), indent=1, ensure_ascii=False)
     real_periods = sum(b['duration'] for c in classes for b in c['blocks'])

@@ -40,3 +40,7 @@ services:
         value: 'true'
       - key: GENERATION_TIME_LIMIT_SEC
         value: '15'
+      # On the first start after server/data/chitkara-cse-ai.json changes: clear old
+      # timetables in MongoDB, load the university data and publish its official timetable.
+      - key: LOAD_DATASET
+        value: chitkara-cse-ai
