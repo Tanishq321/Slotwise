@@ -1,19 +1,23 @@
 # Import a college timetable PDF
 
-These two scripts turn a class-wise timetable PDF exported from aSc Timetables
+These two Node.js scripts turn a class-wise timetable PDF exported from aSc Timetables
 (one class per page) into a Slotwise dataset file that the app can import in one go.
 
-They take the *data* out of the PDF (classes, teachers, rooms, subjects, how many
-periods each subject gets) so Slotwise can build its own clash-free timetable from it.
-The official slot positions are not copied.
+They take the data out of the PDF (classes, teachers, rooms, subjects, how many
+periods each subject gets) so Slotwise can build its own clash-free timetable, and they
+also keep the official timetable slot by slot so it can be published as it is.
 
 ```bash
-pip install pdfplumber
-python parse.py Class_Wise_Time_Table.pdf -o parsed.json --pages 1-22,24-33
-python build_dataset.py parsed.json chitkara-cse-ai.json
+cd tools/asc-pdf-import
+npm install                       # installs pdf.js, the PDF reader (JavaScript)
+node parse.mjs Class_Wise_Time_Table.pdf -o parsed.json --pages 1-22,24-33
+node build-dataset.mjs parsed.json ../../server/data/chitkara-cse-ai.json
 ```
 
-Copy the result to `server/data/chitkara-cse-ai.json`. On the next deploy Slotwise clears the
+Both scripts are plain Node.js (ES modules), like the rest of Slotwise. This folder is
+not part of the app's workspaces, so Render never installs pdf.js.
+
+The second command writes straight to `server/data/chitkara-cse-ai.json`. On the next deploy Slotwise clears the
 old timetables, loads the data and publishes the official timetable (see `LOAD_DATASET` below).
 
 Or by hand in Slotwise: **Teachers & courses → Import full dataset** (admin only) and pick

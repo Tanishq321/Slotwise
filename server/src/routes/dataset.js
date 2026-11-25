@@ -61,7 +61,7 @@ datasetRouter.get('/', requireRole('admin', 'hod'), async (_req, res) => {
     q('SELECT id, name, type, capacity, building FROM rooms ORDER BY id'),
     q('SELECT id, name, email, department, max_per_day, max_per_week FROM faculty ORDER BY id'),
     q('SELECT faculty_id, course_id FROM faculty_can_teach ORDER BY faculty_id, course_id'),
-    q('SELECT id, name, program, semester, size FROM sections ORDER BY id'),
+    q('SELECT id, name, program, semester, size, home_room_id FROM sections ORDER BY id'),
     q('SELECT id, code, name, type, sessions_per_week, department FROM courses ORDER BY id'),
     q('SELECT id, course_id, faculty_id, size, duration, sessions_per_week, max_sessions_per_day FROM offerings ORDER BY id'),
     q('SELECT offering_id, section_id FROM offering_sections ORDER BY offering_id, section_id'),
@@ -80,7 +80,7 @@ datasetRouter.get('/', requireRole('admin', 'hod'), async (_req, res) => {
     settings: { ...rest, ...(termStart ? { termStart: new Date(termStart).toISOString().slice(0, 10) } : {}) },
     rooms: rooms.map(clean),
     faculty: faculty.map((f) => clean({ id: f.id, name: f.name, email: f.email, department: f.department, maxPerDay: f.max_per_day, maxPerWeek: f.max_per_week, canTeach: pick(canTeach, 'faculty_id', 'course_id', f.id) })),
-    sections: sections.map(clean),
+    sections: sections.map(({ home_room_id: homeRoomId, ...s }) => clean({ ...s, homeRoomId })),
     courses: courses.map((c) => clean({ id: c.id, code: c.code, name: c.name, type: c.type, sessionsPerWeek: c.sessions_per_week, department: c.department })),
     offerings: offerings.map((o) => clean({ id: o.id, courseId: o.course_id, facultyId: o.faculty_id, sectionIds: pick(offSecs, 'offering_id', 'section_id', o.id), size: o.size, duration: o.duration, sessionsPerWeek: o.sessions_per_week, maxSessionsPerDay: o.max_sessions_per_day })),
     baskets: baskets.map((b) => clean({

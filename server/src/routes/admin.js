@@ -13,7 +13,7 @@ import { publicUser } from './auth.js';
 export const adminRouter = Router();
 
 /** Counts for the dashboard. Cached in Redis for a minute (cache-aside pattern). */
-adminRouter.get('/stats', async (_req, res) => {
+adminRouter.get('/stats', canEdit, async (_req, res) => {
   const cached = await cacheGet('stats');
   if (cached) return res.set('X-Cache', 'HIT').json(cached);
   const { rows } = await query(`SELECT
@@ -28,7 +28,7 @@ adminRouter.get('/stats', async (_req, res) => {
 });
 
 /** Small id/name lists for dropdowns (not paginated). */
-adminRouter.get('/lookups', async (_req, res) => {
+adminRouter.get('/lookups', canEdit, async (_req, res) => {
   const [faculty, sections, rooms, courses] = await Promise.all([
     query('SELECT id, name, department FROM faculty ORDER BY name'),
     query('SELECT id, name, size FROM sections ORDER BY name'),

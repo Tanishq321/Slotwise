@@ -44,7 +44,11 @@ async function studentSection(user) {
  * subjects that appear in them. Everyone else gets the version unchanged.
  */
 async function forViewer(json, user) {
-  if (user.role !== 'student') return json;
+  if (isEditor(user)) return json;
+  if (user.role !== 'student') {
+    // Teachers see every class, but not their colleagues' private availability rules.
+    return { ...json, problem: { ...json.problem, faculty: json.problem.faculty.map((f) => ({ id: f.id, name: f.name, ...(f.department ? { department: f.department } : {}) })) } };
+  }
   const sectionId = await studentSection(user);
   const section = sectionId && json.problem.sections.find((s) => s.id === sectionId);
   if (!section) {

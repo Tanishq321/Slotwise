@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { requireAuth } from '../middleware/auth.js';
+import { canEdit, requireAuth } from '../middleware/auth.js';
 import { authRouter } from './auth.js';
 import { settingsRouter } from './settings.js';
 import { facultyRouter, roomsRouter, sectionsRouter, coursesRouter } from './masterData.js';
@@ -18,14 +18,16 @@ apiRouter.use('/auth', authRouter);
 // Everything below needs a logged-in user. Each router adds its own role checks.
 apiRouter.use(requireAuth);
 apiRouter.use('/settings', settingsRouter);
-apiRouter.use('/faculty', facultyRouter);
-apiRouter.use('/rooms', roomsRouter);
-apiRouter.use('/sections', sectionsRouter);
-apiRouter.use('/courses', coursesRouter);
-apiRouter.use('/offerings', offeringsRouter);
-apiRouter.use('/baskets', basketsRouter);
-apiRouter.use('/dataset', datasetRouter);
-apiRouter.use('/import', importRouter);
-apiRouter.use('/constraints', constraintsRouter);
+// Master data (who teaches whom, teachers' emails and private availability rules) is
+// for admins and HODs only. Students and teachers only read the published timetable.
+apiRouter.use('/faculty', canEdit, facultyRouter);
+apiRouter.use('/rooms', canEdit, roomsRouter);
+apiRouter.use('/sections', canEdit, sectionsRouter);
+apiRouter.use('/courses', canEdit, coursesRouter);
+apiRouter.use('/offerings', canEdit, offeringsRouter);
+apiRouter.use('/baskets', canEdit, basketsRouter);
+apiRouter.use('/dataset', canEdit, datasetRouter);
+apiRouter.use('/import', canEdit, importRouter);
+apiRouter.use('/constraints', canEdit, constraintsRouter);
 apiRouter.use('/timetables', timetablesRouter);
 apiRouter.use('/', adminRouter);

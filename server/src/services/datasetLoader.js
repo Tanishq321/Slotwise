@@ -45,7 +45,9 @@ const datasetSchema = z.object({
       }),
     )
     .max(2000),
-  sections: z.array(z.object({ id, name: z.string().trim().min(1).max(60), program: optText, semester: z.number().int().min(1).max(12).nullish(), size: z.number().int().min(1).max(5000) })).max(2000),
+  sections: z
+    .array(z.object({ id, name: z.string().trim().min(1).max(60), program: optText, semester: z.number().int().min(1).max(12).nullish(), size: z.number().int().min(1).max(5000), homeRoomId: id.nullish() }))
+    .max(2000),
   courses: z
     .array(z.object({ id, code: z.string().trim().min(1).max(30), name, type: z.enum(['lecture', 'lab']), sessionsPerWeek: z.number().int().min(1).max(10), department: optText }))
     .max(2000),
@@ -147,6 +149,8 @@ function referenceErrors(d) {
   dup(d.courses, 'code', 'subjects');
   dup([...d.offerings, ...d.baskets], 'id', 'offerings/baskets (id)');
   dup(d.baskets.flatMap((b) => b.options).concat(d.offerings.map((o) => ({ offeringId: o.id }))), 'offeringId', 'offerings/basket options (id)');
+  const roomIds = new Set(d.rooms.map((r) => r.id));
+  for (const s of d.sections) if (s.homeRoomId && !roomIds.has(s.homeRoomId)) errors.push({ code: 'UNKNOWN_REF', message: `${s.name} has an unknown home room "${s.homeRoomId}"` });
   for (const f of d.faculty) for (const c of f.canTeach) if (!crs.has(c)) errors.push({ code: 'UNKNOWN_REF', message: `${f.name} can teach unknown subject "${c}"` });
   for (const c of d.constraints) {
     if (!(c.subjectType === 'faculty' ? fac : sec).has(c.subjectId)) errors.push({ code: 'UNKNOWN_REF', message: `A rule points to unknown ${c.subjectType} "${c.subjectId}"` });
@@ -198,6 +202,8 @@ async function relinkDemoUsers(c) {
     )
   ).rows[0];
   if (fac) await c.query('UPDATE users SET faculty_id = $1 WHERE lower(email) = $2 AND faculty_id IS NULL', [fac.id, teacher]);
+  // The demo teacher login takes the name of the teacher it is linked to.
+  await c.query('UPDATE users u SET name = f.name FROM faculty f WHERE u.faculty_id = f.id AND lower(u.email) = $1', [teacher]);
 }
 
 /** Saves the dataset's official timetable as a finished version (optionally published). */
@@ -256,7 +262,8 @@ export async function importDataset(raw, user, label, { official = 'skip' } = {}
       [s.institution, JSON.stringify(s.days), s.periodsPerDay, JSON.stringify(s.breaks), s.labDuration, JSON.stringify(s.periodTimes), s.termStart ?? null, s.termWeeks],
     );
     await bulkInsert(c, 'rooms', ['id', 'name', 'type', 'capacity', 'building'], ['text', 'text', 'text', 'int', 'text'], d.rooms);
-    await bulkInsert(c, 'sections', ['id', 'name', 'program', 'semester', 'size'], ['text', 'text', 'text', 'int', 'int'], d.sections);
+    await bulkInsert(c, 'sections', ['id', 'name', 'program', 'semester', 'size', 'home_room_id'], ['text', 'text', 'text', 'int', 'int', 'text'],
+      d.sections.map((x) => ({ ...x, home_room_id: x.homeRoomId })));
     await bulkInsert(c, 'courses', ['id', 'code', 'name', 'type', 'sessions_per_week', 'department'], ['text', 'text', 'text', 'text', 'int', 'text'],
       d.courses.map((x) => ({ ...x, sessions_per_week: x.sessionsPerWeek })));
     await bulkInsert(c, 'faculty', ['id', 'name', 'email', 'department', 'max_per_day', 'max_per_week'], ['text', 'text', 'text', 'text', 'int', 'int'],

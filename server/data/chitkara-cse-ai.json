@@ -917,224 +917,256 @@
    "name": "CSE-AIML G1",
    "program": "CSE-AIML",
    "semester": 1,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-301"
   },
   {
    "id": "cse-aiml-g2",
    "name": "CSE-AIML G2",
    "program": "CSE-AIML",
    "semester": 1,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-302"
   },
   {
    "id": "cse-aiml-g3",
    "name": "CSE-AIML G3",
    "program": "CSE-AIML",
    "semester": 1,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-303"
   },
   {
    "id": "cse-aiml-g4",
    "name": "CSE-AIML G4",
    "program": "CSE-AIML",
    "semester": 1,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-304"
   },
   {
    "id": "cse-aiml-g5",
    "name": "CSE-AIML G5",
    "program": "CSE-AIML",
    "semester": 1,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-305"
   },
   {
    "id": "cse-aiml-g6",
    "name": "CSE-AIML G6",
    "program": "CSE-AIML",
    "semester": 1,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-306"
   },
   {
    "id": "cse-aiml-g7",
    "name": "CSE-AIML G7",
    "program": "CSE-AIML",
    "semester": 1,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-401"
   },
   {
    "id": "cse-aiml-g8",
    "name": "CSE-AIML G8",
    "program": "CSE-AIML",
    "semester": 1,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-402"
   },
   {
    "id": "cse-aiml-3g1",
    "name": "CSE-AIML 3G1",
    "program": "CSE-AIML",
    "semester": 3,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-101"
   },
   {
    "id": "cse-aiml-3g2",
    "name": "CSE-AIML 3G2",
    "program": "CSE-AIML",
    "semester": 3,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-104"
   },
   {
    "id": "cse-aiml-3g3",
    "name": "CSE-AIML 3G3",
    "program": "CSE-AIML",
    "semester": 3,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-105"
   },
   {
    "id": "cse-aiml-3g4",
    "name": "CSE-AIML 3G4",
    "program": "CSE-AIML",
    "semester": 3,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-502"
   },
   {
    "id": "cse-aiml-3g5",
    "name": "CSE-AIML 3G5",
    "program": "CSE-AIML",
    "semester": 3,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-503"
   },
   {
    "id": "cse-aiml-3g6",
    "name": "CSE-AIML 3G6",
    "program": "CSE-AIML",
    "semester": 3,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-504"
   },
   {
    "id": "cse-aiml-3g7",
    "name": "CSE-AIML 3G7",
    "program": "CSE-AIML",
    "semester": 3,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-505"
   },
   {
    "id": "cse-aiml-5-uca",
    "name": "CSE-AIML 5-UCA",
    "program": "CSE-AIML",
    "semester": 5,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-tg-302"
   },
   {
    "id": "cse-aiml-5-ios",
    "name": "CSE-AIML 5-iOS",
    "program": "CSE-AIML",
    "semester": 5,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-ios-lab"
   },
   {
    "id": "cse-aiml-5g1",
    "name": "CSE-AIML 5G1",
    "program": "CSE-AIML",
    "semester": 5,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-403"
   },
   {
    "id": "cse-aiml-5g2",
    "name": "CSE-AIML 5G2",
    "program": "CSE-AIML",
    "semester": 5,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-404"
   },
   {
    "id": "cse-aiml-5g3",
    "name": "CSE-AIML 5G3",
    "program": "CSE-AIML",
    "semester": 5,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-405"
   },
   {
    "id": "cse-aiml-5g4",
    "name": "CSE-AIML 5G4",
    "program": "CSE-AIML",
    "semester": 5,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-501"
   },
   {
    "id": "cse-aiml-5g5",
    "name": "CSE-AIML 5G5",
    "program": "CSE-AIML",
    "semester": 5,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-mb-lh-506"
   },
   {
    "id": "cse-aift-1a",
    "name": "CSE-AIFT 1A",
    "program": "CSE-AIFT",
    "semester": 1,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-nb-106a"
   },
   {
    "id": "cse-aift-1b",
    "name": "CSE-AIFT 1B",
    "program": "CSE-AIFT",
    "semester": 1,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-nb-106b"
   },
   {
    "id": "cse-aift-3a",
    "name": "CSE-AIFT 3A",
    "program": "CSE-AIFT",
    "semester": 3,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-bloom-block-lh-5"
   },
   {
    "id": "cse-aift-3b",
    "name": "CSE-AIFT 3B",
    "program": "CSE-AIFT",
    "semester": 3,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-bloom-block-lh-6"
   },
   {
    "id": "cse-aift-3c",
    "name": "CSE-AIFT 3C",
    "program": "CSE-AIFT",
    "semester": 3,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-bloom-block-lh-7"
   },
   {
    "id": "cse-aift-3d",
    "name": "CSE-AIFT 3D",
    "program": "CSE-AIFT",
    "semester": 3,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-bloom-block-lh-8"
   },
   {
    "id": "cse-aift-5a",
    "name": "CSE-AIFT 5A",
    "program": "CSE-AIFT",
    "semester": 5,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-bloom-block-lh-1"
   },
   {
    "id": "cse-aift-5b",
    "name": "CSE-AIFT 5B",
    "program": "CSE-AIFT",
    "semester": 5,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-bloom-block-lh-2"
   },
   {
    "id": "cse-aift-5c",
    "name": "CSE-AIFT 5C",
    "program": "CSE-AIFT",
    "semester": 5,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-bloom-block-lh-3"
   },
   {
    "id": "cse-aift-5d",
    "name": "CSE-AIFT 5D",
    "program": "CSE-AIFT",
    "semester": 5,
-   "size": 60
+   "size": 60,
+   "homeRoomId": "room-bloom-block-lh-4"
   }
  ],
  "courses": [

@@ -50,15 +50,17 @@ const ENTITIES = {
     },
   },
   sections: {
-    columns: ['name', 'program', 'semester', 'size'],
-    example: ['CSE 5-A', 'B.E. CSE', '5', '62'],
-    schema: z.object({ name: str(60), program: optStr(80), semester: optInt(1, 12), size: int(1, 2000) }),
+    columns: ['name', 'program', 'semester', 'size', 'home_room'],
+    example: ['CSE 5-A', 'B.E. CSE', '5', '62', 'LT-101'],
+    schema: z.object({ name: str(60), program: optStr(80), semester: optInt(1, 12), size: int(1, 2000), home_room: optStr(60) }),
     async save(c, r) {
       const id = (await c.query('SELECT id FROM sections WHERE lower(name) = lower($1)', [r.name])).rows[0]?.id || newId('sec');
+      const home = r.home_room ? (await c.query('SELECT id FROM rooms WHERE lower(name) = lower($1)', [r.home_room])).rows[0] : null;
+      if (r.home_room && !home) throw new Error(`unknown room "${r.home_room}"`);
       await c.query(
-        `INSERT INTO sections (id, name, program, semester, size) VALUES ($1,$2,$3,$4,$5)
-         ON CONFLICT (id) DO UPDATE SET name=$2, program=$3, semester=$4, size=$5`,
-        [id, r.name, r.program ?? null, r.semester ?? null, r.size],
+        `INSERT INTO sections (id, name, program, semester, size, home_room_id) VALUES ($1,$2,$3,$4,$5,$6)
+         ON CONFLICT (id) DO UPDATE SET name=$2, program=$3, semester=$4, size=$5, home_room_id=COALESCE($6, sections.home_room_id)`,
+        [id, r.name, r.program ?? null, r.semester ?? null, r.size, home?.id ?? null],
       );
     },
   },

@@ -170,4 +170,35 @@ test('a student sees only their own class', async () => {
 
   const full = (await request(app).get('/api/timetables/published').set(auth(admin))).body;
   assert.equal(full.problem.sections.length, 32, 'admins still see everything');
+
+  for (const path of ['/api/faculty', '/api/offerings', '/api/constraints', '/api/sections', '/api/rooms', '/api/courses', '/api/baskets', '/api/lookups', '/api/stats']) {
+    assert.equal((await request(app).get(path).set(auth(riya))).status, 403, `students cannot read ${path}`);
+  }
+});
+
+test('teachers see every class but not colleagues\' private rules', async () => {
+  const { query } = await import('../src/db/pg.js');
+  await request(app).post('/api/auth/register').send({ name: 'Teach', email: 'teach@example.com', password: 'longpassword1' });
+  await query(`UPDATE users SET role = 'faculty', faculty_id = 'fac-dr-taniya' WHERE email = 'teach@example.com'`);
+  const token = (await request(app).post('/api/auth/login').send({ email: 'teach@example.com', password: 'longpassword1' })).body.token;
+  const tt = (await request(app).get('/api/timetables/published').set(auth(token))).body;
+  assert.equal(tt.problem.sections.length, 32);
+  assert.ok(tt.problem.faculty.every((f) => !('unavailable' in f) && !('avoid' in f)));
+  assert.equal((await request(app).get('/api/faculty').set(auth(token))).status, 403);
+});
+
+test('generated timetables keep each class in its home room most of the time', async () => {
+  const res = await request(app).post('/api/timetables').set(auth(admin)).send({ name: 'Home rooms', timeLimitSec: 4, seed: 3 });
+  let tt;
+  for (let i = 0; i < 120; i++) {
+    tt = (await request(app).get(`/api/timetables/${res.body.id}`).set(auth(admin))).body;
+    if (tt.status === 'done' || tt.status === 'failed') break;
+    await sleep(250);
+  }
+  assert.equal(tt.unplaced.length, 0);
+  const sec = tt.problem.sections.find((s) => s.id === 'cse-aift-1a');
+  assert.equal(sec.homeRoomId, 'room-nb-106a');
+  const own = tt.events.filter((e) => e.kind === 'offering' && e.sectionIds.length === 1 && e.sectionIds[0] === sec.id);
+  const home = own.filter((e) => e.parts[0].roomId === sec.homeRoomId).length;
+  assert.ok(home / own.length > 0.7, `${home} of ${own.length} classes in the home room`);
 });

@@ -81,3 +81,12 @@ test('applyMove keeps the timetable clean or reports the new clash', () => {
   assert.equal(applyMove(problem, result.events, 'nope', { day: 0, start: 0 }), null);
   assert.deepEqual(checkTimetable(problem, result.events), []);
 });
+
+test('ics: a term starting mid-week puts each class on its own weekday', () => {
+  // 2026-07-29 is a Wednesday. Monday classes must start on Mon 3 Aug, Wednesday ones on 29 Jul.
+  const mon = { id: 'm', key: 'k', kind: 'offering', duration: 1, day: 0, start: 0, sectionIds: ['sec-a'], parts: [{ offeringId: 'o1', courseId: problem.courses[0].id, facultyId: problem.faculty[0].id, roomId: problem.rooms[0].id }] };
+  const wed = { ...mon, id: 'w', day: 2, parts: [{ ...mon.parts[0], offeringId: 'o2' }] };
+  const ics = buildIcs({ title: 't', problem, events: [mon, wed], termStart: '2026-07-29', termWeeks: 2 });
+  assert.match(ics, /UID:m-o1@slotwise[\s\S]*?DTSTART;TZID=Asia\/Kolkata:20260803T/);
+  assert.match(ics, /UID:w-o2@slotwise[\s\S]*?DTSTART;TZID=Asia\/Kolkata:20260729T/);
+});

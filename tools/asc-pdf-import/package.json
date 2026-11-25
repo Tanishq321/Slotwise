@@ -1,0 +1,15 @@
+{
+  "name": "@slotwise/asc-pdf-import",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Turns an aSc class-wise timetable PDF into a Slotwise dataset file",
+  "type": "module",
+  "scripts": {
+    "parse": "node parse.mjs",
+    "build-dataset": "node build-dataset.mjs",
+    "chitkara": "node parse.mjs Class_Wise_Time_Table.pdf -o parsed.json && node build-dataset.mjs parsed.json ../../server/data/chitkara-cse-ai.json"
+  },
+  "dependencies": {
+    "pdfjs-dist": "4.10.38"
+  }
+}

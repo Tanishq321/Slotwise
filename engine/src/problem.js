@@ -175,6 +175,14 @@ export function compileProblem(problem) {
   // Rooms that could host a part, smallest first (best fit keeps big rooms free).
   const candidateRooms = (type, size) =>
     rooms.filter((r) => r.type === type && r.capacity >= size).sort((a, b) => a.capacity - b.capacity).map((r) => r.idx);
+  // A class with a home room tries it first, so students don't change rooms every period.
+  const withHome = (list, sectionIds) => {
+    for (const sid of sectionIds) {
+      const home = roomIdx.get(sections[secIdx.get(sid)]?.homeRoomId);
+      if (home != null && list.includes(home)) return [home, ...list.filter((r) => r !== home)];
+    }
+    return list;
+  };
 
   const events = [];
   const keys = [];
@@ -200,7 +208,7 @@ export function compileProblem(problem) {
         kind: 'offering',
         duration,
         groups: o.sectionIds.map((s) => secIdx.get(s)),
-        parts: [{ offeringId: o.id, courseId: o.courseId, facIdx: facIdx.get(o.facultyId), size, type, candidates: candidateRooms(type, size) }],
+        parts: [{ offeringId: o.id, courseId: o.courseId, facIdx: facIdx.get(o.facultyId), size, type, candidates: withHome(candidateRooms(type, size), o.sectionIds) }],
       });
     }
   }

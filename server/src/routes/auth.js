@@ -89,6 +89,6 @@ authRouter.patch('/me/section', requireAuth, validate({ body: z.object({ section
   const { sectionId } = req.valid.body;
   if (!(await query('SELECT 1 FROM sections WHERE id = $1', [sectionId])).rowCount) throw badRequest('That class does not exist');
   const updated = (await query('UPDATE users SET section_id = $2 WHERE id = $1 RETURNING *', [me.id, sectionId])).rows[0];
-  audit(req.user, 'update', 'user', me.id, { sectionId });
+  audit(req.user, 'choose', 'their class', me.id, { sectionId });
   res.json({ token: signToken(updated), user: publicUser(updated) });
 });

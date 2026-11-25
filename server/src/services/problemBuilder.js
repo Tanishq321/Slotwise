@@ -59,7 +59,7 @@ export async function buildProblemFromDb() {
       avoid: rulesFor('faculty', f.id, 'avoid'),
       canTeach: teachBy.get(f.id) || [],
     })),
-    sections: sections.rows.map((s) => ({ id: s.id, name: s.name, size: s.size, ...(s.program ? { program: s.program } : {}), ...(s.semester ? { semester: s.semester } : {}), unavailable: rulesFor('section', s.id, 'unavailable') })),
+    sections: sections.rows.map((s) => ({ id: s.id, name: s.name, size: s.size, ...(s.program ? { program: s.program } : {}), ...(s.semester ? { semester: s.semester } : {}), ...(s.home_room_id ? { homeRoomId: s.home_room_id } : {}), unavailable: rulesFor('section', s.id, 'unavailable') })),
     courses: courses.rows.map((c) => ({ id: c.id, code: c.code, name: c.name, type: c.type, sessionsPerWeek: c.sessions_per_week })),
     offerings: offerings.rows.map((o) => ({
       id: o.id,

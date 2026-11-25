@@ -29,6 +29,7 @@ export const sectionSchema = z.object({
   program: optionalText(80),
   semester: z.number().int().min(1).max(12).nullable().optional(),
   size: z.number().int().min(1).max(2000),
+  homeRoomId: z.string().trim().min(1).max(80).nullable().optional(),
 });
 
 export const courseSchema = z.object({
@@ -78,6 +79,7 @@ export const sectionsRouter = crudRouter({
   entity: 'Section',
   idPrefix: 'sec',
   schema: sectionSchema,
+  extraSelect: '(SELECT name FROM rooms WHERE id = t.home_room_id) AS home_room_name',
   searchable: ['name', 'program'],
   sortable: ['name', 'size', 'semester', 'createdAt'],
   filters: ['program', 'semester'],

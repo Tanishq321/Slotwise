@@ -23,14 +23,20 @@ export function buildIcs({ title, problem, events, termStart, termWeeks = 16, ti
   const faculty = new Map(problem.faculty.map((f) => [f.id, f]));
   const rooms = new Map(problem.rooms.map((r) => [r.id, r]));
   const sections = new Map(problem.sections.map((s) => [s.id, s]));
-  const monday = termStart ? new Date(`${termStart}T00:00:00Z`) : nextMonday();
+  // Each weekday's first class is on that weekday on or after the term start (which need not be a Monday).
+  const start = termStart ? new Date(`${termStart}T00:00:00Z`) : nextMonday();
+  const firstDate = (day) => {
+    const d = new Date(start);
+    const wanted = (day + 1) % 7; // config day 0 = Monday; getUTCDay(): 0 = Sunday
+    d.setUTCDate(d.getUTCDate() + ((wanted - d.getUTCDay() + 7) % 7));
+    return d;
+  };
   const now = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+Z$/, 'Z');
 
   const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Slotwise//Timetable//EN', 'CALSCALE:GREGORIAN', `X-WR-CALNAME:${escape(title)}`, `X-WR-TIMEZONE:${timezone}`];
   for (const ev of events) {
     if (ev.day == null || !times[ev.start] || !times[ev.start + ev.duration - 1]) continue;
-    const date = new Date(monday);
-    date.setUTCDate(monday.getUTCDate() + ev.day);
+    const date = firstDate(ev.day);
     for (const part of ev.parts) {
       const course = courses.get(part.courseId);
       lines.push(
@@ -40,7 +46,7 @@ export function buildIcs({ title, problem, events, termStart, termWeeks = 16, ti
         `DTSTART;TZID=${timezone}:${localStamp(date, times[ev.start].start)}`,
         `DTEND;TZID=${timezone}:${localStamp(date, times[ev.start + ev.duration - 1].end)}`,
         `RRULE:FREQ=WEEKLY;COUNT=${termWeeks}`,
-        `SUMMARY:${escape(`${course?.code || ''} ${course?.name || part.courseId}`.trim())}`,
+        `SUMMARY:${escape(course?.code && course.code !== course.name ? `${course.code} ${course.name}` : course?.name || part.courseId)}`,
         `LOCATION:${escape(rooms.get(part.roomId)?.name || '')}`,
         `DESCRIPTION:${escape(`Teacher: ${faculty.get(part.facultyId)?.name || ''}\nSections: ${ev.sectionIds.map((s) => sections.get(s)?.name || s).join(', ')}`)}`,
         'END:VEVENT',
