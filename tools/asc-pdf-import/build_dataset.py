@@ -116,8 +116,21 @@ def main(src='parsed.json', out='chitkara-cse-ai.json'):
     usual = defaultdict(Counter)
     for o in offerings:
         usual[o['courseId']][o['sessionsPerWeek']] += 1
+    # Stream of a subject/teacher = the streams (CSE-AIML, CSE-AIFT) of the classes it is taught to.
+    sec_stream = {sec['id']: sec['program'] for sec in sections}
+    streams_of = defaultdict(set)
+    for o in offerings:
+        for sid in o['sectionIds']:
+            streams_of[o['courseId']].add(sec_stream[sid])
+            streams_of[o['facultyId']].add(sec_stream[sid])
+    for b in baskets:
+        for opt in b['options']:
+            for sid in b['sectionIds']:
+                streams_of[opt['courseId']].add(sec_stream[sid])
+                streams_of[opt['facultyId']].add(sec_stream[sid])
+    stream_label = lambda key: ', '.join(sorted(streams_of[key])) or 'CSE-AI'
     courses = [{'id': cid, 'code': subj_name[cid], 'name': subj_name[cid], 'type': 'lab' if subj_name[cid] in LAB_COURSES else 'lecture',
-                'sessionsPerWeek': max(1, min(10, (usual[cid].most_common(1) or [(2, 0)])[0][0])), 'department': 'CSE-AI'} for cid in subjects]
+                'sessionsPerWeek': max(1, min(10, (usual[cid].most_common(1) or [(2, 0)])[0][0])), 'department': stream_label(cid)} for cid in subjects]
 
     # --- 5. Rooms ------------------------------------------------------------------
     def building(name):
@@ -149,7 +162,7 @@ def main(src='parsed.json', out='chitkara-cse-ai.json'):
         fid = 'fac-' + slug(name)
         max_day = max([per_day[(tk, d)] for d in range(5)] + [0])
         faculty.append({'id': fid, 'name': name, 'maxPerDay': min(12, max(4, max_day)), 'maxPerWeek': min(60, max(18, week[tk])),
-                        'canTeach': sorted(can_teach[fid]), 'department': 'CSE-AI'})
+                        'canTeach': sorted(can_teach[fid]), 'department': stream_label(fid)})
     assert len({f['id'] for f in faculty}) == len(faculty), 'teacher id collision'
 
     # --- 7. Lunch: the middle period each class never uses ----------------------------
