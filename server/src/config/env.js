@@ -26,6 +26,9 @@ const schema = z.object({
   // true = load the demo department and logins at startup if the demo admin is missing.
   // Handy on hosts without a terminal (e.g. Render's free plan). Remove it afterwards.
   SEED_DEMO: bool.default(false),
+  // Name of a dataset in server/data/ to load when it changes (see services/datasetLoader.js).
+  // In production this defaults to the Chitkara CSE-AI data; set it to "none" to turn it off.
+  LOAD_DATASET: z.string().trim().optional(),
 });
 
 const parsed = schema.safeParse(process.env);
@@ -36,6 +39,7 @@ if (!parsed.success) {
 }
 
 export const env = parsed.data;
+env.LOAD_DATASET ??= env.NODE_ENV === 'production' ? 'chitkara-cse-ai' : 'none';
 if (env.NODE_ENV === 'production' && env.JWT_SECRET.startsWith('dev-only')) {
   console.error('Set a real JWT_SECRET in production.');
   process.exit(1);

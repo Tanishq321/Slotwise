@@ -156,7 +156,7 @@
    "id": "room-mb-lh-304",
    "name": "MB LH-304",
    "type": "lecture",
-   "capacity": 70,
+   "capacity": 120,
    "building": "Martin Luther Block"
   },
   {
@@ -288,7 +288,7 @@
   {
    "id": "room-ios-lab",
    "name": "iOS Lab",
-   "type": "lab",
+   "type": "lecture",
    "capacity": 70,
    "building": null
   }
@@ -690,12 +690,21 @@
    "department": "CSE-AIFT"
   },
   {
-   "id": "fac-t-himanshu",
-   "name": "T- Himanshu",
-   "maxPerDay": 6,
-   "maxPerWeek": 26,
+   "id": "fac-t-himanshu-java",
+   "name": "T- Himanshu (Java)",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
    "canTeach": [
-    "crs-java",
+    "crs-java"
+   ],
+   "department": "CSE-AIML"
+  },
+  {
+   "id": "fac-t-himanshu-pa",
+   "name": "T- Himanshu (PA)",
+   "maxPerDay": 4,
+   "maxPerWeek": 18,
+   "canTeach": [
     "crs-pa"
    ],
    "department": "CSE-AIML"
@@ -1189,7 +1198,7 @@
    "id": "crs-design-thinking-with-ios",
    "code": "Design Thinking with iOS",
    "name": "Design Thinking with iOS",
-   "type": "lab",
+   "type": "lecture",
    "sessionsPerWeek": 2,
    "department": "CSE-AIML"
   },
@@ -1221,7 +1230,7 @@
    "id": "crs-ios-app-development-swift-i",
    "code": "iOS App Development Swift-I",
    "name": "iOS App Development Swift-I",
-   "type": "lab",
+   "type": "lecture",
    "sessionsPerWeek": 1,
    "department": "CSE-AIML"
   },
@@ -1285,7 +1294,7 @@
    "id": "crs-pa-using-ai",
    "code": "PA using AI",
    "name": "PA using AI",
-   "type": "lab",
+   "type": "lecture",
    "sessionsPerWeek": 4,
    "department": "CSE-AIML"
   },
@@ -2264,7 +2273,7 @@
   {
    "id": "off-094",
    "courseId": "crs-java",
-   "facultyId": "fac-t-himanshu",
+   "facultyId": "fac-t-himanshu-java",
    "sectionIds": [
     "cse-aiml-3g4"
    ],
@@ -2640,7 +2649,7 @@
   {
    "id": "off-131",
    "courseId": "crs-pa",
-   "facultyId": "fac-t-himanshu",
+   "facultyId": "fac-t-himanshu-pa",
    "sectionIds": [
     "cse-aiml-5g1"
    ],
@@ -2670,7 +2679,7 @@
   {
    "id": "off-134",
    "courseId": "crs-pa",
-   "facultyId": "fac-t-himanshu",
+   "facultyId": "fac-t-himanshu-pa",
    "sectionIds": [
     "cse-aiml-5g2"
    ],
@@ -4772,5 +4781,8100 @@
    "periodTo": 4,
    "note": "Lunch"
   }
- ]
+ ],
+ "official": {
+  "name": "Official timetable (university PDF, 14-11-2026)",
+  "events": [
+   {
+    "id": "bkt-01#1",
+    "key": "bkt-01",
+    "kind": "basket",
+    "basketName": "AOC / BPC (CSE-AIFT 5B, CSE-AIFT 5D)",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5b",
+     "cse-aift-5d"
+    ],
+    "parts": [
+     {
+      "offeringId": "opt-01-1",
+      "courseId": "crs-aoc",
+      "facultyId": "fac-t-rajnish-sinha",
+      "roomId": "room-bloom-block-lh-4",
+      "size": 60
+     },
+     {
+      "offeringId": "opt-01-2",
+      "courseId": "crs-bpc",
+      "facultyId": "fac-t-ms-ritika-chaudhary",
+      "roomId": "room-bloom-block-lh-2",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "bkt-01#2",
+    "key": "bkt-01",
+    "kind": "basket",
+    "basketName": "AOC / BPC (CSE-AIFT 5B, CSE-AIFT 5D)",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5b",
+     "cse-aift-5d"
+    ],
+    "parts": [
+     {
+      "offeringId": "opt-01-1",
+      "courseId": "crs-aoc",
+      "facultyId": "fac-t-rajnish-sinha",
+      "roomId": "room-bloom-block-lh-4",
+      "size": 60
+     },
+     {
+      "offeringId": "opt-01-2",
+      "courseId": "crs-bpc",
+      "facultyId": "fac-t-ms-ritika-chaudhary",
+      "roomId": "room-bloom-block-lh-2",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "bkt-01#3",
+    "key": "bkt-01",
+    "kind": "basket",
+    "basketName": "AOC / BPC (CSE-AIFT 5B, CSE-AIFT 5D)",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5b",
+     "cse-aift-5d"
+    ],
+    "parts": [
+     {
+      "offeringId": "opt-01-1",
+      "courseId": "crs-aoc",
+      "facultyId": "fac-t-rajnish-sinha",
+      "roomId": "room-bloom-block-lh-4",
+      "size": 60
+     },
+     {
+      "offeringId": "opt-01-2",
+      "courseId": "crs-bpc",
+      "facultyId": "fac-t-ms-ritika-chaudhary",
+      "roomId": "room-bloom-block-lh-2",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "bkt-02#1",
+    "key": "bkt-02",
+    "kind": "basket",
+    "basketName": "AOC / BPC (CSE-AIML 5-iOS)",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5-ios"
+    ],
+    "parts": [
+     {
+      "offeringId": "opt-02-1",
+      "courseId": "crs-aoc",
+      "facultyId": "fac-t-ashish",
+      "roomId": "room-tg-323",
+      "size": 30
+     },
+     {
+      "offeringId": "opt-02-2",
+      "courseId": "crs-bpc",
+      "facultyId": "fac-t-neel",
+      "roomId": "room-ios-lab",
+      "size": 30
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "bkt-02#2",
+    "key": "bkt-02",
+    "kind": "basket",
+    "basketName": "AOC / BPC (CSE-AIML 5-iOS)",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5-ios"
+    ],
+    "parts": [
+     {
+      "offeringId": "opt-02-1",
+      "courseId": "crs-aoc",
+      "facultyId": "fac-t-ashish",
+      "roomId": "room-tg-323",
+      "size": 30
+     },
+     {
+      "offeringId": "opt-02-2",
+      "courseId": "crs-bpc",
+      "facultyId": "fac-t-neel",
+      "roomId": "room-ios-lab",
+      "size": 30
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "bkt-02#3",
+    "key": "bkt-02",
+    "kind": "basket",
+    "basketName": "AOC / BPC (CSE-AIML 5-iOS)",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5-ios"
+    ],
+    "parts": [
+     {
+      "offeringId": "opt-02-1",
+      "courseId": "crs-aoc",
+      "facultyId": "fac-t-ashish",
+      "roomId": "room-tg-323",
+      "size": 30
+     },
+     {
+      "offeringId": "opt-02-2",
+      "courseId": "crs-bpc",
+      "facultyId": "fac-t-neel",
+      "roomId": "room-ios-lab",
+      "size": 30
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "bkt-03#1",
+    "key": "bkt-03",
+    "kind": "basket",
+    "basketName": "AOC / BPC (CSE-AIML 5G2, CSE-AIML 5G4)",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g2",
+     "cse-aiml-5g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "opt-03-1",
+      "courseId": "crs-aoc",
+      "facultyId": "fac-t-rajnish-sinha",
+      "roomId": "room-mb-lh-501",
+      "size": 60
+     },
+     {
+      "offeringId": "opt-03-2",
+      "courseId": "crs-bpc",
+      "facultyId": "fac-t-ms-ritika-chaudhary",
+      "roomId": "room-mb-lh-404",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "bkt-04#1",
+    "key": "bkt-04",
+    "kind": "basket",
+    "basketName": "AOC / BPC (CSE-AIML 5G3, CSE-AIML 5G5)",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g3",
+     "cse-aiml-5g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "opt-04-1",
+      "courseId": "crs-aoc",
+      "facultyId": "fac-t-rajnish-sinha",
+      "roomId": "room-mb-lh-506",
+      "size": 60
+     },
+     {
+      "offeringId": "opt-04-2",
+      "courseId": "crs-bpc",
+      "facultyId": "fac-t-ms-ritika-chaudhary",
+      "roomId": "room-mb-lh-405",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-001#1",
+    "key": "off-001",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-001",
+      "courseId": "crs-aoc",
+      "facultyId": "fac-t-rajnish-sinha",
+      "roomId": "room-bloom-block-lh-1",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-002#1",
+    "key": "off-002",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-002",
+      "courseId": "crs-aoc-ii",
+      "facultyId": "fac-t-rajnish-sinha",
+      "roomId": "room-mb-lh-403",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-003#1",
+    "key": "off-003",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-003",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-ravinder",
+      "roomId": "room-bloom-block-lh-1",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-003#2",
+    "key": "off-003",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-003",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-ravinder",
+      "roomId": "room-bloom-block-lh-1",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-003#3",
+    "key": "off-003",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-003",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-ravinder",
+      "roomId": "room-bloom-block-lh-1",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-004#1",
+    "key": "off-004",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-004",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-ravinder",
+      "roomId": "room-bloom-block-lh-2",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-004#2",
+    "key": "off-004",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-004",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-ravinder",
+      "roomId": "room-bloom-block-lh-2",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-004#3",
+    "key": "off-004",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-004",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-ravinder",
+      "roomId": "room-bloom-block-lh-2",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-005#1",
+    "key": "off-005",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-005",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-ravinder",
+      "roomId": "room-bloom-block-lh-3",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-005#2",
+    "key": "off-005",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-005",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-ravinder",
+      "roomId": "room-bloom-block-lh-3",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-005#3",
+    "key": "off-005",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-005",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-ravinder",
+      "roomId": "room-bloom-block-lh-3",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-006#1",
+    "key": "off-006",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-006",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-ravinder",
+      "roomId": "room-bloom-block-lh-4",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-006#2",
+    "key": "off-006",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-006",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-ravinder",
+      "roomId": "room-bloom-block-lh-4",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-006#3",
+    "key": "off-006",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-006",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-ravinder",
+      "roomId": "room-bloom-block-lh-4",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-007#1",
+    "key": "off-007",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-007",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-saqlain",
+      "roomId": "room-mb-lh-403",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-007#2",
+    "key": "off-007",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-007",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-saqlain",
+      "roomId": "room-mb-lh-403",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-008#1",
+    "key": "off-008",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-008",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-saqlain",
+      "roomId": "room-mb-lh-404",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-008#2",
+    "key": "off-008",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-008",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-saqlain",
+      "roomId": "room-mb-lh-404",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-009#1",
+    "key": "off-009",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-009",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-saqlain",
+      "roomId": "room-mb-lh-405",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-009#2",
+    "key": "off-009",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-009",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-saqlain",
+      "roomId": "room-mb-lh-405",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-010#1",
+    "key": "off-010",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-010",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-saqlain",
+      "roomId": "room-mb-lh-501",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-010#2",
+    "key": "off-010",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-010",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-saqlain",
+      "roomId": "room-mb-lh-501",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-011#1",
+    "key": "off-011",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-011",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-saqlain",
+      "roomId": "room-mb-lh-506",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-011#2",
+    "key": "off-011",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-011",
+      "courseId": "crs-bee",
+      "facultyId": "fac-t-saqlain",
+      "roomId": "room-mb-lh-506",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-012#1",
+    "key": "off-012",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-012",
+      "courseId": "crs-bee-eval",
+      "facultyId": "fac-t-deepika",
+      "roomId": "room-mb-lh-403",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-013#1",
+    "key": "off-013",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-013",
+      "courseId": "crs-bee-eval",
+      "facultyId": "fac-t-deepika",
+      "roomId": "room-mb-lh-404",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-014#1",
+    "key": "off-014",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-014",
+      "courseId": "crs-bee-eval",
+      "facultyId": "fac-t-deepika",
+      "roomId": "room-mb-lh-405",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-015#1",
+    "key": "off-015",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-015",
+      "courseId": "crs-bee-eval",
+      "facultyId": "fac-t-deepika",
+      "roomId": "room-mb-lh-501",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-016#1",
+    "key": "off-016",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-016",
+      "courseId": "crs-bee-eval",
+      "facultyId": "fac-t-deepika",
+      "roomId": "room-mb-lh-506",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-017#1",
+    "key": "off-017",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-017",
+      "courseId": "crs-bpc",
+      "facultyId": "fac-t-ms-ritika-chaudhary",
+      "roomId": "room-bloom-block-lh-3",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-018#1",
+    "key": "off-018",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-018",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-charanjit",
+      "roomId": "room-bloom-block-lh-5",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 4
+   },
+   {
+    "id": "off-018#2",
+    "key": "off-018",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-018",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-charanjit",
+      "roomId": "room-bloom-block-lh-5",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 4
+   },
+   {
+    "id": "off-019#1",
+    "key": "off-019",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-019",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-charanjit",
+      "roomId": "room-bloom-block-lh-6",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-019#2",
+    "key": "off-019",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-019",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-charanjit",
+      "roomId": "room-bloom-block-lh-6",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 4
+   },
+   {
+    "id": "off-020#1",
+    "key": "off-020",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-020",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-charanjit",
+      "roomId": "room-bloom-block-lh-7",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 4
+   },
+   {
+    "id": "off-020#2",
+    "key": "off-020",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-020",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-charanjit",
+      "roomId": "room-bloom-block-lh-7",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-021#1",
+    "key": "off-021",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-021",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-charanjit",
+      "roomId": "room-bloom-block-lh-8",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-021#2",
+    "key": "off-021",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-021",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-charanjit",
+      "roomId": "room-bloom-block-lh-8",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-022#1",
+    "key": "off-022",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-022",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-pankaj-kumar",
+      "roomId": "room-mb-lh-101",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-022#2",
+    "key": "off-022",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-022",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-pankaj-kumar",
+      "roomId": "room-mb-lh-101",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-023#1",
+    "key": "off-023",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-023",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-pankaj-kumar",
+      "roomId": "room-mb-lh-104",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-023#2",
+    "key": "off-023",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-023",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-pankaj-kumar",
+      "roomId": "room-mb-lh-104",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-024#1",
+    "key": "off-024",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-024",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-pankaj-kumar",
+      "roomId": "room-mb-lh-105",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-024#2",
+    "key": "off-024",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-024",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-pankaj-kumar",
+      "roomId": "room-mb-lh-105",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-025#1",
+    "key": "off-025",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-025",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-pankaj-kumar",
+      "roomId": "room-mb-lh-502",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-025#2",
+    "key": "off-025",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-025",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-pankaj-kumar",
+      "roomId": "room-mb-lh-502",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-026#1",
+    "key": "off-026",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-026",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-nithin-goyal",
+      "roomId": "room-mb-lh-503",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-026#2",
+    "key": "off-026",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-026",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-nithin-goyal",
+      "roomId": "room-mb-lh-503",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-027#1",
+    "key": "off-027",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-027",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-nithin-goyal",
+      "roomId": "room-mb-lh-504",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-027#2",
+    "key": "off-027",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-027",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-nithin-goyal",
+      "roomId": "room-mb-lh-504",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-028#1",
+    "key": "off-028",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-028",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-nithin-goyal",
+      "roomId": "room-mb-lh-505",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-028#2",
+    "key": "off-028",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-028",
+      "courseId": "crs-dbms",
+      "facultyId": "fac-t-nithin-goyal",
+      "roomId": "room-mb-lh-505",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-029#1",
+    "key": "off-029",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-029",
+      "courseId": "crs-dbms-lab",
+      "facultyId": "fac-dr-niharika",
+      "roomId": "room-mb-lh-101",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-030#1",
+    "key": "off-030",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-030",
+      "courseId": "crs-dbms-lab",
+      "facultyId": "fac-dr-niharika",
+      "roomId": "room-mb-lh-104",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-031#1",
+    "key": "off-031",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-031",
+      "courseId": "crs-dbms-lab",
+      "facultyId": "fac-dr-niharika",
+      "roomId": "room-mb-lh-105",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-032#1",
+    "key": "off-032",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-032",
+      "courseId": "crs-dbms-lab",
+      "facultyId": "fac-dr-niharika",
+      "roomId": "room-mb-lh-502",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-033#1",
+    "key": "off-033",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-033",
+      "courseId": "crs-dbms-lab",
+      "facultyId": "fac-dr-niharika",
+      "roomId": "room-mb-lh-503",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-034#1",
+    "key": "off-034",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-034",
+      "courseId": "crs-dbms-lab",
+      "facultyId": "fac-dr-niharika",
+      "roomId": "room-mb-lh-504",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-035#1",
+    "key": "off-035",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-035",
+      "courseId": "crs-dbms-lab",
+      "facultyId": "fac-dr-niharika",
+      "roomId": "room-mb-lh-505",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-036#1",
+    "key": "off-036",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-036",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-t-mudrik",
+      "roomId": "room-bloom-block-lh-1",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-036#2",
+    "key": "off-036",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-036",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-t-mudrik",
+      "roomId": "room-bloom-block-lh-1",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-037#1",
+    "key": "off-037",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-037",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-t-mudrik",
+      "roomId": "room-bloom-block-lh-2",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-038#1",
+    "key": "off-038",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-038",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-t-mudrik",
+      "roomId": "room-bloom-block-lh-3",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-038#2",
+    "key": "off-038",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-038",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-t-mudrik",
+      "roomId": "room-bloom-block-lh-3",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-039#1",
+    "key": "off-039",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-039",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-t-mudrik",
+      "roomId": "room-bloom-block-lh-4",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-040#1",
+    "key": "off-040",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5-ios"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-040",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-dr-karan-bajaj",
+      "roomId": "room-ios-lab",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-040#2",
+    "key": "off-040",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5-ios"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-040",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-dr-karan-bajaj",
+      "roomId": "room-ios-lab",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-041#1",
+    "key": "off-041",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5-uca"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-041",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-dr-karan-bajaj",
+      "roomId": "room-tg-318",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-041#2",
+    "key": "off-041",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5-uca"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-041",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-dr-karan-bajaj",
+      "roomId": "room-tg-318",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-041#3",
+    "key": "off-041",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5-uca"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-041",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-dr-karan-bajaj",
+      "roomId": "room-tg-318",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-042#1",
+    "key": "off-042",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-042",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-t-surender",
+      "roomId": "room-mb-lh-403",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-042#2",
+    "key": "off-042",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-042",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-t-surender",
+      "roomId": "room-mb-lh-403",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-043#1",
+    "key": "off-043",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-043",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-t-surender",
+      "roomId": "room-mb-lh-404",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-043#2",
+    "key": "off-043",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-043",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-t-surender",
+      "roomId": "room-mb-lh-404",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-044#1",
+    "key": "off-044",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-044",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-t-surender",
+      "roomId": "room-mb-lh-405",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-044#2",
+    "key": "off-044",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-044",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-t-surender",
+      "roomId": "room-mb-lh-405",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-045#1",
+    "key": "off-045",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-045",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-t-surender",
+      "roomId": "room-mb-lh-501",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-045#2",
+    "key": "off-045",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-045",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-t-surender",
+      "roomId": "room-mb-lh-501",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-046#1",
+    "key": "off-046",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-046",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-t-surender",
+      "roomId": "room-mb-lh-506",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-046#2",
+    "key": "off-046",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-046",
+      "courseId": "crs-dnn",
+      "facultyId": "fac-t-surender",
+      "roomId": "room-mb-lh-506",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-047#1",
+    "key": "off-047",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aiml-5-ios"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-047",
+      "courseId": "crs-design-thinking-with-ios",
+      "facultyId": "fac-ms-neelam-kumari-ios-t1",
+      "roomId": "room-ios-lab",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-047#2",
+    "key": "off-047",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aiml-5-ios"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-047",
+      "courseId": "crs-design-thinking-with-ios",
+      "facultyId": "fac-ms-neelam-kumari-ios-t1",
+      "roomId": "room-ios-lab",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-048#1",
+    "key": "off-048",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-048",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-chandrapal",
+      "roomId": "room-bloom-block-lh-5",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-048#2",
+    "key": "off-048",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-048",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-chandrapal",
+      "roomId": "room-bloom-block-lh-5",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-049#1",
+    "key": "off-049",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-049",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-chandrapal",
+      "roomId": "room-bloom-block-lh-6",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 4
+   },
+   {
+    "id": "off-049#2",
+    "key": "off-049",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-049",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-chandrapal",
+      "roomId": "room-bloom-block-lh-6",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-050#1",
+    "key": "off-050",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-050",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-chandrapal",
+      "roomId": "room-bloom-block-lh-7",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-050#2",
+    "key": "off-050",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-050",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-chandrapal",
+      "roomId": "room-bloom-block-lh-7",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-051#1",
+    "key": "off-051",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-051",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-chandrapal",
+      "roomId": "room-bloom-block-lh-8",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 4
+   },
+   {
+    "id": "off-051#2",
+    "key": "off-051",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-051",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-chandrapal",
+      "roomId": "room-bloom-block-lh-8",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 4
+   },
+   {
+    "id": "off-052#1",
+    "key": "off-052",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-052",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-amitabh-shrivastva",
+      "roomId": "room-mb-lh-101",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-052#2",
+    "key": "off-052",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-052",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-amitabh-shrivastva",
+      "roomId": "room-mb-lh-101",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-052#3",
+    "key": "off-052",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-052",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-amitabh-shrivastva",
+      "roomId": "room-mb-lh-101",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-053#1",
+    "key": "off-053",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-053",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-amitabh-shrivastva",
+      "roomId": "room-mb-lh-104",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-053#2",
+    "key": "off-053",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-053",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-amitabh-shrivastva",
+      "roomId": "room-mb-lh-104",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-053#3",
+    "key": "off-053",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-053",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-amitabh-shrivastva",
+      "roomId": "room-mb-lh-104",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-054#1",
+    "key": "off-054",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-054",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-amitabh-shrivastva",
+      "roomId": "room-mb-lh-105",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-054#2",
+    "key": "off-054",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-054",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-amitabh-shrivastva",
+      "roomId": "room-mb-lh-105",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-054#3",
+    "key": "off-054",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-054",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-amitabh-shrivastva",
+      "roomId": "room-mb-lh-105",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-055#1",
+    "key": "off-055",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-055",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-amitabh-shrivastva",
+      "roomId": "room-mb-lh-502",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-055#2",
+    "key": "off-055",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-055",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-amitabh-shrivastva",
+      "roomId": "room-mb-lh-502",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-055#3",
+    "key": "off-055",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-055",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-amitabh-shrivastva",
+      "roomId": "room-mb-lh-502",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-056#1",
+    "key": "off-056",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-056",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-abid-ahmad",
+      "roomId": "room-mb-lh-503",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-056#2",
+    "key": "off-056",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-056",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-abid-ahmad",
+      "roomId": "room-mb-lh-503",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-056#3",
+    "key": "off-056",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-056",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-abid-ahmad",
+      "roomId": "room-mb-lh-503",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-057#1",
+    "key": "off-057",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-057",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-abid-ahmad",
+      "roomId": "room-mb-lh-504",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-057#2",
+    "key": "off-057",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-057",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-abid-ahmad",
+      "roomId": "room-mb-lh-504",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-057#3",
+    "key": "off-057",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-057",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-abid-ahmad",
+      "roomId": "room-mb-lh-504",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-058#1",
+    "key": "off-058",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-058",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-abid-ahmad",
+      "roomId": "room-mb-lh-505",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-058#2",
+    "key": "off-058",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-058",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-abid-ahmad",
+      "roomId": "room-mb-lh-505",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-058#3",
+    "key": "off-058",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-058",
+      "courseId": "crs-fee",
+      "facultyId": "fac-t-abid-ahmad",
+      "roomId": "room-mb-lh-505",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-059#1",
+    "key": "off-059",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-059",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-monika-sethi",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-059#2",
+    "key": "off-059",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-059",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-monika-sethi",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-059#3",
+    "key": "off-059",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-059",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-monika-sethi",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-059#4",
+    "key": "off-059",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-059",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-monika-sethi",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-060#1",
+    "key": "off-060",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-060",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-monika-sethi",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-060#2",
+    "key": "off-060",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-060",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-monika-sethi",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-060#3",
+    "key": "off-060",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-060",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-monika-sethi",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-060#4",
+    "key": "off-060",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-060",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-monika-sethi",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-061#1",
+    "key": "off-061",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-061",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-deepak",
+      "roomId": "room-mb-lh-301",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-062#1",
+    "key": "off-062",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-062",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-swati-malik",
+      "roomId": "room-mb-lh-302",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-063#1",
+    "key": "off-063",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-063",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-shruti-arora",
+      "roomId": "room-mb-lh-303",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-064#1",
+    "key": "off-064",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-064",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-shruti-arora",
+      "roomId": "room-mb-lh-303",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-065#1",
+    "key": "off-065",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-065",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-swati-malik",
+      "roomId": "room-mb-lh-305",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-066#1",
+    "key": "off-066",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-066",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-swati-malik",
+      "roomId": "room-mb-lh-305",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-067#1",
+    "key": "off-067",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-067",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-shruti-arora",
+      "roomId": "room-mb-lh-306",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-068#1",
+    "key": "off-068",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-068",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-aarchit-joshi",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-068#2",
+    "key": "off-068",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-068",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-aarchit-joshi",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-068#3",
+    "key": "off-068",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-068",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-aarchit-joshi",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-068#4",
+    "key": "off-068",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-068",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-aarchit-joshi",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-069#1",
+    "key": "off-069",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-069",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-aarchit-joshi",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-069#2",
+    "key": "off-069",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-069",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-aarchit-joshi",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-069#3",
+    "key": "off-069",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-069",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-aarchit-joshi",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-070#1",
+    "key": "off-070",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-070",
+      "courseId": "crs-iwt",
+      "facultyId": "fac-dr-deepak",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-071#1",
+    "key": "off-071",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-071",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-savita-wadhwan",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-071#2",
+    "key": "off-071",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-071",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-savita-wadhwan",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-071#3",
+    "key": "off-071",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-071",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-savita-wadhwan",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-072#1",
+    "key": "off-072",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-072",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-savita-wadhwan",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-072#2",
+    "key": "off-072",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-072",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-savita-wadhwan",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-072#3",
+    "key": "off-072",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-072",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-savita-wadhwan",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-073#1",
+    "key": "off-073",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-073",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-harshvardhan",
+      "roomId": "room-mb-lh-301",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-074#1",
+    "key": "off-074",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-074",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-amandeep",
+      "roomId": "room-mb-lh-302",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-075#1",
+    "key": "off-075",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-075",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-meena-rani",
+      "roomId": "room-mb-lh-303",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-076#1",
+    "key": "off-076",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-076",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-shalli-rani-curin",
+      "roomId": "room-mb-lh-304",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-077#1",
+    "key": "off-077",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-077",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-karan-bajaj",
+      "roomId": "room-mb-lh-305",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-078#1",
+    "key": "off-078",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-078",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-harshvardhan",
+      "roomId": "room-mb-lh-306",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-079#1",
+    "key": "off-079",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-079",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-harshvardhan",
+      "roomId": "room-mb-lh-306",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-080#1",
+    "key": "off-080",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-080",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-amandeep",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-081#1",
+    "key": "off-081",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-081",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-meena-rani",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-081#2",
+    "key": "off-081",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-081",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-meena-rani",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-081#3",
+    "key": "off-081",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-081",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-meena-rani",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-082#1",
+    "key": "off-082",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-082",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-meena-rani",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-082#2",
+    "key": "off-082",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-082",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-meena-rani",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-082#3",
+    "key": "off-082",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-082",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-meena-rani",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-082#4",
+    "key": "off-082",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-082",
+      "courseId": "crs-intro-to-ai",
+      "facultyId": "fac-dr-meena-rani",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-083#1",
+    "key": "off-083",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-083",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-gaurav",
+      "roomId": "room-bloom-block-lh-5",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-083#2",
+    "key": "off-083",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-083",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-gaurav",
+      "roomId": "room-bloom-block-lh-5",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 4
+   },
+   {
+    "id": "off-083#3",
+    "key": "off-083",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-083",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-gaurav",
+      "roomId": "room-bloom-block-lh-5",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-083#4",
+    "key": "off-083",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-083",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-gaurav",
+      "roomId": "room-bloom-block-lh-5",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 4
+   },
+   {
+    "id": "off-084#1",
+    "key": "off-084",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-084",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-gaurav",
+      "roomId": "room-bloom-block-lh-6",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 4
+   },
+   {
+    "id": "off-084#2",
+    "key": "off-084",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-084",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-gaurav",
+      "roomId": "room-bloom-block-lh-6",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-084#3",
+    "key": "off-084",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-084",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-gaurav",
+      "roomId": "room-bloom-block-lh-6",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 4
+   },
+   {
+    "id": "off-084#4",
+    "key": "off-084",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-084",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-gaurav",
+      "roomId": "room-bloom-block-lh-6",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-085#1",
+    "key": "off-085",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-085",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-dhanajay",
+      "roomId": "room-bloom-block-lh-7",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 4
+   },
+   {
+    "id": "off-085#2",
+    "key": "off-085",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-085",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-dhanajay",
+      "roomId": "room-bloom-block-lh-7",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 4
+   },
+   {
+    "id": "off-085#3",
+    "key": "off-085",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-085",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-dhanajay",
+      "roomId": "room-bloom-block-lh-7",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 4
+   },
+   {
+    "id": "off-085#4",
+    "key": "off-085",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-085",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-dhanajay",
+      "roomId": "room-bloom-block-lh-7",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 4
+   },
+   {
+    "id": "off-086#1",
+    "key": "off-086",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-086",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-dhanajay",
+      "roomId": "room-bloom-block-lh-8",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-086#2",
+    "key": "off-086",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-086",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-dhanajay",
+      "roomId": "room-bloom-block-lh-8",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 4
+   },
+   {
+    "id": "off-086#3",
+    "key": "off-086",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-086",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-dhanajay",
+      "roomId": "room-bloom-block-lh-8",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-086#4",
+    "key": "off-086",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-086",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-dhanajay",
+      "roomId": "room-bloom-block-lh-8",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-087#1",
+    "key": "off-087",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-087",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-ayush",
+      "roomId": "room-bloom-block-lh-1",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-087#2",
+    "key": "off-087",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-087",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-ayush",
+      "roomId": "room-bloom-block-lh-1",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-087#3",
+    "key": "off-087",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-087",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-ayush",
+      "roomId": "room-bloom-block-lh-1",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-087#4",
+    "key": "off-087",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-087",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-ayush",
+      "roomId": "room-bloom-block-lh-1",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-087#5",
+    "key": "off-087",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-087",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-ayush",
+      "roomId": "room-bloom-block-lh-1",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-088#1",
+    "key": "off-088",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-088",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-ayush",
+      "roomId": "room-bloom-block-lh-2",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-088#2",
+    "key": "off-088",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-088",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-ayush",
+      "roomId": "room-bloom-block-lh-2",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-088#3",
+    "key": "off-088",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-088",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-ayush",
+      "roomId": "room-bloom-block-lh-2",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-088#4",
+    "key": "off-088",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-088",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-ayush",
+      "roomId": "room-bloom-block-lh-2",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-088#5",
+    "key": "off-088",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-088",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-ayush",
+      "roomId": "room-bloom-block-lh-2",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-089#1",
+    "key": "off-089",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-089",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-girish",
+      "roomId": "room-bloom-block-lh-3",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-089#2",
+    "key": "off-089",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-089",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-girish",
+      "roomId": "room-bloom-block-lh-3",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-089#3",
+    "key": "off-089",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-089",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-girish",
+      "roomId": "room-bloom-block-lh-3",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-089#4",
+    "key": "off-089",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-089",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-girish",
+      "roomId": "room-bloom-block-lh-3",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-089#5",
+    "key": "off-089",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-089",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-girish",
+      "roomId": "room-bloom-block-lh-3",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-090#1",
+    "key": "off-090",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-090",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-girish",
+      "roomId": "room-bloom-block-lh-4",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-090#2",
+    "key": "off-090",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-090",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-girish",
+      "roomId": "room-bloom-block-lh-4",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-090#3",
+    "key": "off-090",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-090",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-girish",
+      "roomId": "room-bloom-block-lh-4",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-090#4",
+    "key": "off-090",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-090",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-girish",
+      "roomId": "room-bloom-block-lh-4",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-090#5",
+    "key": "off-090",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-090",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-girish",
+      "roomId": "room-bloom-block-lh-4",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-091#1",
+    "key": "off-091",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-091",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-rohit-sharma",
+      "roomId": "room-mb-lh-101",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-091#2",
+    "key": "off-091",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-091",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-rohit-sharma",
+      "roomId": "room-mb-lh-101",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-091#3",
+    "key": "off-091",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-091",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-rohit-sharma",
+      "roomId": "room-mb-lh-101",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-091#4",
+    "key": "off-091",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-091",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-rohit-sharma",
+      "roomId": "room-mb-lh-101",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-091#5",
+    "key": "off-091",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-091",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-rohit-sharma",
+      "roomId": "room-mb-lh-101",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-092#1",
+    "key": "off-092",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-092",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-rohit-sharma",
+      "roomId": "room-mb-lh-104",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-092#2",
+    "key": "off-092",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-092",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-rohit-sharma",
+      "roomId": "room-mb-lh-104",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-092#3",
+    "key": "off-092",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-092",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-rohit-sharma",
+      "roomId": "room-mb-lh-104",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-092#4",
+    "key": "off-092",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-092",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-rohit-sharma",
+      "roomId": "room-mb-lh-104",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-092#5",
+    "key": "off-092",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-092",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-rohit-sharma",
+      "roomId": "room-mb-lh-104",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-093#1",
+    "key": "off-093",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-093",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-rohit-sharma",
+      "roomId": "room-mb-lh-105",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-093#2",
+    "key": "off-093",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-093",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-rohit-sharma",
+      "roomId": "room-mb-lh-105",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-093#3",
+    "key": "off-093",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-093",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-rohit-sharma",
+      "roomId": "room-mb-lh-105",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-093#4",
+    "key": "off-093",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-093",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-rohit-sharma",
+      "roomId": "room-mb-lh-105",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-093#5",
+    "key": "off-093",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-093",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-rohit-sharma",
+      "roomId": "room-mb-lh-105",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-094#1",
+    "key": "off-094",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-094",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-himanshu-java",
+      "roomId": "room-mb-lh-502",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-094#2",
+    "key": "off-094",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-094",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-himanshu-java",
+      "roomId": "room-mb-lh-502",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-094#3",
+    "key": "off-094",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-094",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-himanshu-java",
+      "roomId": "room-mb-lh-502",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-094#4",
+    "key": "off-094",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-094",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-himanshu-java",
+      "roomId": "room-mb-lh-502",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-094#5",
+    "key": "off-094",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-094",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-himanshu-java",
+      "roomId": "room-mb-lh-502",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-095#1",
+    "key": "off-095",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-095",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-mahendra-nath",
+      "roomId": "room-mb-lh-503",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-095#2",
+    "key": "off-095",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-095",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-mahendra-nath",
+      "roomId": "room-mb-lh-503",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-095#3",
+    "key": "off-095",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-095",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-mahendra-nath",
+      "roomId": "room-mb-lh-503",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-095#4",
+    "key": "off-095",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-095",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-mahendra-nath",
+      "roomId": "room-mb-lh-503",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-095#5",
+    "key": "off-095",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-095",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-mahendra-nath",
+      "roomId": "room-mb-lh-503",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-096#1",
+    "key": "off-096",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-096",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-mahendra-nath",
+      "roomId": "room-mb-lh-504",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-096#2",
+    "key": "off-096",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-096",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-mahendra-nath",
+      "roomId": "room-mb-lh-504",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-096#3",
+    "key": "off-096",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-096",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-mahendra-nath",
+      "roomId": "room-mb-lh-504",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-096#4",
+    "key": "off-096",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-096",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-mahendra-nath",
+      "roomId": "room-mb-lh-504",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-096#5",
+    "key": "off-096",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-096",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-mahendra-nath",
+      "roomId": "room-mb-lh-504",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-097#1",
+    "key": "off-097",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-097",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-mahendra-nath",
+      "roomId": "room-mb-lh-505",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-097#2",
+    "key": "off-097",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-097",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-mahendra-nath",
+      "roomId": "room-mb-lh-505",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-097#3",
+    "key": "off-097",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-097",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-mahendra-nath",
+      "roomId": "room-mb-lh-505",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-097#4",
+    "key": "off-097",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-097",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-mahendra-nath",
+      "roomId": "room-mb-lh-505",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-097#5",
+    "key": "off-097",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-097",
+      "courseId": "crs-java",
+      "facultyId": "fac-t-mahendra-nath",
+      "roomId": "room-mb-lh-505",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-098#1",
+    "key": "off-098",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-098",
+      "courseId": "crs-java-lab",
+      "facultyId": "fac-dr-ram",
+      "roomId": "room-mb-lh-101",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-099#1",
+    "key": "off-099",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-099",
+      "courseId": "crs-java-lab",
+      "facultyId": "fac-dr-ram",
+      "roomId": "room-mb-lh-104",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-100#1",
+    "key": "off-100",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-100",
+      "courseId": "crs-java-lab",
+      "facultyId": "fac-dr-ram",
+      "roomId": "room-mb-lh-105",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-101#1",
+    "key": "off-101",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-101",
+      "courseId": "crs-java-lab",
+      "facultyId": "fac-dr-ram",
+      "roomId": "room-mb-lh-502",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-102#1",
+    "key": "off-102",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-102",
+      "courseId": "crs-java-lab",
+      "facultyId": "fac-dr-ram",
+      "roomId": "room-mb-lh-503",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-103#1",
+    "key": "off-103",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-103",
+      "courseId": "crs-java-lab",
+      "facultyId": "fac-dr-ram",
+      "roomId": "room-mb-lh-504",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-104#1",
+    "key": "off-104",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-104",
+      "courseId": "crs-java-lab",
+      "facultyId": "fac-dr-ram",
+      "roomId": "room-mb-lh-505",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-105#1",
+    "key": "off-105",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-105",
+      "courseId": "crs-lac",
+      "facultyId": "fac-dr-reetu-malhotra-as",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-105#2",
+    "key": "off-105",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-105",
+      "courseId": "crs-lac",
+      "facultyId": "fac-dr-reetu-malhotra-as",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-105#3",
+    "key": "off-105",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-105",
+      "courseId": "crs-lac",
+      "facultyId": "fac-dr-reetu-malhotra-as",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 3
+   },
+   {
+    "id": "off-105#4",
+    "key": "off-105",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-105",
+      "courseId": "crs-lac",
+      "facultyId": "fac-dr-reetu-malhotra-as",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-106#1",
+    "key": "off-106",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-106",
+      "courseId": "crs-lac",
+      "facultyId": "fac-dr-reetu-malhotra-as",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-106#2",
+    "key": "off-106",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-106",
+      "courseId": "crs-lac",
+      "facultyId": "fac-dr-reetu-malhotra-as",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 1
+   },
+   {
+    "id": "off-106#3",
+    "key": "off-106",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-106",
+      "courseId": "crs-lac",
+      "facultyId": "fac-dr-reetu-malhotra-as",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-106#4",
+    "key": "off-106",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-106",
+      "courseId": "crs-lac",
+      "facultyId": "fac-dr-reetu-malhotra-as",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 1
+   },
+   {
+    "id": "off-107#1",
+    "key": "off-107",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-107",
+      "courseId": "crs-lac",
+      "facultyId": "fac-dr-nikita-as",
+      "roomId": "room-mb-lh-302",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-107#2",
+    "key": "off-107",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-107",
+      "courseId": "crs-lac",
+      "facultyId": "fac-dr-nikita-as",
+      "roomId": "room-mb-lh-302",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 6
+   },
+   {
+    "id": "off-108#1",
+    "key": "off-108",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-108",
+      "courseId": "crs-lac",
+      "facultyId": "fac-dr-reetu-malhotra-as",
+      "roomId": "room-mb-lh-304",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-108#2",
+    "key": "off-108",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-108",
+      "courseId": "crs-lac",
+      "facultyId": "fac-dr-reetu-malhotra-as",
+      "roomId": "room-mb-lh-304",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-109#1",
+    "key": "off-109",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-109",
+      "courseId": "crs-lac",
+      "facultyId": "fac-dr-nikita-as",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 3
+   },
+   {
+    "id": "off-109#2",
+    "key": "off-109",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-109",
+      "courseId": "crs-lac",
+      "facultyId": "fac-dr-nikita-as",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 1
+   },
+   {
+    "id": "off-109#3",
+    "key": "off-109",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-109",
+      "courseId": "crs-lac",
+      "facultyId": "fac-dr-nikita-as",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-109#4",
+    "key": "off-109",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-109",
+      "courseId": "crs-lac",
+      "facultyId": "fac-dr-nikita-as",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 3
+   },
+   {
+    "id": "off-110#1",
+    "key": "off-110",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-110",
+      "courseId": "crs-lac",
+      "facultyId": "fac-ms-priyanka-as",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-110#2",
+    "key": "off-110",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-110",
+      "courseId": "crs-lac",
+      "facultyId": "fac-ms-priyanka-as",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 1
+   },
+   {
+    "id": "off-110#3",
+    "key": "off-110",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-110",
+      "courseId": "crs-lac",
+      "facultyId": "fac-ms-priyanka-as",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-110#4",
+    "key": "off-110",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-110",
+      "courseId": "crs-lac",
+      "facultyId": "fac-ms-priyanka-as",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 1
+   },
+   {
+    "id": "off-111#1",
+    "key": "off-111",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-111",
+      "courseId": "crs-mentoring",
+      "facultyId": "fac-dr-savita-wadhwan",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 1
+   },
+   {
+    "id": "off-112#1",
+    "key": "off-112",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-112",
+      "courseId": "crs-mentoring",
+      "facultyId": "fac-dr-savita-wadhwan",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-113#1",
+    "key": "off-113",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-113",
+      "courseId": "crs-mentoring",
+      "facultyId": "fac-dr-rajan-kumar",
+      "roomId": "room-mb-lh-304",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 3
+   },
+   {
+    "id": "off-114#1",
+    "key": "off-114",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-114",
+      "courseId": "crs-mentoring",
+      "facultyId": "fac-dr-aarchit-joshi",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-115#1",
+    "key": "off-115",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-115",
+      "courseId": "crs-mentoring",
+      "facultyId": "fac-dr-aarchit-joshi",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-116#1",
+    "key": "off-116",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5a",
+     "cse-aiml-5g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-116",
+      "courseId": "crs-nalr",
+      "facultyId": "fac-t-anuj",
+      "roomId": "room-mb-lh-304",
+      "size": 120
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-117#1",
+    "key": "off-117",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-117",
+      "courseId": "crs-nalr",
+      "facultyId": "fac-t-anuj",
+      "roomId": "room-bloom-block-lh-2",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-118#1",
+    "key": "off-118",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-118",
+      "courseId": "crs-nalr",
+      "facultyId": "fac-t-anuj",
+      "roomId": "room-bloom-block-lh-3",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-119#1",
+    "key": "off-119",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-119",
+      "courseId": "crs-nalr",
+      "facultyId": "fac-t-anuj",
+      "roomId": "room-bloom-block-lh-4",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-120#1",
+    "key": "off-120",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5-ios"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-120",
+      "courseId": "crs-nalr",
+      "facultyId": "fac-dr-pummy-dhiman-trainer-2",
+      "roomId": "room-tg-302",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-121#1",
+    "key": "off-121",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5-uca"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-121",
+      "courseId": "crs-nalr",
+      "facultyId": "fac-dr-suhasini-t-anuj",
+      "roomId": "room-tg-302",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-121#2",
+    "key": "off-121",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5-uca"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-121",
+      "courseId": "crs-nalr",
+      "facultyId": "fac-dr-suhasini-t-anuj",
+      "roomId": "room-tg-302",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-122#1",
+    "key": "off-122",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-5g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-122",
+      "courseId": "crs-nalr",
+      "facultyId": "fac-t-anuj",
+      "roomId": "room-mb-lh-403",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-123#1",
+    "key": "off-123",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-123",
+      "courseId": "crs-nalr",
+      "facultyId": "fac-t-anuj",
+      "roomId": "room-mb-lh-403",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-124#1",
+    "key": "off-124",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-5g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-124",
+      "courseId": "crs-nalr",
+      "facultyId": "fac-t-anuj",
+      "roomId": "room-mb-lh-404",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 6
+   },
+   {
+    "id": "off-125#1",
+    "key": "off-125",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-125",
+      "courseId": "crs-nalr",
+      "facultyId": "fac-t-anuj",
+      "roomId": "room-mb-lh-404",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-126#1",
+    "key": "off-126",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-5g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-126",
+      "courseId": "crs-nalr",
+      "facultyId": "fac-t-anuj",
+      "roomId": "room-mb-lh-405",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 3
+   },
+   {
+    "id": "off-127#1",
+    "key": "off-127",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-5g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-127",
+      "courseId": "crs-nalr",
+      "facultyId": "fac-t-anuj",
+      "roomId": "room-mb-lh-501",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-128#1",
+    "key": "off-128",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-128",
+      "courseId": "crs-nalr",
+      "facultyId": "fac-t-anuj",
+      "roomId": "room-mb-lh-501",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-129#1",
+    "key": "off-129",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-5g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-129",
+      "courseId": "crs-nalr",
+      "facultyId": "fac-t-anuj",
+      "roomId": "room-mb-lh-506",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 6
+   },
+   {
+    "id": "off-130#1",
+    "key": "off-130",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-130",
+      "courseId": "crs-nalr",
+      "facultyId": "fac-t-anuj",
+      "roomId": "room-mb-lh-506",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-131#1",
+    "key": "off-131",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-131",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-himanshu-pa",
+      "roomId": "room-mb-lh-403",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-131#2",
+    "key": "off-131",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-131",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-himanshu-pa",
+      "roomId": "room-mb-lh-403",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-131#3",
+    "key": "off-131",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-131",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-himanshu-pa",
+      "roomId": "room-mb-lh-403",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-131#4",
+    "key": "off-131",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-131",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-himanshu-pa",
+      "roomId": "room-mb-lh-403",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-132#1",
+    "key": "off-132",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-132",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-payal",
+      "roomId": "room-mb-lh-403",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-133#1",
+    "key": "off-133",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-133",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-deepika",
+      "roomId": "room-mb-lh-404",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-134#1",
+    "key": "off-134",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-134",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-himanshu-pa",
+      "roomId": "room-mb-lh-404",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-134#2",
+    "key": "off-134",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-134",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-himanshu-pa",
+      "roomId": "room-mb-lh-404",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-134#3",
+    "key": "off-134",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-134",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-himanshu-pa",
+      "roomId": "room-mb-lh-404",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-134#4",
+    "key": "off-134",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-134",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-himanshu-pa",
+      "roomId": "room-mb-lh-404",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-135#1",
+    "key": "off-135",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-135",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-payal",
+      "roomId": "room-mb-lh-405",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-136#1",
+    "key": "off-136",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-136",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-ridum",
+      "roomId": "room-mb-lh-405",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-136#2",
+    "key": "off-136",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-136",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-ridum",
+      "roomId": "room-mb-lh-405",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-136#3",
+    "key": "off-136",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-136",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-ridum",
+      "roomId": "room-mb-lh-405",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-136#4",
+    "key": "off-136",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-136",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-ridum",
+      "roomId": "room-mb-lh-405",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-137#1",
+    "key": "off-137",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-137",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-deepika",
+      "roomId": "room-mb-lh-501",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-138#1",
+    "key": "off-138",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-138",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-ridum",
+      "roomId": "room-mb-lh-501",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-138#2",
+    "key": "off-138",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-138",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-ridum",
+      "roomId": "room-mb-lh-501",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-138#3",
+    "key": "off-138",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-138",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-ridum",
+      "roomId": "room-mb-lh-501",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-138#4",
+    "key": "off-138",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-138",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-ridum",
+      "roomId": "room-mb-lh-501",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-139#1",
+    "key": "off-139",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-139",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-payal",
+      "roomId": "room-mb-lh-506",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-140#1",
+    "key": "off-140",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-140",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-ridum",
+      "roomId": "room-mb-lh-506",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-140#2",
+    "key": "off-140",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-140",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-ridum",
+      "roomId": "room-mb-lh-506",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-140#3",
+    "key": "off-140",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-140",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-ridum",
+      "roomId": "room-mb-lh-506",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-140#4",
+    "key": "off-140",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-140",
+      "courseId": "crs-pa",
+      "facultyId": "fac-t-ridum",
+      "roomId": "room-mb-lh-506",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-141#1",
+    "key": "off-141",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-5-ios"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-141",
+      "courseId": "crs-pa-using-ai",
+      "facultyId": "fac-dr-vandana-saini",
+      "roomId": "room-ios-lab",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 3
+   },
+   {
+    "id": "off-141#2",
+    "key": "off-141",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-5-ios"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-141",
+      "courseId": "crs-pa-using-ai",
+      "facultyId": "fac-dr-vandana-saini",
+      "roomId": "room-ios-lab",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 3
+   },
+   {
+    "id": "off-141#3",
+    "key": "off-141",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-5-ios"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-141",
+      "courseId": "crs-pa-using-ai",
+      "facultyId": "fac-dr-vandana-saini",
+      "roomId": "room-ios-lab",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 3
+   },
+   {
+    "id": "off-141#4",
+    "key": "off-141",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-5-ios"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-141",
+      "courseId": "crs-pa-using-ai",
+      "facultyId": "fac-dr-vandana-saini",
+      "roomId": "room-ios-lab",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 3
+   },
+   {
+    "id": "off-142#1",
+    "key": "off-142",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g1",
+     "cse-aiml-g2",
+     "cse-aiml-g3",
+     "cse-aiml-g4",
+     "cse-aiml-g5",
+     "cse-aiml-g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-142",
+      "courseId": "crs-rudiments-of-ai",
+      "facultyId": "fac-hc",
+      "roomId": "room-exploretorium",
+      "size": 360
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-142#2",
+    "key": "off-142",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g1",
+     "cse-aiml-g2",
+     "cse-aiml-g3",
+     "cse-aiml-g4",
+     "cse-aiml-g5",
+     "cse-aiml-g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-142",
+      "courseId": "crs-rudiments-of-ai",
+      "facultyId": "fac-hc",
+      "roomId": "room-exploretorium",
+      "size": 360
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-142#3",
+    "key": "off-142",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g1",
+     "cse-aiml-g2",
+     "cse-aiml-g3",
+     "cse-aiml-g4",
+     "cse-aiml-g5",
+     "cse-aiml-g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-142",
+      "courseId": "crs-rudiments-of-ai",
+      "facultyId": "fac-hc",
+      "roomId": "room-exploretorium",
+      "size": 360
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-142#4",
+    "key": "off-142",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g1",
+     "cse-aiml-g2",
+     "cse-aiml-g3",
+     "cse-aiml-g4",
+     "cse-aiml-g5",
+     "cse-aiml-g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-142",
+      "courseId": "crs-rudiments-of-ai",
+      "facultyId": "fac-hc",
+      "roomId": "room-exploretorium",
+      "size": 360
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-143#1",
+    "key": "off-143",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aiml-g1",
+     "cse-aiml-g2",
+     "cse-aiml-g3",
+     "cse-aiml-g4",
+     "cse-aiml-g5",
+     "cse-aiml-g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-143",
+      "courseId": "crs-rudiments-of-ai",
+      "facultyId": "fac-hc",
+      "roomId": "room-exploretorium",
+      "size": 360
+     }
+    ],
+    "day": 0,
+    "start": 1
+   },
+   {
+    "id": "off-144#1",
+    "key": "off-144",
+    "kind": "offering",
+    "duration": 4,
+    "sectionIds": [
+     "cse-aiml-g1",
+     "cse-aiml-g2",
+     "cse-aiml-g3",
+     "cse-aiml-g4",
+     "cse-aiml-g5",
+     "cse-aiml-g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-144",
+      "courseId": "crs-rudiments-of-ai",
+      "facultyId": "fac-hc",
+      "roomId": "room-exploretorium",
+      "size": 360
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-144#2",
+    "key": "off-144",
+    "kind": "offering",
+    "duration": 4,
+    "sectionIds": [
+     "cse-aiml-g1",
+     "cse-aiml-g2",
+     "cse-aiml-g3",
+     "cse-aiml-g4",
+     "cse-aiml-g5",
+     "cse-aiml-g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-144",
+      "courseId": "crs-rudiments-of-ai",
+      "facultyId": "fac-hc",
+      "roomId": "room-exploretorium",
+      "size": 360
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-144#3",
+    "key": "off-144",
+    "kind": "offering",
+    "duration": 4,
+    "sectionIds": [
+     "cse-aiml-g1",
+     "cse-aiml-g2",
+     "cse-aiml-g3",
+     "cse-aiml-g4",
+     "cse-aiml-g5",
+     "cse-aiml-g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-144",
+      "courseId": "crs-rudiments-of-ai",
+      "facultyId": "fac-hc",
+      "roomId": "room-exploretorium",
+      "size": 360
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-145#1",
+    "key": "off-145",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-145",
+      "courseId": "crs-sd",
+      "facultyId": "fac-t-rahul",
+      "roomId": "room-bloom-block-lh-1",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-145#2",
+    "key": "off-145",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-145",
+      "courseId": "crs-sd",
+      "facultyId": "fac-t-rahul",
+      "roomId": "room-bloom-block-lh-1",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-146#1",
+    "key": "off-146",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-146",
+      "courseId": "crs-sd",
+      "facultyId": "fac-t-rahul",
+      "roomId": "room-bloom-block-lh-2",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-146#2",
+    "key": "off-146",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-146",
+      "courseId": "crs-sd",
+      "facultyId": "fac-t-rahul",
+      "roomId": "room-bloom-block-lh-2",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-147#1",
+    "key": "off-147",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-147",
+      "courseId": "crs-sd",
+      "facultyId": "fac-t-rahul",
+      "roomId": "room-bloom-block-lh-3",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-147#2",
+    "key": "off-147",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-147",
+      "courseId": "crs-sd",
+      "facultyId": "fac-t-rahul",
+      "roomId": "room-bloom-block-lh-3",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-148#1",
+    "key": "off-148",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-148",
+      "courseId": "crs-sd",
+      "facultyId": "fac-t-rahul",
+      "roomId": "room-bloom-block-lh-4",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-148#2",
+    "key": "off-148",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-5d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-148",
+      "courseId": "crs-sd",
+      "facultyId": "fac-t-rahul",
+      "roomId": "room-bloom-block-lh-4",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-149#1",
+    "key": "off-149",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5-uca"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-149",
+      "courseId": "crs-sd",
+      "facultyId": "fac-dr-suhasini",
+      "roomId": "room-tg-302",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-149#2",
+    "key": "off-149",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5-uca"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-149",
+      "courseId": "crs-sd",
+      "facultyId": "fac-dr-suhasini",
+      "roomId": "room-tg-302",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-149#3",
+    "key": "off-149",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5-uca"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-149",
+      "courseId": "crs-sd",
+      "facultyId": "fac-dr-suhasini",
+      "roomId": "room-tg-302",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-150#1",
+    "key": "off-150",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-5g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-150",
+      "courseId": "crs-sd",
+      "facultyId": "fac-mr-pronoy-ranjan",
+      "roomId": "room-mb-lh-403",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 6
+   },
+   {
+    "id": "off-150#2",
+    "key": "off-150",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-5g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-150",
+      "courseId": "crs-sd",
+      "facultyId": "fac-mr-pronoy-ranjan",
+      "roomId": "room-mb-lh-403",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 3
+   },
+   {
+    "id": "off-151#1",
+    "key": "off-151",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-151",
+      "courseId": "crs-sd",
+      "facultyId": "fac-mr-pronoy-ranjan",
+      "roomId": "room-mb-lh-403",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-152#1",
+    "key": "off-152",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-152",
+      "courseId": "crs-sd",
+      "facultyId": "fac-mr-pronoy-ranjan",
+      "roomId": "room-mb-lh-404",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-152#2",
+    "key": "off-152",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-152",
+      "courseId": "crs-sd",
+      "facultyId": "fac-mr-pronoy-ranjan",
+      "roomId": "room-mb-lh-404",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-153#1",
+    "key": "off-153",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-5g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-153",
+      "courseId": "crs-sd",
+      "facultyId": "fac-mr-pronoy-ranjan",
+      "roomId": "room-mb-lh-405",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-153#2",
+    "key": "off-153",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-5g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-153",
+      "courseId": "crs-sd",
+      "facultyId": "fac-mr-pronoy-ranjan",
+      "roomId": "room-mb-lh-405",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 6
+   },
+   {
+    "id": "off-154#1",
+    "key": "off-154",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-154",
+      "courseId": "crs-sd",
+      "facultyId": "fac-mr-pronoy-ranjan",
+      "roomId": "room-mb-lh-405",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-155#1",
+    "key": "off-155",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-155",
+      "courseId": "crs-sd",
+      "facultyId": "fac-mr-pronoy-ranjan",
+      "roomId": "room-mb-lh-501",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-155#2",
+    "key": "off-155",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-155",
+      "courseId": "crs-sd",
+      "facultyId": "fac-mr-pronoy-ranjan",
+      "roomId": "room-mb-lh-501",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-156#1",
+    "key": "off-156",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-156",
+      "courseId": "crs-sd",
+      "facultyId": "fac-mr-pronoy-ranjan",
+      "roomId": "room-mb-lh-506",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-156#2",
+    "key": "off-156",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-156",
+      "courseId": "crs-sd",
+      "facultyId": "fac-mr-pronoy-ranjan",
+      "roomId": "room-mb-lh-506",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-157#1",
+    "key": "off-157",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-157",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-neeraj",
+      "roomId": "room-bloom-block-lh-5",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-157#2",
+    "key": "off-157",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-157",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-neeraj",
+      "roomId": "room-bloom-block-lh-5",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 4
+   },
+   {
+    "id": "off-158#1",
+    "key": "off-158",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-158",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-neeraj",
+      "roomId": "room-bloom-block-lh-6",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-158#2",
+    "key": "off-158",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-158",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-neeraj",
+      "roomId": "room-bloom-block-lh-6",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 4
+   },
+   {
+    "id": "off-159#1",
+    "key": "off-159",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-159",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-neeraj",
+      "roomId": "room-bloom-block-lh-7",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-159#2",
+    "key": "off-159",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3c"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-159",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-neeraj",
+      "roomId": "room-bloom-block-lh-7",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-160#1",
+    "key": "off-160",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-160",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-neeraj",
+      "roomId": "room-bloom-block-lh-8",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 4
+   },
+   {
+    "id": "off-160#2",
+    "key": "off-160",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aift-3d"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-160",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-neeraj",
+      "roomId": "room-bloom-block-lh-8",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 4
+   },
+   {
+    "id": "off-161#1",
+    "key": "off-161",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-161",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-venkata-pramod",
+      "roomId": "room-mb-lh-101",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 5
+   },
+   {
+    "id": "off-161#2",
+    "key": "off-161",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-161",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-venkata-pramod",
+      "roomId": "room-mb-lh-101",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-162#1",
+    "key": "off-162",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-162",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-venkata-pramod",
+      "roomId": "room-mb-lh-104",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-162#2",
+    "key": "off-162",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-162",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-venkata-pramod",
+      "roomId": "room-mb-lh-104",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-163#1",
+    "key": "off-163",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-163",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-venkata-pramod",
+      "roomId": "room-mb-lh-105",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-163#2",
+    "key": "off-163",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-163",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-venkata-pramod",
+      "roomId": "room-mb-lh-105",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-164#1",
+    "key": "off-164",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-164",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-venkata-pramod",
+      "roomId": "room-mb-lh-502",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-164#2",
+    "key": "off-164",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-164",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-venkata-pramod",
+      "roomId": "room-mb-lh-502",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-165#1",
+    "key": "off-165",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-165",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-sarthak-pathak",
+      "roomId": "room-mb-lh-503",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-165#2",
+    "key": "off-165",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-165",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-sarthak-pathak",
+      "roomId": "room-mb-lh-503",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-166#1",
+    "key": "off-166",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-166",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-sarthak-pathak",
+      "roomId": "room-mb-lh-504",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-166#2",
+    "key": "off-166",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-166",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-sarthak-pathak",
+      "roomId": "room-mb-lh-504",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-167#1",
+    "key": "off-167",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-167",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-sarthak-pathak",
+      "roomId": "room-mb-lh-505",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-167#2",
+    "key": "off-167",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-167",
+      "courseId": "crs-sde",
+      "facultyId": "fac-t-sarthak-pathak",
+      "roomId": "room-mb-lh-505",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-168#1",
+    "key": "off-168",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-168",
+      "courseId": "crs-sde-lab",
+      "facultyId": "fac-dr-harjeet-singh",
+      "roomId": "room-mb-lh-101",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 5
+   },
+   {
+    "id": "off-169#1",
+    "key": "off-169",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-169",
+      "courseId": "crs-sde-lab",
+      "facultyId": "fac-dr-harjeet-singh",
+      "roomId": "room-mb-lh-104",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-170#1",
+    "key": "off-170",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-170",
+      "courseId": "crs-sde-lab",
+      "facultyId": "fac-dr-harjeet-singh",
+      "roomId": "room-mb-lh-105",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-171#1",
+    "key": "off-171",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-171",
+      "courseId": "crs-sde-lab",
+      "facultyId": "fac-dr-harjeet-singh",
+      "roomId": "room-mb-lh-502",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-172#1",
+    "key": "off-172",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-172",
+      "courseId": "crs-sde-lab",
+      "facultyId": "fac-dr-harjeet-singh",
+      "roomId": "room-mb-lh-503",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-173#1",
+    "key": "off-173",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-173",
+      "courseId": "crs-sde-lab",
+      "facultyId": "fac-dr-harjeet-singh",
+      "roomId": "room-mb-lh-504",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-174#1",
+    "key": "off-174",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-3g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-174",
+      "courseId": "crs-sde-lab",
+      "facultyId": "fac-dr-harjeet-singh",
+      "roomId": "room-mb-lh-505",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-175#1",
+    "key": "off-175",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-175",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-taniya",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-175#2",
+    "key": "off-175",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-175",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-taniya",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-175#3",
+    "key": "off-175",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-175",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-taniya",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-175#4",
+    "key": "off-175",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-175",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-taniya",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-175#5",
+    "key": "off-175",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1a"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-175",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-taniya",
+      "roomId": "room-nb-106a",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-176#1",
+    "key": "off-176",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-176",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-taniya",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-176#2",
+    "key": "off-176",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-176",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-taniya",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-176#3",
+    "key": "off-176",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-176",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-taniya",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 2
+   },
+   {
+    "id": "off-176#4",
+    "key": "off-176",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-176",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-taniya",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-176#5",
+    "key": "off-176",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aift-1b"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-176",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-taniya",
+      "roomId": "room-nb-106b",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 2
+   },
+   {
+    "id": "off-177#1",
+    "key": "off-177",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-177",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-palak-goyal",
+      "roomId": "room-mb-lh-301",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-178#1",
+    "key": "off-178",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g1"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-178",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-palak-goyal",
+      "roomId": "room-mb-lh-301",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-179#1",
+    "key": "off-179",
+    "kind": "offering",
+    "duration": 1,
+    "sectionIds": [
+     "cse-aiml-g2"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-179",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-shilpi-singhal",
+      "roomId": "room-mb-lh-302",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 0
+   },
+   {
+    "id": "off-180#1",
+    "key": "off-180",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g3"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-180",
+      "courseId": "crs-spc",
+      "facultyId": "fac-ms-meenu-bala",
+      "roomId": "room-mb-lh-303",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-181#1",
+    "key": "off-181",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g4"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-181",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-rajan-kumar",
+      "roomId": "room-mb-lh-405",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-182#1",
+    "key": "off-182",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g5"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-182",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-palak-goyal",
+      "roomId": "room-mb-lh-305",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-183#1",
+    "key": "off-183",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g6"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-183",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-shilpi-singhal",
+      "roomId": "room-mb-lh-306",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 5
+   },
+   {
+    "id": "off-184#1",
+    "key": "off-184",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-184",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-pummy-dhiman",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 0,
+    "start": 2
+   },
+   {
+    "id": "off-184#2",
+    "key": "off-184",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-184",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-pummy-dhiman",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 0
+   },
+   {
+    "id": "off-184#3",
+    "key": "off-184",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-184",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-pummy-dhiman",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-184#4",
+    "key": "off-184",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g7"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-184",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-pummy-dhiman",
+      "roomId": "room-mb-lh-401",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   },
+   {
+    "id": "off-185#1",
+    "key": "off-185",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-185",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-rajan-kumar",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 5
+   },
+   {
+    "id": "off-185#2",
+    "key": "off-185",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-185",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-rajan-kumar",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 2
+   },
+   {
+    "id": "off-185#3",
+    "key": "off-185",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-185",
+      "courseId": "crs-spc",
+      "facultyId": "fac-dr-rajan-kumar",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 5
+   },
+   {
+    "id": "off-186#1",
+    "key": "off-186",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-g8"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-186",
+      "courseId": "crs-spc",
+      "facultyId": "fac-ms-meenu-bala",
+      "roomId": "room-mb-lh-402",
+      "size": 60
+     }
+    ],
+    "day": 1,
+    "start": 2
+   },
+   {
+    "id": "off-187#1",
+    "key": "off-187",
+    "kind": "offering",
+    "duration": 2,
+    "sectionIds": [
+     "cse-aiml-5-ios"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-187",
+      "courseId": "crs-ios-app-development-swift-i",
+      "facultyId": "fac-dr-deepak-alahwat-ios-t1",
+      "roomId": "room-ios-lab",
+      "size": 60
+     }
+    ],
+    "day": 3,
+    "start": 0
+   },
+   {
+    "id": "off-188#1",
+    "key": "off-188",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aiml-5-ios"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-188",
+      "courseId": "crs-ios-app-development-swift-i",
+      "facultyId": "fac-dr-deepak-alahwat-ios-t1",
+      "roomId": "room-ios-lab",
+      "size": 60
+     }
+    ],
+    "day": 2,
+    "start": 0
+   },
+   {
+    "id": "off-188#2",
+    "key": "off-188",
+    "kind": "offering",
+    "duration": 3,
+    "sectionIds": [
+     "cse-aiml-5-ios"
+    ],
+    "parts": [
+     {
+      "offeringId": "off-188",
+      "courseId": "crs-ios-app-development-swift-i",
+      "facultyId": "fac-dr-deepak-alahwat-ios-t1",
+      "roomId": "room-ios-lab",
+      "size": 60
+     }
+    ],
+    "day": 4,
+    "start": 0
+   }
+  ]
+ }
 }

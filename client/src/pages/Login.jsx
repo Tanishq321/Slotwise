@@ -3,6 +3,7 @@ import { Navigate, useLocation, useNavigate } from 'react-router';
 import { useAuth } from '../auth.jsx';
 import { errorMessage } from '../api.js';
 import { Button, Field, Input, Notice } from '../components/ui.jsx';
+import { ClassSelect } from '../components/ClassSelect.jsx';
 
 const DEMO = [
   ['admin@slotwise.dev', 'Admin'],
@@ -16,7 +17,7 @@ export function Login() {
   const navigate = useNavigate();
   const location = useLocation();
   const [mode, setMode] = useState('login');
-  const [form, setForm] = useState({ name: '', email: '', password: '' });
+  const [form, setForm] = useState({ name: '', email: '', password: '', sectionId: '' });
   const [error, setError] = useState(null);
   const [busy, setBusy] = useState(false);
   if (user) return <Navigate to={location.state?.from || '/'} replace />;
@@ -28,7 +29,7 @@ export function Login() {
     setError(null);
     try {
       if (mode === 'login') await login(form.email, form.password);
-      else await register(form.name, form.email, form.password);
+      else await register(form.name, form.email, form.password, form.sectionId);
       navigate(location.state?.from || '/', { replace: true });
     } catch (err) {
       setError(errorMessage(err));
@@ -65,6 +66,11 @@ export function Login() {
             <Field label="Password" hint={mode === 'register' ? 'At least 8 characters' : undefined}>
               <Input type="password" value={form.password} onChange={set('password')} autoComplete={mode === 'login' ? 'current-password' : 'new-password'} required />
             </Field>
+            {mode === 'register' && (
+              <Field label="Your class" hint="Students only. You will see this class's timetable.">
+                <ClassSelect value={form.sectionId} onChange={(v) => setForm({ ...form, sectionId: v })} aria-label="Your class" />
+              </Field>
+            )}
             {error && <Notice tone="error">{error}</Notice>}
             <Button type="submit" busy={busy} className="w-full py-2.5">
               {mode === 'login' ? 'Log in' : 'Create account'}
@@ -81,7 +87,7 @@ export function Login() {
             <p className="text-sm text-muted">Password for all: Slotwise@2026</p>
             <div className="mt-3 grid grid-cols-2 gap-2">
               {DEMO.map(([email, label]) => (
-                <Button key={email} variant="secondary" onClick={() => (setMode('login'), setForm({ name: '', email, password: 'Slotwise@2026' }))}>
+                <Button key={email} variant="secondary" onClick={() => (setMode('login'), setForm({ name: '', email, password: 'Slotwise@2026', sectionId: '' }))}>
                   {label}
                 </Button>
               ))}

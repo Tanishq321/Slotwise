@@ -8,11 +8,13 @@ import { migrate } from './db/migrate.js';
 import { seed, DEMO_USERS, DEMO_PASSWORD } from './db/seed.js';
 import { redis } from './services/redis.js';
 import { startWorker, closeQueue } from './services/queue.js';
+import { loadDatasetOnDeploy } from './services/datasetLoader.js';
 
 async function main() {
   await migrate();
   if (env.SEED_DEMO) await seedDemoIfMissing();
   await connectMongo();
+  if (env.LOAD_DATASET && env.LOAD_DATASET !== 'none') await loadDatasetOnDeploy(env.LOAD_DATASET);
   if (env.RUN_WORKER_IN_API) startWorker();
 
   const server = createApp().listen(env.PORT, () => logger.info(`Slotwise API listening on http://localhost:${env.PORT}`));

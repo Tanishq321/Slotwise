@@ -114,3 +114,60 @@ test('built-in datasets can be listed and loaded without uploading', async () =>
   const courses = (await request(app).get('/api/courses?limit=100').set(auth(admin))).body.items;
   assert.ok(courses.some((c) => c.department === 'CSE-AIML'), 'subjects are tagged with their stream');
 });
+
+test('deploy-time load clears old timetables and publishes the official timetable once', async () => {
+  const { loadDatasetOnDeploy } = await import('../src/services/datasetLoader.js');
+  const { Timetable } = await import('../src/models/Timetable.js');
+  const before = await Timetable.countDocuments();
+  assert.ok(before > 0, 'earlier tests left versions behind');
+  const first = await loadDatasetOnDeploy('chitkara-cse-ai');
+  assert.equal(first.imported.sections, 32);
+  assert.equal(first.official.published, true);
+  assert.equal(first.official.clashes, 0, 'the official university timetable passes the clash checker');
+  assert.equal(await Timetable.countDocuments(), 1, 'old versions are gone, only the official one is left');
+  assert.equal(await loadDatasetOnDeploy('chitkara-cse-ai'), null, 'a restart with the same file does nothing');
+  assert.equal(await Timetable.countDocuments(), 1);
+
+  const pub = (await request(app).get('/api/timetables/published').set(auth(admin))).body;
+  assert.equal(pub.events.length, dataset.official.events.length);
+  const g1Mon = pub.events.filter((e) => e.sectionIds.includes('cse-aiml-g1') && e.day === 0).sort((a, b) => a.start - b.start);
+  const ref = dataset.official.events.filter((e) => e.sectionIds.includes('cse-aiml-g1') && e.day === 0).sort((a, b) => a.start - b.start);
+  assert.deepEqual(g1Mon.map((e) => [e.start, e.parts[0].roomId]), ref.map((e) => [e.start, e.parts[0].roomId]), 'slots and rooms are exactly as in the PDF');
+});
+
+test('a student sees only their own class', async () => {
+  const classes = (await request(app).get('/api/auth/classes')).body.items;
+  assert.equal(classes.length, 32, 'class names are public for the sign-up form');
+
+  const reg = await request(app).post('/api/auth/register').send({ name: 'Riya', email: 'riya@example.com', password: 'longpassword1' });
+  let riya = reg.body.token;
+  const blocked = await request(app).get('/api/timetables/published').set(auth(riya));
+  assert.equal(blocked.status, 409);
+  assert.equal(blocked.body.details.code, 'NO_SECTION');
+
+  const pick = await request(app).patch('/api/auth/me/section').set(auth(riya)).send({ sectionId: 'cse-aiml-3g2' });
+  assert.equal(pick.status, 200);
+  riya = pick.body.token;
+  const again = await request(app).patch('/api/auth/me/section').set(auth(riya)).send({ sectionId: 'cse-aiml-g1' });
+  assert.equal(again.status, 403, 'only an admin can change it later');
+
+  const tt = (await request(app).get('/api/timetables/published').set(auth(riya))).body;
+  assert.deepEqual(tt.problem.sections.map((s) => s.id), ['cse-aiml-3g2']);
+  assert.ok(tt.events.length > 0);
+  assert.ok(tt.events.every((e) => e.sectionIds.length === 1 && e.sectionIds[0] === 'cse-aiml-3g2'));
+  const teachersSeen = new Set(tt.events.flatMap((e) => e.parts.map((p) => p.facultyId)));
+  assert.deepEqual(new Set(tt.problem.faculty.map((f) => f.id)), teachersSeen, 'no other teachers are listed');
+  assert.ok(tt.problem.faculty.every((f) => !('unavailable' in f)), "teachers' private rules are not sent");
+
+  const ics = await request(app).get(`/api/timetables/${tt.id}/ics?type=section&id=cse-aiml-g1`).set(auth(riya));
+  assert.equal(ics.status, 200);
+  assert.match(ics.headers['content-disposition'], /CSE-AIML_3G2/, 'the calendar is always their own class');
+
+  const signup = await request(app).post('/api/auth/register').send({ name: 'Aman', email: 'aman@example.com', password: 'longpassword1', sectionId: 'cse-aift-5b' });
+  const aman = (await request(app).get('/api/timetables/published').set(auth(signup.body.token))).body;
+  assert.deepEqual(aman.problem.sections.map((s) => s.id), ['cse-aift-5b'], 'a class chosen at sign-up works straight away');
+  assert.ok(aman.events.some((e) => e.kind === 'basket'), 'their elective groups are included');
+
+  const full = (await request(app).get('/api/timetables/published').set(auth(admin))).body;
+  assert.equal(full.problem.sections.length, 32, 'admins still see everything');
+});

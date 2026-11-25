@@ -190,6 +190,8 @@ test('publishing makes the timetable visible to students', async () => {
   const seen = await request(app).get('/api/timetables/published').set(auth(student));
   assert.equal(seen.status, 200);
   assert.equal(seen.body.id, ttId);
+  assert.deepEqual(seen.body.problem.sections.map((x) => x.id), ['sec-a'], 'a student only gets their own class');
+  assert.ok(seen.body.events.every((e) => e.sectionIds.includes('sec-a')));
   assert.equal((await request(app).get('/api/timetables').set(auth(student))).status, 403, 'students cannot list drafts');
   assert.equal((await request(app).delete(`/api/timetables/${ttId}`).set(auth(admin))).status, 409, 'cannot delete the published version');
 });

@@ -3,6 +3,7 @@
 import { Router } from 'express';
 import { z } from 'zod';
 import { validateProblem, checkTimetable, suggestSubstitutes, sessionLength, sessionCount } from '@slotwise/engine';
+import { query } from '../db/pg.js';
 import { Timetable } from '../models/Timetable.js';
 import { audit } from '../models/AuditLog.js';
 import { canEdit } from '../middleware/auth.js';
@@ -30,6 +31,46 @@ async function loadForUser(id, user, { lean = false } = {}) {
   // Students and faculty only ever see the published timetable.
   if (!isEditor(user) && !tt.published) throw forbidden('This timetable has not been published yet');
   return tt;
+}
+
+/** A student's class, read fresh from the database (the login token may be older). */
+async function studentSection(user) {
+  const { rows } = await query('SELECT section_id FROM users WHERE id = $1', [user.id]);
+  return rows[0]?.section_id || null;
+}
+
+/**
+ * Students see only their own class: its classes, and only the teachers, rooms and
+ * subjects that appear in them. Everyone else gets the version unchanged.
+ */
+async function forViewer(json, user) {
+  if (user.role !== 'student') return json;
+  const sectionId = await studentSection(user);
+  const section = sectionId && json.problem.sections.find((s) => s.id === sectionId);
+  if (!section) {
+    throw conflict(sectionId ? 'Your class is not in the published timetable. Choose your class again.' : 'Choose your class to see your timetable', {
+      code: 'NO_SECTION',
+    });
+  }
+  const events = json.events.filter((e) => e.sectionIds.includes(sectionId)).map((e) => ({ ...e, sectionIds: [sectionId] }));
+  const used = (key) => new Set(events.flatMap((e) => e.parts.map((p) => p[key])));
+  const [fac, rooms, courses, keys] = [used('facultyId'), used('roomId'), used('courseId'), new Set(events.map((e) => e.key))];
+  const p = json.problem;
+  return {
+    ...json,
+    events,
+    unplaced: [],
+    scope: { type: 'section', id: sectionId },
+    problem: {
+      config: p.config,
+      sections: [section],
+      faculty: p.faculty.filter((f) => fac.has(f.id)).map((f) => ({ id: f.id, name: f.name, ...(f.department ? { department: f.department } : {}) })),
+      rooms: p.rooms.filter((r) => rooms.has(r.id)),
+      courses: p.courses.filter((c) => courses.has(c.id)),
+      offerings: p.offerings.filter((o) => keys.has(o.id)).map((o) => ({ ...o, sectionIds: [sectionId] })),
+      baskets: (p.baskets || []).filter((b) => keys.has(b.id)).map((b) => ({ ...b, sectionIds: [sectionId] })),
+    },
+  };
 }
 
 const invalidate = (id) => cacheDel(`timetable:${id}`, 'timetable:published', 'stats');
@@ -119,14 +160,14 @@ timetablesRouter.get(
 );
 
 /** The timetable currently in force — what students and faculty see. */
-timetablesRouter.get('/published', async (_req, res) => {
+timetablesRouter.get('/published', async (req, res) => {
   const cached = await cacheGet('timetable:published');
-  if (cached) return res.set('X-Cache', 'HIT').json(cached);
+  if (cached) return res.set('X-Cache', 'HIT').json(await forViewer(cached, req.user));
   const tt = await Timetable.findPublished();
   if (!tt) throw notFound('Published timetable');
   const json = tt.toJSON();
   await cacheSet('timetable:published', json, 600);
-  res.set('X-Cache', 'MISS').json(json);
+  res.set('X-Cache', 'MISS').json(await forViewer(json, req.user));
 });
 
 /** Side-by-side comparison of two versions. */
@@ -159,11 +200,11 @@ timetablesRouter.get('/compare', canEdit, validate({ query: z.object({ a: object
 timetablesRouter.get('/:id', validate({ params: idParam }), async (req, res) => {
   const { id } = req.valid.params;
   const cached = await cacheGet(`timetable:${id}`);
-  if (cached && (isEditor(req.user) || cached.published)) return res.set('X-Cache', 'HIT').json(cached);
+  if (cached && (isEditor(req.user) || cached.published)) return res.set('X-Cache', 'HIT').json(await forViewer(cached, req.user));
   const tt = await loadForUser(id, req.user);
   const json = tt.toJSON();
   if (tt.status === 'done') await cacheSet(`timetable:${id}`, json, 600);
-  res.set('X-Cache', 'MISS').json(json);
+  res.set('X-Cache', 'MISS').json(await forViewer(json, req.user));
 });
 
 /**
@@ -297,8 +338,10 @@ timetablesRouter.get(
   '/:id/ics',
   validate({ params: idParam, query: z.object({ type: z.enum(['section', 'faculty', 'room']), id: z.string().trim().min(1) }) }),
   async (req, res) => {
-    const tt = await loadForUser(req.valid.params.id, req.user, { lean: true });
-    const { type, id } = req.valid.query;
+    const raw = await loadForUser(req.valid.params.id, req.user, { lean: true });
+    const tt = await forViewer(raw, req.user);
+    // A student can only download their own class.
+    const { type, id } = tt.scope || req.valid.query;
     const list = { section: tt.problem.sections, faculty: tt.problem.faculty, room: tt.problem.rooms }[type];
     const subject = list.find((x) => x.id === id);
     if (!subject) throw notFound(type);

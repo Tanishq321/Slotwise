@@ -30,16 +30,24 @@ export function AuthProvider({ children }) {
     return data.user;
   }, []);
 
-  const register = useCallback(async (name, email, password) => {
-    const { data } = await api.post('/auth/register', { name, email, password });
+  const register = useCallback(async (name, email, password, sectionId) => {
+    const { data } = await api.post('/auth/register', { name, email, password, ...(sectionId ? { sectionId } : {}) });
+    tokenStore.set(data.token);
+    setUser(data.user);
+    return data.user;
+  }, []);
+
+  // Students pick their class once; the server sends a fresh token that includes it.
+  const chooseClass = useCallback(async (sectionId) => {
+    const { data } = await api.patch('/auth/me/section', { sectionId });
     tokenStore.set(data.token);
     setUser(data.user);
     return data.user;
   }, []);
 
   const value = useMemo(
-    () => ({ user, loading, login, register, logout, isEditor: ['admin', 'hod'].includes(user?.role), isAdmin: user?.role === 'admin' }),
-    [user, loading, login, register, logout],
+    () => ({ user, loading, login, register, logout, chooseClass, isEditor: ['admin', 'hod'].includes(user?.role), isAdmin: user?.role === 'admin' }),
+    [user, loading, login, register, logout, chooseClass],
   );
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
