@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 // Turns parsed.json (from parse.mjs) into a Slotwise dataset file.
 //
-//   node build-dataset.mjs parsed.json chitkara-cse-ai.json
+//   node build-dataset.mjs chitkara-cse-ai.json parsed-cse-ai.json parsed-cse.json
+//
+// Several parsed PDFs can be combined. When the same class appears in more than one,
+// the later PDF wins (it is the newer timetable for that class).
 //
 // The dataset describes WHAT has to be taught (who teaches which subject to which
 // classes, how long each class is and how often) plus the official timetable itself.
@@ -22,14 +25,44 @@ const LAB_ROOMS = new Set();
 // The PDF puts "T- Himanshu" in two rooms at the same hour every day (Java for 3G4 and
 // PA for 5G1), so these are two different trainers with the same name.
 const TEACHER_SPLIT = { 't-himanshu|Java': 'T- Himanshu (Java)', 't-himanshu|PA': 'T- Himanshu (PA)' };
-const BUILDINGS = { MB: 'Martin Luther Block', TG: 'Turing Block', NB: 'Newton Block', 'Bloom Block': 'Bloom Block' };
+const BUILDINGS = { MB: 'Martin Luther Block', TG: 'Turing Block', NB: 'Newton Block', 'Bloom Block': 'Bloom Block', Edison: 'Edison Block' };
+// Class names as the department uses them. The group-wise PDF calls the AIML iOS and UCA
+// groups "CSE G14 (iOS- AIML)" and "CSE G13 (UCA - AIML)"; they are the same classes as
+// CSE-AIML 5-iOS and 5-UCA in the class-wise PDF, and the newer PDF replaces them.
+const CLASS_NAMES = {
+  'CSE 5 G11 (CS)': 'CSE 5 G11 (Cyber Security)',
+  'CSE 5 G12 (CS)': 'CSE 5 G12 (Cyber Security)',
+  'CSE 5 G13 (UCA- CSE)': 'CSE 5 G13 (UCA)',
+  'CSE 5 G14 (iOS- CSE)': 'CSE 5 G14 (iOS)',
+  'CSE 5 G16 (GD)': 'CSE 5 G16 (Game Development)',
+  'CSE G14 (iOS- AIML)': 'CSE-AIML 5-iOS',
+  'CSE G13 (UCA - AIML)': 'CSE-AIML 5-UCA',
+};
+// One room written two ways in the two PDFs.
+const ROOM_NAMES = { 'iOS Lab- Transform': 'iOS Lab' };
+// The class whose timetable opens first on screen.
+const DEFAULT_CLASS = 'CSE 5 G15';
+// Words that name a trainer role, not a person: "L&T ADI T1", "NALR T2", "iOS-T1", "Trainer 2" …
+const ROLE = /(^|\s)(L&T|BE|MA|CS|NALR|iOS)\b|\bT\d\b|-T\d\b|Trainer\s*\d|^T\d\b/i;
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 const TIMES = [['09:00', '10:00'], ['10:00', '11:00'], ['11:00', '12:00'], ['12:00', '13:00'], ['13:00', '14:00'], ['14:00', '15:00'], ['15:00', '16:00']];
 
 export const slug = (text) => text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 export const clean = (label) => label.replace(/\s+/g, ' ').trim();
-/** 'T- Ashish' and 'T-Ashish' are the same person: ignore spacing and dots. */
-export const teacherKey = (label) => label.replace(/[\s.]/g, '').toLowerCase();
+/**
+ * Who is teaching. Labels name a person, sometimes with a trainer role ("L&T ADI T1 / Shaffu",
+ * "Dr. Pummy Dhiman / Trainer 2"). The role is shared by several people at the same hour, so the
+ * person is the teacher. Titles and spacing are ignored, so "T- Ashish" = "T-Ashish" and
+ * "Dr. Pummy Dhiman" = "NALR T2 / Pummy Dhiman".
+ */
+export function teacherPerson(label) {
+  const parts = label.split('/').map(clean).filter(Boolean);
+  const person = parts.filter((x) => !ROLE.test(x))[0] || parts[0] || label;
+  let key = person.replace(/^(Dr|Ms|Mr|Mrs|Prof)\.?\s*/i, '').replace(/^T-\s*/i, '').replace(/\((AS|CURIN)\)/gi, '').toLowerCase().replace(/[^a-z]/g, '');
+  if (key === 'deepakalahwat') key = 'deepakahalwat'; // spelt both ways in the PDFs
+  return { key, display: person.replace(/^(Dr|Ms|Mr|Mrs)\.(?=\S)/, '$1. ') };
+}
+export const teacherKey = (label) => teacherPerson(label).key;
 
 // Plain code-point comparison (so the order never depends on the computer's language settings).
 const cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
@@ -53,26 +86,54 @@ const getOr = (map, key, make) => {
   return map.get(key);
 };
 
+/**
+ * The PDFs only give subject names, so the name is the code. Slotwise codes are at most
+ * 30 characters, so a long name gets its initials: "Introduction to Web Game Development" → "IWGD".
+ */
+const SMALL_WORDS = new Set(['and', 'of', 'to', 'with', 'the', 'for', 'in', '&']);
+export function shortCode(name) {
+  if (name.length <= 30) return name;
+  return name
+    .split(/[\s-]+/)
+    .filter((w) => w && !SMALL_WORDS.has(w.toLowerCase()))
+    .map((w) => (/^[IVX]+$/.test(w) ? '-' + w : w[0].toUpperCase()))
+    .join('');
+}
+
 function sectionInfo(name) {
   const i = name.indexOf(' ');
   const program = name.slice(0, i);
-  const m = name.slice(i + 1).match(/^(\d+)/);
+  const m = name.slice(i + 1).match(/^(\d+)/);  // 'CSE 5 G1' → 5, 'CSE-AIML 3G2' → 3
   return { program, semester: m ? Number(m[1]) : 1 }; // 'G1' (no number) is 1st semester
 }
 
-export function buildDataset(classes) {
-  for (const c of classes) for (const b of c.blocks) b.teacher = TEACHER_SPLIT[`${teacherKey(b.teacher)}|${clean(b.subject)}`] || b.teacher;
+/** Combines several parsed PDFs: renames classes, and a later PDF replaces an earlier one for the same class. */
+export function combine(...pdfs) {
+  const byName = new Map();
+  for (const classes of pdfs) for (const c of classes) byName.set(CLASS_NAMES[c.name] || c.name, { ...c, name: CLASS_NAMES[c.name] || c.name });
+  return [...byName.values()];
+}
 
-  const teacherName = new Map();
+export function buildDataset(classes) {
+  for (const c of classes)
+    for (const b of c.blocks) {
+      b.teacher = TEACHER_SPLIT[`${clean(b.teacher).replace(/[\s.]/g, '').toLowerCase()}|${clean(b.subject)}`] || b.teacher;
+      b.room = ROOM_NAMES[clean(b.room)] || b.room;
+    }
+
+  // A teacher's name is the way it is written most often (first seen on a tie).
+  const nameCounts = new Map();
   const rooms = new Set();
   const sections = [];
   for (const c of classes) {
     sections.push({ id: slug(c.name), name: c.name, ...sectionInfo(c.name), size: SECTION_SIZE });
     for (const b of c.blocks) {
-      if (!teacherName.has(teacherKey(b.teacher))) teacherName.set(teacherKey(b.teacher), clean(b.teacher));
+      const { key, display } = teacherPerson(b.teacher);
+      bump(getOr(nameCounts, key, () => new Map()), display);
       rooms.add(clean(b.room));
     }
   }
+  const teacherName = new Map([...nameCounts].map(([k, counts]) => [k, mostCommon(counts)]));
   const secId = new Map(classes.map((c) => [c.name, slug(c.name)]));
 
   // --- 1. Merge identical blocks across classes (combined classes) ---------------
@@ -155,7 +216,7 @@ export function buildDataset(classes) {
   const streamLabel = (key) => sorted([...(streamsOf.get(key) || [])]).join(', ') || 'CSE-AI';
   const courses = subjects.map((cid) => ({
     id: cid,
-    code: subjName.get(cid),
+    code: shortCode(subjName.get(cid)),
     name: subjName.get(cid),
     type: LAB_COURSES.has(subjName.get(cid)) ? 'lab' : 'lecture',
     sessionsPerWeek: Math.max(1, Math.min(10, usual.has(cid) ? mostCommon(usual.get(cid)) : 2)),
@@ -235,9 +296,13 @@ export function buildDataset(classes) {
 
   return {
     format: 'slotwise-dataset/1',
-    name: 'Chitkara University - CSE-AI department (odd semester 2026)',
-    source: 'Class-wise timetable PDF generated 14-11-2026 (32 classes)',
-    settings: { institution: 'Chitkara University - CSE-AI', days: DAYS, periodsPerDay: 7, breaks: [], labDuration: 2, periodTimes: TIMES.map(([start, end]) => ({ start, end })), termWeeks: 16 },
+    name: 'Chitkara University - CSE and CSE-AI (odd semester 2026)',
+    source: `University timetable PDFs generated 14-11-2026 (${sections.length} classes)`,
+    settings: {
+      institution: 'Chitkara University - CSE and CSE-AI',
+      days: DAYS, periodsPerDay: 7, breaks: [], labDuration: 2, periodTimes: TIMES.map(([start, end]) => ({ start, end })), termWeeks: 16,
+      ...(secId.has(DEFAULT_CLASS) ? { defaultSectionId: secId.get(DEFAULT_CLASS) } : {}),
+    },
     rooms: roomList,
     faculty,
     sections,
@@ -245,13 +310,17 @@ export function buildDataset(classes) {
     offerings,
     baskets,
     constraints,
-    official: { name: 'Official timetable (university PDF, 14-11-2026)', events: officialEvents },
+    official: { name: 'Official timetable (university PDFs, 14-11-2026)', events: officialEvents },
   };
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const [src = 'parsed.json', out = 'chitkara-cse-ai.json'] = process.argv.slice(2);
-  const classes = JSON.parse(await readFile(src, 'utf8'));
+  const [out, ...srcs] = process.argv.slice(2);
+  if (!out || !srcs.length) {
+    console.error('Usage: node build-dataset.mjs <out.json> <parsed1.json> [parsed2.json …]');
+    process.exit(1);
+  }
+  const classes = combine(...(await Promise.all(srcs.map(async (f) => JSON.parse(await readFile(f, 'utf8'))))));
   const d = buildDataset(classes);
   await writeFile(out, `${JSON.stringify(d, null, 1)}\n`);
   const periods = classes.reduce((n, c) => n + c.blocks.reduce((m, b) => m + b.duration, 0), 0);

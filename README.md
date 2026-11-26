@@ -174,20 +174,21 @@ Prefer Vercel for the frontend? Deploy `client/` there with `VITE_API_URL=https:
 
 ## API overview
 
-All routes are under `/api` and need `Authorization: Bearer <token>`, except `/auth/register` and `/auth/login`.
+All routes are under `/api` and need `Authorization: Bearer <token>`, except `/auth/register`, `/auth/login` and `/auth/classes`.
 
 | Method & path | Who | Purpose |
 |---|---|---|
 | `POST /auth/register`, `POST /auth/login`, `GET /auth/me` | anyone | Accounts (the first account becomes admin) |
-| `GET/POST/PATCH/DELETE /faculty`, `/rooms`, `/sections`, `/courses` | read: all, write: admin/HOD | Master data with `?q=&page=&limit=&sort=&order=` |
+| `GET /auth/classes`, `PATCH /auth/me/section` | anyone / students | Class list for sign-up; a student picks their class once |
+| `GET/POST/PATCH/DELETE /faculty`, `/rooms`, `/sections`, `/courses` | admin/HOD | Master data with `?q=&page=&limit=&sort=&order=` |
 | `/offerings`, `/baskets` | same | Who teaches what; NEP elective baskets |
 | `GET /import/:entity/template`, `POST /import/:entity` | admin/HOD | CSV templates and bulk import |
-| `POST /dataset`, `GET /dataset` | admin / admin+HOD | Replace all master data from one JSON file; download it |
+| `POST /dataset`, `GET /dataset`, `GET/POST /dataset/bundled` | admin (import), admin/HOD (download) | Replace all master data from one JSON file or a built-in dataset; download it |
 | `GET /constraints`, `POST /constraints/parse`, `POST /constraints`, `DELETE /constraints/:id` | admin/HOD | Availability rules (preview, then save) |
 | `GET /timetables/preflight` | admin/HOD | Checks input data before generating |
 | `POST /timetables` → 202 | admin/HOD | Queue a generation job |
 | `GET /timetables/:id/progress` | admin/HOD | Live progress (Server-Sent Events) |
-| `GET /timetables`, `GET /timetables/:id`, `GET /timetables/published` | editors; published for all | Versions |
+| `GET /timetables`, `GET /timetables/:id`, `GET /timetables/published` | editors; published for all (students get only their own class) | Versions |
 | `PATCH /timetables/:id/events/:eventId` | admin/HOD | Move a class (`dryRun`, `force`); 409 on clash |
 | `POST /timetables/:id/publish`, `GET /timetables/compare?a=&b=` | admin/HOD | Publish; compare two versions |
 | `GET /timetables/:id/analytics`, `/substitutes`, `/ics` | editors; `.ics` for all | Workload, substitutes, calendar export |

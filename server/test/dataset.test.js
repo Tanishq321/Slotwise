@@ -1,4 +1,4 @@
-// Whole-dataset import/export, using the real Chitkara CSE-AI data (32 classes).
+// Whole-dataset import/export, using the real Chitkara CSE and CSE-AI data (48 classes from two PDFs).
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
@@ -10,6 +10,7 @@ let app;
 let admin;
 let hod;
 let dataset;
+const CLASSES = 48;
 const auth = (token) => ({ Authorization: `Bearer ${token}` });
 const upload = (token, obj, name = 'dataset.json') =>
   request(app).post('/api/dataset').set(auth(token)).attach('file', Buffer.from(typeof obj === 'string' ? obj : JSON.stringify(obj)), name);
@@ -53,7 +54,7 @@ test('the real dataset imports in one go and passes pre-flight', async () => {
   assert.deepEqual(res.body.imported, {
     rooms: dataset.rooms.length,
     faculty: dataset.faculty.length,
-    sections: 32,
+    sections: CLASSES,
     courses: dataset.courses.length,
     offerings: dataset.offerings.length,
     baskets: dataset.baskets.length,
@@ -62,7 +63,7 @@ test('the real dataset imports in one go and passes pre-flight', async () => {
 
   const pre = (await request(app).get('/api/timetables/preflight').set(auth(admin))).body;
   assert.equal(pre.ok, true, JSON.stringify(pre.errors));
-  assert.equal(pre.summary.sections, 32);
+  assert.equal(pre.summary.sections, CLASSES);
   assert.ok(pre.summary.periodsPerWeek > 500);
 
   const off = (await request(app).get('/api/offerings?limit=500').set(auth(admin))).body.items;
@@ -71,7 +72,7 @@ test('the real dataset imports in one go and passes pre-flight', async () => {
   assert.ok(off.some((o) => o.duration === 2 && o.courseType === 'lecture'), '2-hour lecture blocks are kept');
 });
 
-test('a complete, clash-free timetable is generated for all 32 classes', async () => {
+test('a complete, clash-free timetable is generated for all 48 classes', async () => {
   const res = await request(app).post('/api/timetables').set(auth(admin)).send({ name: 'Chitkara', timeLimitSec: 5, seed: 1 });
   assert.equal(res.status, 202);
   let tt;
@@ -83,7 +84,7 @@ test('a complete, clash-free timetable is generated for all 32 classes', async (
   assert.equal(tt.status, 'done');
   assert.equal(tt.unplaced.length, 0);
   assert.deepEqual(checkTimetable(tt.problem, tt.events), []);
-  assert.equal(new Set(tt.events.flatMap((e) => e.sectionIds)).size, 32);
+  assert.equal(new Set(tt.events.flatMap((e) => e.sectionIds)).size, CLASSES);
 });
 
 test('export gives back a file that re-imports to the same data', async () => {
@@ -105,14 +106,37 @@ test('export gives back a file that re-imports to the same data', async () => {
 test('built-in datasets can be listed and loaded without uploading', async () => {
   const list = await request(app).get('/api/dataset/bundled').set(auth(hod));
   assert.equal(list.status, 200);
-  assert.ok(list.body.items.some((x) => x.id === 'chitkara-cse-ai' && x.sections === 32));
+  assert.ok(list.body.items.some((x) => x.id === 'chitkara-cse-ai' && x.sections === CLASSES));
   assert.equal((await request(app).post('/api/dataset/bundled/chitkara-cse-ai').set(auth(hod))).status, 403);
   assert.equal((await request(app).post('/api/dataset/bundled/..%2Fpackage').set(auth(admin))).status, 400);
   const res = await request(app).post('/api/dataset/bundled/chitkara-cse-ai').set(auth(admin));
   assert.equal(res.status, 200, JSON.stringify(res.body));
-  assert.equal(res.body.imported.sections, 32);
+  assert.equal(res.body.imported.sections, CLASSES);
   const courses = (await request(app).get('/api/courses?limit=100').set(auth(admin))).body.items;
   assert.ok(courses.some((c) => c.department === 'CSE-AIML'), 'subjects are tagged with their stream');
+  assert.ok(courses.some((c) => c.department === 'CSE'), 'the CSE groups from the second PDF are there too');
+});
+
+test('both PDFs make one dataset: CSE groups, shared teachers, and G15 shown first', async () => {
+  const names = dataset.sections.map((s) => s.name);
+  for (const n of ['CSE 5 G1', 'CSE 5 G11 (Cyber Security)', 'CSE 5 G13 (UCA)', 'CSE 5 G14 (iOS)', 'CSE 5 G15', 'CSE 5 G16 (Game Development)', 'CSE-AIML 5-iOS', 'CSE-AIML 5-UCA'])
+    assert.ok(names.includes(n), n);
+  assert.equal(names.filter((n) => /iOS/.test(n)).length, 2, 'the AIML iOS group is not listed twice');
+  // A teacher named in both PDFs is one person, so the checker would see a double booking.
+  const pummy = dataset.faculty.filter((f) => /pummy/i.test(f.name));
+  assert.equal(pummy.length, 1);
+  const taught = new Set(dataset.offerings.filter((o) => o.facultyId === pummy[0].id).flatMap((o) => o.sectionIds));
+  assert.ok(taught.has('cse-5-g5') && taught.has('cse-aiml-g7'));
+  assert.equal(dataset.sections.find((s) => s.id === 'cse-5-g1').homeRoomId, 'room-tg-303');
+
+  const settings = (await request(app).get('/api/settings').set(auth(admin))).body.settings;
+  assert.equal(settings.defaultSectionId, 'cse-5-g15');
+  // Saving the form without the field keeps it; an unknown class is refused; null clears it.
+  const { defaultSectionId, ...rest } = settings;
+  assert.equal((await request(app).put('/api/settings').set(auth(admin)).send(rest)).body.settings.defaultSectionId, 'cse-5-g15');
+  assert.equal((await request(app).put('/api/settings').set(auth(admin)).send({ ...rest, defaultSectionId: 'nope' })).status, 400);
+  assert.equal((await request(app).put('/api/settings').set(auth(admin)).send({ ...rest, defaultSectionId: null })).body.settings.defaultSectionId, null);
+  assert.equal((await request(app).put('/api/settings').set(auth(admin)).send({ ...rest, defaultSectionId })).body.settings.defaultSectionId, 'cse-5-g15');
 });
 
 test('deploy-time load clears old timetables and publishes the official timetable once', async () => {
@@ -121,7 +145,7 @@ test('deploy-time load clears old timetables and publishes the official timetabl
   const before = await Timetable.countDocuments();
   assert.ok(before > 0, 'earlier tests left versions behind');
   const first = await loadDatasetOnDeploy('chitkara-cse-ai');
-  assert.equal(first.imported.sections, 32);
+  assert.equal(first.imported.sections, CLASSES);
   assert.equal(first.official.published, true);
   assert.equal(first.official.clashes, 0, 'the official university timetable passes the clash checker');
   assert.equal(await Timetable.countDocuments(), 1, 'old versions are gone, only the official one is left');
@@ -130,6 +154,7 @@ test('deploy-time load clears old timetables and publishes the official timetabl
 
   const pub = (await request(app).get('/api/timetables/published').set(auth(admin))).body;
   assert.equal(pub.events.length, dataset.official.events.length);
+  assert.equal(pub.problem.defaultSectionId, 'cse-5-g15', 'the screen opens on CSE 5 G15');
   const g1Mon = pub.events.filter((e) => e.sectionIds.includes('cse-aiml-g1') && e.day === 0).sort((a, b) => a.start - b.start);
   const ref = dataset.official.events.filter((e) => e.sectionIds.includes('cse-aiml-g1') && e.day === 0).sort((a, b) => a.start - b.start);
   assert.deepEqual(g1Mon.map((e) => [e.start, e.parts[0].roomId]), ref.map((e) => [e.start, e.parts[0].roomId]), 'slots and rooms are exactly as in the PDF');
@@ -137,7 +162,7 @@ test('deploy-time load clears old timetables and publishes the official timetabl
 
 test('a student sees only their own class', async () => {
   const classes = (await request(app).get('/api/auth/classes')).body.items;
-  assert.equal(classes.length, 32, 'class names are public for the sign-up form');
+  assert.equal(classes.length, CLASSES, 'class names are public for the sign-up form');
 
   const reg = await request(app).post('/api/auth/register').send({ name: 'Riya', email: 'riya@example.com', password: 'longpassword1' });
   let riya = reg.body.token;
@@ -169,7 +194,7 @@ test('a student sees only their own class', async () => {
   assert.ok(aman.events.some((e) => e.kind === 'basket'), 'their elective groups are included');
 
   const full = (await request(app).get('/api/timetables/published').set(auth(admin))).body;
-  assert.equal(full.problem.sections.length, 32, 'admins still see everything');
+  assert.equal(full.problem.sections.length, CLASSES, 'admins still see everything');
 
   for (const path of ['/api/faculty', '/api/offerings', '/api/constraints', '/api/sections', '/api/rooms', '/api/courses', '/api/baskets', '/api/lookups', '/api/stats']) {
     assert.equal((await request(app).get(path).set(auth(riya))).status, 403, `students cannot read ${path}`);
@@ -182,7 +207,7 @@ test('teachers see every class but not colleagues\' private rules', async () => 
   await query(`UPDATE users SET role = 'faculty', faculty_id = 'fac-dr-taniya' WHERE email = 'teach@example.com'`);
   const token = (await request(app).post('/api/auth/login').send({ email: 'teach@example.com', password: 'longpassword1' })).body.token;
   const tt = (await request(app).get('/api/timetables/published').set(auth(token))).body;
-  assert.equal(tt.problem.sections.length, 32);
+  assert.equal(tt.problem.sections.length, CLASSES);
   assert.ok(tt.problem.faculty.every((f) => !('unavailable' in f) && !('avoid' in f)));
   assert.equal((await request(app).get('/api/faculty').set(auth(token))).status, 403);
 });

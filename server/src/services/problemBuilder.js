@@ -14,6 +14,7 @@ export async function getSettings() {
     periodTimes: s.period_times,
     termStart: s.term_start,
     termWeeks: s.term_weeks,
+    defaultSectionId: s.default_section_id ?? null,
   };
 }
 
@@ -48,6 +49,8 @@ export async function buildProblemFromDb() {
     config: settings
       ? { days: settings.days, periodsPerDay: settings.periodsPerDay, breaks: settings.breaks, labDuration: settings.labDuration, periodTimes: settings.periodTimes }
       : undefined,
+    // Which class to show first on screen.
+    ...(settings?.defaultSectionId ? { defaultSectionId: settings.defaultSectionId } : {}),
     rooms: rooms.rows.map((r) => ({ id: r.id, name: r.name, type: r.type, capacity: r.capacity, ...(r.building ? { building: r.building } : {}) })),
     faculty: faculty.rows.map((f) => ({
       id: f.id,

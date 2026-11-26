@@ -21,6 +21,8 @@ export const settingsSchema = z
     periodTimes: z.array(z.object({ start: hhmm, end: hhmm, label: z.string().trim().max(30).optional() })).default([]),
     termStart: z.iso.date().nullable().optional(),
     termWeeks: z.number().int().min(1).max(52).default(16),
+    // The class whose timetable opens first. Left out = keep the current choice; null = none.
+    defaultSectionId: z.string().trim().min(1).max(100).nullable().optional(),
   })
   .refine((s) => s.breaks.every((b) => b < s.periodsPerDay), { message: 'A break is outside the day', path: ['breaks'] })
   .refine((s) => !s.periodTimes.length || s.periodTimes.length === s.periodsPerDay, {
@@ -42,6 +44,11 @@ settingsRouter.put('/', canEdit, validate({ body: settingsSchema }), async (req,
        lab_duration = $5, period_times = $6, term_start = $7, term_weeks = $8`,
     [s.institution, JSON.stringify(s.days), s.periodsPerDay, JSON.stringify(s.breaks), s.labDuration, JSON.stringify(s.periodTimes), s.termStart ?? null, s.termWeeks],
   );
+  if (s.defaultSectionId !== undefined) {
+    if (s.defaultSectionId && !(await query('SELECT 1 FROM sections WHERE id = $1', [s.defaultSectionId])).rows.length)
+      throw badRequest('That class does not exist');
+    await query('UPDATE settings SET default_section_id = $1 WHERE id = 1', [s.defaultSectionId]);
+  }
   await cacheDel('stats');
   audit(req.user, 'update', 'settings', 1);
   res.json({ settings: await getSettings() });

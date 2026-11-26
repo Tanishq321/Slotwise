@@ -150,6 +150,8 @@ function referenceErrors(d) {
   dup([...d.offerings, ...d.baskets], 'id', 'offerings/baskets (id)');
   dup(d.baskets.flatMap((b) => b.options).concat(d.offerings.map((o) => ({ offeringId: o.id }))), 'offeringId', 'offerings/basket options (id)');
   const roomIds = new Set(d.rooms.map((r) => r.id));
+  if (d.settings.defaultSectionId && !sec.has(d.settings.defaultSectionId))
+    errors.push({ code: 'UNKNOWN_REF', message: `The class to show first, "${d.settings.defaultSectionId}", is not in the dataset` });
   for (const s of d.sections) if (s.homeRoomId && !roomIds.has(s.homeRoomId)) errors.push({ code: 'UNKNOWN_REF', message: `${s.name} has an unknown home room "${s.homeRoomId}"` });
   for (const f of d.faculty) for (const c of f.canTeach) if (!crs.has(c)) errors.push({ code: 'UNKNOWN_REF', message: `${f.name} can teach unknown subject "${c}"` });
   for (const c of d.constraints) {
@@ -191,9 +193,11 @@ export const bundledFile = async (name) => {
 async function relinkDemoUsers(c) {
   const student = DEMO_USERS.find((u) => u.role === 'student').email;
   const teacher = DEMO_USERS.find((u) => u.role === 'faculty').email;
-  const sec = (await c.query('SELECT id FROM sections ORDER BY name LIMIT 1')).rows[0];
+  // The demo student belongs to the class shown first (or the first class by name).
+  const chosen = (await c.query('SELECT s.id FROM settings JOIN sections s ON s.id = settings.default_section_id WHERE settings.id = 1')).rows[0];
+  const sec = chosen || (await c.query('SELECT id FROM sections ORDER BY name LIMIT 1')).rows[0];
   if (!sec) return;
-  await c.query('UPDATE users SET section_id = $1 WHERE lower(email) = $2 AND section_id IS NULL', [sec.id, student]);
+  await c.query(`UPDATE users SET section_id = $1 WHERE lower(email) = $2 AND (section_id IS NULL OR $3)`, [sec.id, student, Boolean(chosen)]);
   const fac = (
     await c.query(
       `SELECT o.faculty_id AS id FROM offerings o JOIN offering_sections os ON os.offering_id = o.id
@@ -264,6 +268,7 @@ export async function importDataset(raw, user, label, { official = 'skip' } = {}
     await bulkInsert(c, 'rooms', ['id', 'name', 'type', 'capacity', 'building'], ['text', 'text', 'text', 'int', 'text'], d.rooms);
     await bulkInsert(c, 'sections', ['id', 'name', 'program', 'semester', 'size', 'home_room_id'], ['text', 'text', 'text', 'int', 'int', 'text'],
       d.sections.map((x) => ({ ...x, home_room_id: x.homeRoomId })));
+    await c.query('UPDATE settings SET default_section_id = $1 WHERE id = 1', [s.defaultSectionId ?? null]);
     await bulkInsert(c, 'courses', ['id', 'code', 'name', 'type', 'sessions_per_week', 'department'], ['text', 'text', 'text', 'text', 'int', 'text'],
       d.courses.map((x) => ({ ...x, sessions_per_week: x.sessionsPerWeek })));
     await bulkInsert(c, 'faculty', ['id', 'name', 'email', 'department', 'max_per_day', 'max_per_week'], ['text', 'text', 'text', 'text', 'int', 'int'],
