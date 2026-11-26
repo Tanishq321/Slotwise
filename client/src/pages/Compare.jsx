@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useFetch } from '../hooks.js';
 import { TimetableGrid } from '../components/TimetableGrid.jsx';
-import { ViewPicker } from '../components/ViewPicker.jsx';
+import { ViewPicker, firstOf } from '../components/ViewPicker.jsx';
 import { Empty, Field, Notice, PageHeader, Select } from '../components/ui.jsx';
 import { softLabels } from '../lib/timetable.js';
 
@@ -22,7 +22,7 @@ export function Compare() {
   const tb = useFetch(b ? `/timetables/${b}` : null, { skip: !b });
   const [view, setView] = useState({ type: 'section', id: null });
   useEffect(() => {
-    if (ta.data && !view.id) setView({ type: 'section', id: ta.data.problem.sections[0]?.id });
+    if (ta.data && !view.id) setView({ type: 'section', id: firstOf(ta.data.problem) });
   }, [ta.data, view.id]);
   const moved = useMemo(() => new Set(summary.data?.movedEvents?.map((m) => m.id) || []), [summary.data]);
 

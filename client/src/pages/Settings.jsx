@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { api, errorMessage } from '../api.js';
 import { useFetch } from '../hooks.js';
 import { Button, Field, Input, Notice, PageHeader, useToast } from '../components/ui.jsx';
+import { ClassSelect } from '../components/ClassSelect.jsx';
 
 const ALL_DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -34,11 +35,22 @@ export function Settings() {
 
   async function save(e) {
     e.preventDefault();
-    setBusy(true);
     setError(null);
-    const periodTimes = times.every((t) => t.start && t.end) ? times.map((t, i) => ({ start: t.start, end: t.end, ...(s.breaks.includes(i) ? { label: t.label || 'Lunch' } : {}) })) : [];
+    // Times are all-or-nothing. A half-filled list used to be dropped silently, wiping every time.
+    const missing = times.map((t, i) => (t.start && t.end ? null : i + 1)).filter(Boolean);
+    if (missing.length && missing.length < times.length) {
+      setError(`Fill in the start and end time for period ${missing.join(', ')}, or clear every period's times.`);
+      return;
+    }
+    const wrong = times.map((t, i) => (t.start && t.end && t.start >= t.end ? i + 1 : null)).filter(Boolean);
+    if (wrong.length) {
+      setError(`Period ${wrong.join(', ')} must end after it starts.`);
+      return;
+    }
+    setBusy(true);
+    const periodTimes = !missing.length ? times.map((t, i) => ({ start: t.start, end: t.end, ...(s.breaks.includes(i) ? { label: t.label || 'Lunch' } : {}) })) : [];
     try {
-      await api.put('/settings', { ...s, periodTimes, termStart: s.termStart || null, periodsPerDay: Number(s.periodsPerDay), termWeeks: Number(s.termWeeks), labDuration: Number(s.labDuration) });
+      await api.put('/settings', { ...s, defaultSectionId: s.defaultSectionId || null, periodTimes, termStart: s.termStart || null, periodsPerDay: Number(s.periodsPerDay), termWeeks: Number(s.termWeeks), labDuration: Number(s.labDuration) });
       toast('Saved. New versions will use these days and periods.');
     } catch (err) {
       setError(errorMessage(err));
@@ -70,14 +82,17 @@ export function Settings() {
             <Field label="Periods a day">
               <Input type="number" min={1} max={16} value={s.periodsPerDay} onChange={(e) => setS({ ...s, periodsPerDay: Number(e.target.value) || 1, breaks: s.breaks.filter((b) => b < Number(e.target.value)) })} />
             </Field>
-            <Field label="Lab length (periods)">
+            <Field label="Lab length (periods)" hint="How long a lab subject runs by default. A class with its own length set ignores this.">
               <Input type="number" min={1} max={4} value={s.labDuration} onChange={(e) => setS({ ...s, labDuration: e.target.value })} />
             </Field>
-            <Field label="Term starts" hint="Used for calendar files">
+            <Field label="Term starts" hint="First teaching day. Calendar files start from here.">
               <Input type="date" value={s.termStart || ''} onChange={(e) => setS({ ...s, termStart: e.target.value })} />
             </Field>
-            <Field label="Weeks in term">
+            <Field label="Weeks in term" hint="How many weeks the calendar repeats each class.">
               <Input type="number" min={1} max={52} value={s.termWeeks} onChange={(e) => setS({ ...s, termWeeks: e.target.value })} />
+            </Field>
+            <Field label="Class shown first" hint="Whose timetable opens when someone looks at a timetable. Students always see their own class." className="col-span-2">
+              <ClassSelect value={s.defaultSectionId || ''} onChange={(id) => setS({ ...s, defaultSectionId: id || null })} placeholder="First class in the list" />
             </Field>
           </div>
         </div>

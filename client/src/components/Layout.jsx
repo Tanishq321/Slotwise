@@ -41,7 +41,7 @@ export function Layout() {
         </nav>
         <div className="mt-auto hidden border-t border-line px-5 py-4 text-sm md:block">
           <p className="font-bold">{user?.name}</p>
-          <p className="text-muted capitalize">{{ hod: 'Head of department', faculty: 'Teacher' }[user?.role] || user?.role}</p>
+          <p className="text-muted">{{ admin: 'Admin', hod: 'Head of department', faculty: 'Teacher', student: 'Student' }[user?.role] || user?.role}</p>
           <button className="mt-2 text-ink-soft underline hover:text-ink" onClick={logout}>
             Log out
           </button>

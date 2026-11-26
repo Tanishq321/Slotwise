@@ -3,7 +3,7 @@ import { download, errorMessage } from '../api.js';
 import { useAuth } from '../auth.jsx';
 import { useFetch } from '../hooks.js';
 import { TimetableGrid } from '../components/TimetableGrid.jsx';
-import { ViewPicker } from '../components/ViewPicker.jsx';
+import { ViewPicker, firstOf } from '../components/ViewPicker.jsx';
 import { Button, Empty, Field, Notice, PageHeader, useToast } from '../components/ui.jsx';
 import { ClassSelect } from '../components/ClassSelect.jsx';
 
@@ -21,7 +21,7 @@ export function MyTimetable() {
     if (tt.scope) setView(tt.scope); // students: the server only sends their own class
     else if (user.facultyId && tt.problem.faculty.some((f) => f.id === user.facultyId)) setView({ type: 'faculty', id: user.facultyId });
     else if (user.sectionId && tt.problem.sections.some((s) => s.id === user.sectionId)) setView({ type: 'section', id: user.sectionId });
-    else setView({ type: 'section', id: tt.problem.sections[0]?.id });
+    else setView({ type: 'section', id: firstOf(tt.problem) });
   }, [tt, user]);
 
   if (needsClass || error?.startsWith('Choose your class') || error?.includes('Choose your class again')) return <ChooseClass message={error} onDone={reload} />;

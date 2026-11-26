@@ -20,6 +20,16 @@ function grouped(list, key) {
   return [...groups].sort(([a], [b]) => (a === 'Other') - (b === 'Other') || a.localeCompare(b, undefined, { numeric: true }));
 }
 
+/**
+ * What to show when nothing is chosen yet: the class set in Settings as "shown first",
+ * otherwise the first item of the first group.
+ */
+export function firstOf(problem, type = 'section') {
+  const listKey = VIEW_TYPES.find((v) => v.value === type).list;
+  if (type === 'section' && problem.sections.some((s) => s.id === problem.defaultSectionId)) return problem.defaultSectionId;
+  return grouped(problem[listKey], listKey)[0]?.[1][0]?.id;
+}
+
 /** Choose whose timetable to look at: a section, a teacher or a room. */
 export function ViewPicker({ problem, view, onChange }) {
   const listKey = VIEW_TYPES.find((v) => v.value === view.type).list;
@@ -37,7 +47,7 @@ export function ViewPicker({ problem, view, onChange }) {
             key={t.value}
             role="radio"
             aria-checked={view.type === t.value}
-            onClick={() => onChange({ type: t.value, id: grouped(problem[t.list], t.list)[0]?.[1][0]?.id })}
+            onClick={() => t.value !== view.type && onChange({ type: t.value, id: firstOf(problem, t.value) })}
             className={`rounded-md px-3 py-1.5 text-sm font-bold ${view.type === t.value ? 'bg-marigold-soft text-ink' : 'text-ink-soft hover:text-ink'}`}
           >
             {t.label}

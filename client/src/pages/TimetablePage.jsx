@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router';
 import { api, download, errorMessage } from '../api.js';
 import { useFetch, useMediaQuery } from '../hooks.js';
 import { TimetableGrid } from '../components/TimetableGrid.jsx';
-import { ViewPicker } from '../components/ViewPicker.jsx';
+import { ViewPicker, firstOf } from '../components/ViewPicker.jsx';
 import { Button, ConfirmDrawer, Drawer, Field, Notice, PageHeader, Select, useToast } from '../components/ui.jsx';
 import { indexProblem, periodLabel, softLabels, spanLabel } from '../lib/timetable.js';
 
@@ -35,7 +35,7 @@ export function TimetablePage() {
   useEffect(() => {
     if (remote.data) {
       dispatch({ type: 'load', tt: remote.data });
-      setView((v) => (v.id ? v : { type: 'section', id: remote.data.problem.sections[0]?.id }));
+      setView((v) => (v.id ? v : { type: 'section', id: firstOf(remote.data.problem) }));
     }
   }, [remote.data]);
 
